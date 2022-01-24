@@ -1,0 +1,12 @@
+.config
+*.ini
+Pickle
+PickleNew
+CSV
+CSVNew
+ChartImages
+TextOutput
+SourceFiles
+**/__pycache__/
+*.pyc
+EVHelper.py
