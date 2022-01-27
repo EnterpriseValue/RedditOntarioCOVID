@@ -1153,6 +1153,8 @@ def DailyReports_Compile():
     OntarioThrowbackFileName = 'TextOutput/OntariThrowbackText.txt'
     SchoolsFileName = 'TextOutput/SchoolsText.txt'
     icu_capacity_filename = 'TextOutput/ICU_capacity.txt'
+    school_closuresfilename = 'TextOutput/school_closures.txt'
+    school_absenteeism_filename = 'TextOutput/school_absenteeism.txt'
 
     with open(GlobalDataFileName, 'r') as f:
         GlobalLines = f.readlines()
@@ -1200,6 +1202,13 @@ def DailyReports_Compile():
     with open(icu_capacity_filename, 'r') as f:
         icu_capacity_lines = f.readlines()
 
+    with open(school_closuresfilename, 'r') as f:
+        school_closures_lines = f.readlines()
+
+    with open(school_absenteeism_filename, 'r') as f:
+        school_absenteeism_lines = f.readlines()
+
+
     with open('TextFileOutput.txt', 'w', encoding='utf-8') as f:
         f.write('Link to report: https://files.ontario.ca/moh-covid-19-report-en-' + str(pd.Timestamp.today().strftime('%Y-%m-%d')) + '.pdf')
         f.write('\n\n')
@@ -1218,6 +1227,10 @@ def DailyReports_Compile():
         f.writelines(VaccineDataLines)
         f.write('\n')
         f.writelines(VaccineTableLines)
+        f.write('\n')
+        f.write('**Schools Data:\n\n')
+        f.writelines(school_closures_lines)
+        f.writelines(school_absenteeism_lines)
         f.write('\n')
         # f.writelines(SchoolsLines)
         # f.write('\n')
@@ -2180,6 +2193,9 @@ def OntarioCaseStatus():
     SchoolsFileName = 'TextOutput/SchoolsText.txt'
     RTReportFileName = 'Pickle/RTData.pickle'
     hospitalizations_with_for_covid()
+    school_closures()
+    school_absenteeism()
+
     # HospitalMetrics()
     # VaccineData()
     print()
@@ -2220,11 +2236,9 @@ def OntarioCaseStatus():
     VariantCountDF = pd.read_csv(VariantCounts_filePath)
     VariantCountDF['Date'] = pd.to_datetime(VariantCountDF['Date'])
 
-
     df = df.merge(CumulativeHospitalizationsDF, left_on='Reported Date', right_on='Date', how='outer')
     df = df.merge(RTReportDF, left_on='Reported Date', right_index=True, how='outer')
     df = df.merge(VariantCountDF, left_on='Reported Date', right_on='Date', how='outer')
-
 
     df = df.set_index('Reported Date')
     df['7 day SMA'] = df['Day new cases'].rolling(7).mean().round(2)
@@ -2601,6 +2615,7 @@ def OntarioCaseStatus():
     #       + ' - [This data lags quite a bit](https://www.reddit.com/r/ontario/comments/ls8ohl/ontario_february_25_update_1138_new_cases_1094/gopq2kb/)')
     HospitalMetrics()
 
+
     # with open('TextOutput/DeathProjectionText.txt', 'r') as ff:
     #     DeathProjectionLines = ff.read()
     # print(DeathProjectionLines,end='')
@@ -2928,6 +2943,7 @@ def LoadCOVIDDataSupport(currentDataFrame,filename):
 
 def LoadCOVIDData(filenameIn):
     pickleFileName = config.get('file_location', 'master_dataframe')
+
     filename = filenameIn
 
     starttime = time.time()
@@ -5152,10 +5168,10 @@ def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
         return
 
     try:
-        df = tables[1].df
+        df = tables[0].df
     except IndexError:
         print('Age data table not found')
-        DailyReportExtraction(fileDate, fileName, '3', HospPage)
+        DailyReportExtraction(fileDate, fileName, '2', HospPage)
         return
 
     # df = tables[1].df
@@ -5348,6 +5364,80 @@ def hospitalizations_with_for_covid():
 
     # df = df.astype(int)
     df.to_pickle('Pickle/WithForCOVID_Hosp.pickle')
+
+    endtime = datetime.datetime.now()
+    print(f"Ended:   {endtime:%Y-%m-%d %H:%M:%S} {round(time.time() - starttime, 2)} seconds")
+    print('------------------------------------------------------------------------')
+
+
+def school_closures():
+    """
+    Schools closure dataset.
+
+    Returns
+    -------
+    None.
+
+    """
+    starttime = time.time()
+    ConsoleOut = sys.stdout
+    school_closuresfilename = 'TextOutput/school_closures.txt'
+
+    print('------------------------------------------------------------------------')
+    print(f'school_closures \nStarted: {datetime.datetime.now():%Y-%m-%d %H:%M:%S}')
+
+    df = pd.read_csv('https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/abc82e5c-44ed-41c9-817c-8cacd9b07d00/download/schoolclosures2022.csv')
+    df.to_csv('SourceFiles/school_closures-list.csv')
+    df['percent_closed'] = df['schools_closed'] / df['total_schools']
+    df['report_date'] = pd.to_datetime(df['report_date'], infer_datetime_format=True)
+    df = df.set_index('report_date')
+    df.sort_index(ascending=False, inplace=True)
+    df.to_pickle('Pickle/SchoolClosures-List.pickle')
+
+    sys.stdout = open(school_closuresfilename, 'w', encoding='utf-8')
+    print(f"* {df.loc[df.index.max()]['schools_closed']:.0f} schools are currently closed",
+          f"({df.loc[df.index.max()]['percent_closed']:.2%} of all)")
+    sys.stdout = ConsoleOut
+
+    endtime = datetime.datetime.now()
+    print(f"Ended:   {endtime:%Y-%m-%d %H:%M:%S} {round(time.time() - starttime, 2)} seconds")
+    print('------------------------------------------------------------------------')
+
+
+def school_absenteeism():
+    """
+    School absenteeism data - published
+    Link: https://data.ontario.ca/dataset/summary-of-cases-in-schools/resource/e3214f57-9c24-4297-be27-a1809f9044ba
+
+    Returns
+    -------
+    None.
+
+    """
+    starttime = time.time()
+    ConsoleOut = sys.stdout
+    school_absenteeism_filename = 'TextOutput/school_absenteeism.txt'
+
+    print('------------------------------------------------------------------------')
+    print(f'school_absenteeism \nStarted: {datetime.datetime.now():%Y-%m-%d %H:%M:%S}')
+
+    df = pd.read_csv('https://data.ontario.ca/dataset/b1fef838-8784-4338-8ef9-ae7cfd405b41/resource/e3214f57-9c24-4297-be27-a1809f9044ba/download/schoolabsences2022.csv')
+    df.to_csv('SourceFiles/school_absenteeism-list.csv')
+    df['date'] = pd.to_datetime(df['date'], infer_datetime_format=True)
+    df = df.set_index('date')
+    df = df.loc[df.index.max()]  # Only look at today's today
+    median_absent = df['absence_percentage_staff_students'].median()
+    lower_quartile = df['absence_percentage_staff_students'].quantile(0.25)
+    upper_quartile = df['absence_percentage_staff_students'].quantile(0.75)
+    df.to_pickle('Pickle/SchoolAbsenteeism-List.pickle')
+
+    sys.stdout = open(school_absenteeism_filename, 'w', encoding='utf-8')
+    if (df.index.max() + pd.Timedelta(days=2) >= TODAYS_DATE_GLOBAL):
+        print(f"* The median school has {median_absent:.0%} of students/staff absent.",
+              f"The interquartile range is {lower_quartile:.0%} to {upper_quartile:.0%} ")
+    else:
+        print("No school absenteeism data reported.")
+    sys.stdout = ConsoleOut
 
     endtime = datetime.datetime.now()
     print(f"Ended:   {endtime:%Y-%m-%d %H:%M:%S} {round(time.time() - starttime, 2)} seconds")

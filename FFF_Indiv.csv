@@ -69266,3 +69266,248 @@ Wellington-Guelph,90+,FEMALE,Outbreak,2022-01-16,2022-01-12,1
 York,90+,MALE,Community,2022-01-14,2022-01-14,1
 York,90+,MALE,Close contact,2022-01-14,2022-01-14,1
 
+Change in Deaths by PHU 
+Reporting_PHU,Age_Group,Client_Gender,Case_AcquisitionInfo,Case_Reported_Date,Episode_Date,2022-01-24
+Toronto PHU,40s,FEMALE,Community,2022-01-11,2022-01-10,1
+Ottawa,50s,FEMALE,Community,2022-01-22,2022-01-21,1
+Windsor,50s,MALE,Community,2022-01-21,2022-01-20,1
+York,50s,MALE,Community,2021-12-29,2021-12-22,1
+Hamilton,60s,MALE,Community,2021-12-24,2021-12-20,1
+Toronto PHU,60s,MALE,Community,2022-01-21,2022-01-21,1
+Toronto PHU,60s,MALE,Community,2022-01-12,2022-01-11,1
+Toronto PHU,60s,FEMALE,Community,2022-01-10,2022-01-10,1
+Toronto PHU,60s,FEMALE,Community,2022-01-08,2022-01-08,1
+York,60s,FEMALE,Community,2022-01-12,2022-01-11,1
+Brant,70s,MALE,Outbreak,2022-01-18,2022-01-17,1
+Hamilton,70s,MALE,Community,2022-01-01,2022-01-01,1
+Hamilton,70s,FEMALE,Outbreak,2022-01-13,2022-01-13,1
+Ottawa,70s,MALE,Outbreak,2022-01-11,2022-01-10,1
+Toronto PHU,70s,MALE,Community,2022-01-07,2022-01-07,1
+York,70s,MALE,Close contact,2022-01-10,2022-01-10,-1
+York,70s,FEMALE,Close contact,2022-01-15,2022-01-12,1
+York,70s,FEMALE,Close contact,2022-01-10,2022-01-10,1
+Eastern Ontario,80s,FEMALE,Outbreak,2022-01-19,2022-01-18,1
+Hamilton,80s,MALE,Outbreak,2022-01-04,2022-01-03,1
+Hamilton,80s,FEMALE,Community,2022-01-10,2022-01-10,1
+Ottawa,80s,MALE,Community,2022-01-15,2022-01-13,1
+Ottawa,80s,FEMALE,Community,2022-01-20,2022-01-18,1
+Ottawa,80s,FEMALE,Close contact,2022-01-10,2022-01-09,1
+Peel,80s,MALE,Close contact,2022-01-11,2022-01-02,1
+Toronto PHU,80s,MALE,Community,2022-01-13,2022-01-12,1
+Toronto PHU,80s,MALE,Community,2021-12-31,2021-12-31,1
+York,80s,FEMALE,Community,2022-01-21,2022-01-12,1
+York,80s,FEMALE,Community,2022-01-12,2022-01-12,1
+York,80s,FEMALE,Close contact,2022-01-11,2022-01-11,1
+Durham,90+,FEMALE,Community,2022-01-19,2022-01-08,1
+Hamilton,90+,MALE,Outbreak,2022-01-19,2022-01-11,1
+Peel,90+,MALE,Community,2022-01-11,2022-01-11,1
+Sudbury,90+,FEMALE,Outbreak,2022-01-15,2022-01-13,1
+Timiskaming,90+,FEMALE,Outbreak,2022-01-15,2022-01-13,1
+Toronto PHU,90+,MALE,Community,2022-01-16,2021-12-27,1
+Toronto PHU,90+,FEMALE,Community,2022-01-19,2022-01-19,1
+Toronto PHU,90+,FEMALE,Outbreak,2022-01-07,2022-01-06,1
+York,90+,MALE,Community,2022-01-14,2022-01-13,1
+York,90+,MALE,Community,2022-01-14,2022-01-14,-1
+
+Change in Deaths by PHU 
+Reporting_PHU,Age_Group,Client_Gender,Case_AcquisitionInfo,Case_Reported_Date,Episode_Date,2022-01-25
+Chatham-Kent,40s,MALE,Close contact,2022-01-12,2022-01-02,1
+Chatham-Kent,40s,MALE,Close contact,2022-01-12,2022-01-10,-1
+Chatham-Kent,50s,MALE,Community,2021-12-21,2021-12-13,1
+Durham,50s,FEMALE,Community,2022-01-21,2022-01-21,1
+"Haliburton, Kawartha",50s,MALE,Outbreak,2022-01-19,2022-01-18,1
+Ottawa,50s,MALE,Community,2022-01-20,2022-01-19,1
+Toronto PHU,50s,MALE,Community,2022-01-22,2022-01-19,1
+Toronto PHU,50s,FEMALE,Community,2022-01-11,2022-01-03,1
+Waterloo Region,50s,MALE,Community,2022-01-22,2022-01-20,1
+Durham,60s,FEMALE,Community,2022-01-13,2022-01-06,1
+Eastern Ontario,60s,FEMALE,Outbreak,2022-01-17,2022-01-16,1
+Kingston,60s,MALE,Community,2022-01-08,2022-01-04,1
+Peterborough,60s,FEMALE,Community,2022-01-09,2022-01-08,1
+Southwestern,60s,MALE,Community,2022-01-11,2022-01-10,1
+Toronto PHU,60s,MALE,Outbreak,2020-11-02,2020-10-31,1
+Waterloo Region,60s,FEMALE,Outbreak,2022-01-13,2022-01-12,1
+Windsor,60s,MALE,Community,2022-01-17,2022-01-14,1
+Windsor,60s,FEMALE,Community,2021-12-19,2021-12-18,1
+York,60s,MALE,Community,2022-01-21,2022-01-21,1
+York,60s,MALE,Close contact,2022-01-14,2022-01-12,1
+York,60s,FEMALE,Community,2022-01-12,2022-01-10,1
+York,60s,FEMALE,Community,2022-01-12,2022-01-11,-1
+Eastern Ontario,70s,MALE,Outbreak,2022-01-12,2022-01-11,1
+Eastern Ontario,70s,MALE,Community,2022-01-11,2022-01-10,1
+Eastern Ontario,70s,FEMALE,Community,2022-01-11,2022-01-11,1
+Hamilton,70s,FEMALE,Community,2022-01-07,2022-01-06,1
+Kingston,70s,FEMALE,Outbreak,2022-01-20,2022-01-20,1
+London,70s,MALE,Community,2022-01-13,2022-01-03,1
+Ottawa,70s,MALE,Community,2022-01-19,2022-01-18,1
+Ottawa,70s,MALE,Community,2022-01-11,2022-01-07,1
+Ottawa,70s,FEMALE,Community,2022-01-09,2022-01-08,1
+Porcupine,70s,MALE,Close contact,2022-01-09,2022-01-08,1
+Simcoe-Muskoka,70s,FEMALE,Outbreak,2021-12-30,2021-12-30,1
+Sudbury,70s,MALE,Outbreak,2021-11-13,2021-11-13,-1
+Toronto PHU,70s,UNSPECIFIED,Close contact,2021-03-03,2021-03-01,1
+Toronto PHU,70s,MALE,Community,2022-01-15,2022-01-04,1
+Toronto PHU,70s,FEMALE,Close contact,2021-03-03,2021-03-01,-1
+Waterloo Region,70s,MALE,Community,2022-01-17,2022-01-15,1
+Windsor,70s,MALE,Community,2022-01-08,2021-12-28,1
+Windsor,70s,MALE,Community,2022-01-05,2021-12-29,1
+York,70s,MALE,Community,2022-01-20,2022-01-18,1
+Chatham-Kent,80s,FEMALE,Close contact,2022-01-19,2022-01-13,1
+Durham,80s,MALE,Outbreak,2022-01-21,2022-01-19,1
+Grey Bruce,80s,MALE,Community,2022-01-23,2022-01-19,1
+Hamilton,80s,MALE,Community,2022-01-08,2022-01-07,1
+Huron Perth,80s,MALE,Community,2022-01-10,2022-01-07,1
+Lambton,80s,FEMALE,Community,2022-01-09,2022-01-07,1
+Ottawa,80s,MALE,Close contact,2022-01-06,2021-12-25,1
+Southwestern,80s,MALE,Community,2022-01-06,2022-01-04,1
+Southwestern,80s,FEMALE,Outbreak,2022-01-14,2022-01-12,1
+Thunder Bay,80s,MALE,Community,2022-01-19,2022-01-19,1
+Toronto PHU,80s,MALE,Community,2022-01-18,2022-01-06,1
+Toronto PHU,80s,MALE,Community,2021-12-26,2021-12-26,1
+Toronto PHU,80s,FEMALE,Outbreak,2022-01-11,2022-01-10,1
+Toronto PHU,80s,FEMALE,Community,2022-01-08,2022-01-06,1
+Wellington-Guelph,80s,FEMALE,Community,2022-01-12,2022-01-04,1
+Windsor,80s,MALE,Community,2021-11-30,2021-11-29,1
+Windsor,80s,FEMALE,Community,2022-01-14,2022-01-10,1
+York,80s,MALE,Community,2022-01-19,2022-01-14,1
+York,80s,FEMALE,Close contact,2022-01-16,2022-01-13,1
+York,80s,FEMALE,Close contact,2022-01-12,2022-01-12,1
+York,80s,FEMALE,Community,2022-01-12,2022-01-12,-1
+York,80s,FEMALE,Outbreak,2021-01-26,2021-01-17,1
+York,80s,FEMALE,Community,2021-01-26,2021-01-17,-1
+Chatham-Kent,90+,FEMALE,Outbreak,2022-01-12,2022-01-11,1
+Hamilton,90+,FEMALE,Community,2022-01-14,2022-01-13,1
+Hamilton,90+,FEMALE,Outbreak,2022-01-05,2022-01-04,1
+Hamilton,90+,FEMALE,Close contact,2022-01-04,2022-01-01,1
+Ottawa,90+,FEMALE,Outbreak,2022-01-19,2022-01-17,1
+Peel,90+,MALE,Community,2021-12-28,2021-12-27,1
+Peel,90+,FEMALE,Community,2021-12-28,2021-12-27,1
+Renfrew,90+,FEMALE,Outbreak,2022-01-05,2022-01-03,1
+Simcoe-Muskoka,90+,MALE,Outbreak,2022-01-06,2022-01-04,1
+Simcoe-Muskoka,90+,MALE,Outbreak,2022-01-01,2021-12-28,1
+Southwestern,90+,MALE,Outbreak,2022-01-14,2022-01-13,1
+Sudbury,90+,FEMALE,Outbreak,2022-01-10,2022-01-08,-1
+Toronto PHU,90+,MALE,Community,2022-01-20,2022-01-19,1
+Toronto PHU,90+,FEMALE,Outbreak,2022-01-17,2022-01-15,1
+York,90+,FEMALE,Outbreak,2021-01-23,2021-01-23,1
+York,90+,FEMALE,Community,2021-01-23,2021-01-23,-1
+
+Change in Deaths by PHU 
+Reporting_PHU,Age_Group,Client_Gender,Case_AcquisitionInfo,Case_Reported_Date,Episode_Date,2022-01-26
+Durham,40s,MALE,Outbreak,2022-01-14,2022-01-07,1
+Durham,40s,MALE,Community,2022-01-14,2022-01-07,-1
+London,40s,MALE,Community,2022-01-20,2022-01-20,-1
+Thunder Bay,40s,MALE,Outbreak,2021-03-05,2021-03-03,1
+Halton,50s,MALE,Community,2022-01-22,2022-01-21,1
+Huron Perth,50s,MALE,Community,2022-01-12,2022-01-11,1
+Eastern Ontario,60s,MALE,Outbreak,2022-01-06,2022-01-03,1
+Grey Bruce,60s,MALE,Community,2022-01-25,2022-01-25,1
+"Haliburton, Kawartha",60s,FEMALE,Outbreak,2022-01-07,2022-01-07,1
+Hamilton,60s,MALE,Close contact,2022-01-04,2022-01-04,1
+Lambton,60s,FEMALE,Close contact,2022-01-18,2022-01-17,1
+North Bay,60s,MALE,Close contact,2022-01-23,2022-01-18,1
+Sudbury,60s,FEMALE,Outbreak,2022-01-22,2022-01-21,1
+Thunder Bay,60s,FEMALE,Community,2022-01-13,2022-01-12,1
+Toronto PHU,60s,FEMALE,Community,2022-01-12,2021-12-30,1
+Windsor,60s,MALE,Community,2022-01-15,2022-01-15,1
+Windsor,60s,FEMALE,Outbreak,2022-01-20,2022-01-19,1
+York,60s,MALE,Community,2022-01-10,2022-01-02,1
+York,60s,MALE,Community,2022-01-09,2022-01-06,1
+York,60s,MALE,Community,2022-01-09,2022-01-09,-1
+York,60s,MALE,Community,2022-01-04,2022-01-02,1
+York,60s,FEMALE,Close contact,2022-01-13,2022-01-08,1
+York,60s,FEMALE,Community,2022-01-12,2022-01-04,1
+York,60s,FEMALE,Community,2022-01-12,2022-01-10,-1
+Chatham-Kent,70s,MALE,Community,2022-01-18,2022-01-17,1
+Halton,70s,MALE,Outbreak,2022-01-10,2022-01-10,1
+Hamilton,70s,MALE,Outbreak,2022-01-14,2022-01-12,1
+Hamilton,70s,MALE,Community,2022-01-10,2022-01-10,1
+Hamilton,70s,FEMALE,Community,2022-01-18,2022-01-17,1
+Hamilton,70s,FEMALE,Outbreak,2022-01-13,2022-01-11,1
+Hastings,70s,MALE,Outbreak,2022-01-19,2022-01-19,1
+Hastings,70s,FEMALE,Community,2022-01-03,2022-01-03,1
+London,70s,MALE,Outbreak,2022-01-05,2022-01-03,1
+Niagara,70s,MALE,Community,2022-01-22,2022-01-21,1
+Peel,70s,MALE,Community,2022-01-21,2022-01-12,1
+Peel,70s,MALE,Close contact,2022-01-15,2022-01-10,1
+Peterborough,70s,MALE,Community,2022-01-12,2022-01-12,1
+Simcoe-Muskoka,70s,FEMALE,Close contact,2022-01-13,2022-01-05,1
+Sudbury,70s,MALE,Outbreak,2022-01-15,2022-01-13,1
+Toronto PHU,70s,MALE,Community,2022-01-18,2022-01-18,1
+Toronto PHU,70s,MALE,Community,2022-01-08,2022-01-07,1
+Toronto PHU,70s,MALE,Community,2022-01-01,2021-12-31,1
+Waterloo Region,70s,FEMALE,Outbreak,2022-01-01,2021-12-30,1
+Windsor,70s,FEMALE,Community,2022-01-24,2022-01-21,1
+Windsor,70s,FEMALE,Outbreak,2022-01-14,2022-01-10,1
+York,70s,FEMALE,Community,2022-01-14,2022-01-11,1
+Algoma,80s,MALE,Community,2022-01-17,2022-01-16,1
+Brant,80s,FEMALE,Outbreak,2022-01-05,2022-01-05,1
+Eastern Ontario,80s,MALE,Outbreak,2022-01-11,2022-01-10,1
+Eastern Ontario,80s,FEMALE,Outbreak,2022-01-20,2022-01-18,1
+Eastern Ontario,80s,FEMALE,Community,2022-01-20,2022-01-18,-1
+Halton,80s,MALE,Community,2022-01-19,2022-01-19,1
+Hamilton,80s,MALE,Community,2022-01-17,2022-01-17,1
+Hastings,80s,FEMALE,Community,2022-01-13,2022-01-12,1
+Niagara,80s,FEMALE,Community,2022-01-22,2022-01-21,1
+Ottawa,80s,MALE,Community,2022-01-16,2022-01-14,1
+Ottawa,80s,FEMALE,Outbreak,2022-01-20,2022-01-18,1
+Ottawa,80s,FEMALE,Community,2022-01-20,2022-01-18,-1
+Peel,80s,MALE,Outbreak,2022-01-09,2022-01-02,1
+Peel,80s,MALE,Community,2022-01-04,2021-12-30,1
+Peel,80s,MALE,Community,2022-01-03,2021-12-31,1
+Peel,80s,MALE,Community,2022-01-01,2021-12-30,1
+Peel,80s,FEMALE,Outbreak,2022-01-23,2022-01-21,1
+Porcupine,80s,FEMALE,Community,2022-01-17,2022-01-17,1
+Simcoe-Muskoka,80s,FEMALE,Outbreak,2022-01-15,2022-01-14,1
+Southwestern,80s,MALE,Community,2022-01-17,2022-01-14,1
+Sudbury,80s,MALE,Outbreak,2022-01-13,2022-01-12,1
+Toronto PHU,80s,MALE,Community,2022-01-15,2022-01-13,1
+Toronto PHU,80s,MALE,Outbreak,2022-01-14,2022-01-10,1
+Toronto PHU,80s,MALE,Community,2022-01-07,2022-01-06,1
+Toronto PHU,80s,MALE,Outbreak,2022-01-03,2022-01-01,1
+Toronto PHU,80s,MALE,Community,2021-12-26,2021-12-26,1
+Toronto PHU,80s,FEMALE,Community,2022-01-22,2022-01-21,1
+Toronto PHU,80s,FEMALE,Community,2022-01-21,2022-01-20,1
+Waterloo Region,80s,MALE,Outbreak,2022-01-14,2022-01-07,1
+Waterloo Region,80s,FEMALE,Community,2022-01-09,2022-01-08,1
+York,80s,MALE,Community,2022-01-12,2021-12-31,1
+York,80s,MALE,Community,2022-01-12,2022-01-06,1
+York,80s,MALE,Community,2022-01-07,2022-01-01,1
+York,80s,FEMALE,Community,2022-01-16,2022-01-08,1
+York,80s,FEMALE,Community,2022-01-16,2022-01-13,-1
+York,80s,FEMALE,Close contact,2022-01-12,2022-01-09,1
+York,80s,FEMALE,Close contact,2022-01-12,2022-01-12,-1
+Chatham-Kent,90+,FEMALE,Outbreak,2022-01-22,2022-01-19,1
+Chatham-Kent,90+,FEMALE,Outbreak,2022-01-15,2022-01-13,1
+Durham,90+,MALE,Outbreak,2022-01-07,2022-01-07,1
+Eastern Ontario,90+,FEMALE,Outbreak,2022-01-06,2022-01-03,1
+Halton,90+,MALE,Community,2022-01-17,2022-01-14,1
+Halton,90+,MALE,Outbreak,2022-01-09,2022-01-01,1
+Hamilton,90+,MALE,Outbreak,2022-01-19,2022-01-11,-1
+Niagara,90+,MALE,Outbreak,2022-01-08,2022-01-07,1
+Ottawa,90+,MALE,Community,2022-01-20,2022-01-19,1
+Ottawa,90+,MALE,Outbreak,2022-01-11,2022-01-10,1
+Peel,90+,FEMALE,Close contact,2022-01-03,2021-12-31,1
+Peel,90+,FEMALE,Community,2021-12-30,2021-12-26,1
+Simcoe-Muskoka,90+,MALE,Community,2022-01-12,2022-01-07,1
+Simcoe-Muskoka,90+,FEMALE,Community,2022-01-22,2022-01-21,1
+Simcoe-Muskoka,90+,FEMALE,Outbreak,2022-01-14,2022-01-11,1
+Southwestern,90+,FEMALE,Outbreak,2022-01-19,2022-01-18,1
+Sudbury,90+,MALE,Outbreak,2022-01-19,2022-01-18,1
+Toronto PHU,90+,MALE,Community,2022-01-20,2022-01-19,1
+Toronto PHU,90+,MALE,Community,2022-01-19,2022-01-18,1
+Toronto PHU,90+,MALE,Outbreak,2022-01-18,2022-01-17,1
+Toronto PHU,90+,MALE,Community,2022-01-15,2022-01-14,1
+Toronto PHU,90+,FEMALE,Community,2022-01-19,2022-01-10,1
+Toronto PHU,90+,FEMALE,Community,2022-01-19,2022-01-19,-1
+Toronto PHU,90+,FEMALE,Outbreak,2022-01-18,2022-01-14,1
+Toronto PHU,90+,FEMALE,Community,2022-01-17,2022-01-16,1
+Toronto PHU,90+,FEMALE,Outbreak,2021-12-31,2021-12-24,1
+Toronto PHU,90+,FEMALE,Outbreak,2021-12-31,2021-12-31,-1
+Waterloo Region,90+,MALE,Community,2022-01-21,2022-01-20,1
+Windsor,90+,MALE,Community,2022-01-14,2022-01-13,1
+York,90+,MALE,Community,2022-01-22,2022-01-21,1
+York,90+,FEMALE,Community,2022-01-21,2022-01-21,1
+York,90+,FEMALE,Community,2022-01-06,2021-12-30,1
+York,90+,FEMALE,Community,2022-01-06,2022-01-04,-1
+
