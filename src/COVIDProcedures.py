@@ -536,7 +536,7 @@ def DailyReports_Individual(FileNameIn):
         tempDF = tempDF.merge(ReportingLagPivot[TodaysDate],left_index = True, right_index = True, how = 'outer',suffixes= ('drop',None) )
         tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)],axis = 1)
         ReportingLagPivot = tempDF
-    ReportingLagPivot =ReportingLagPivot.fillna(0)
+    ReportingLagPivot = ReportingLagPivot.fillna(0)
     ReportingLagPivot = ReportingLagPivot.reindex(columns=sorted(ReportingLagPivot.columns,reverse = True))
     ReportingLagPivot.to_pickle('PickleNew/ReportingLagPivot.pickle')
     #ReportingLagPivot.to_csv('CSVNew/ReportingLagPivot.csv')
@@ -547,7 +547,7 @@ def DailyReports_Individual(FileNameIn):
         tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)],axis = 1)
         changeInReportingLag = tempDF
     changeInReportingLag = changeInReportingLag.fillna(0)
-    changeInReportingLag = changeInReportingLag.reindex(columns=sorted(changeInReportingLag.columns,reverse = True))
+    changeInReportingLag = changeInReportingLag.reindex(columns=sorted(changeInReportingLag.columns, reverse=True))
     changeInReportingLag.to_pickle('PickleNew/changeInReportingLag.pickle')
 
 
@@ -1127,8 +1127,7 @@ def DailyReports_Compile():
         DisplayDF.to_csv(f, header=False, sep='|')
         f.write('\n')
 
-    DisplayDF.to_pickle('PickleNew/DisplayDF.pickle')
-    DisplayDF.to_csv('Display.csv')
+    DisplayDF.to_csv('Pickle/Display.csv')
 
     #########################################################################
     #########################################################################
@@ -1228,7 +1227,7 @@ def DailyReports_Compile():
         f.write('\n')
         f.writelines(VaccineTableLines)
         f.write('\n')
-        f.write('**Schools Data:\n\n')
+        f.write('**Schools Data:**\n\n')
         f.writelines(school_closures_lines)
         f.writelines(school_absenteeism_lines)
         f.write('\n')
@@ -3300,7 +3299,7 @@ def CanadaData():
                            ['Nunavut', 'Newfoundland'], inplace=True)
 
     dfWeeklyCanadaVax = pd.read_csv('https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-map.csv')
-    dfWeeklyCanadaVax.to_csv('CanadaData-vaccinecoverage.csv')
+    dfWeeklyCanadaVax.to_csv('SourceFiles/CanadaData-vaccinecoverage.csv')
     dfWeeklyCanadaVax['week_end'] = pd.to_datetime(dfWeeklyCanadaVax['week_end'], format='%Y-%m-%d')
     dfWeeklyCanadaVax['prename'].replace(['Nunavut', 'Newfoundland and Labrador'],
                                          ['Nunavut', 'Newfoundland'], inplace=True)
@@ -3529,8 +3528,8 @@ def GlobalData():
                   f"({dfnew_G20_temp.iloc[i]['people_fully_vaccinated_per_hundred']:.1f}) ",
                   end='')
 
-    ###################################################################################
-    ###################################################################################
+    ###############################################################################################
+    ###############################################################################################
     print()
     print()
     print("**Global Case Comparison:** - Major Countries - Cases per 100k in the last week (% with at least one dose)  - Full list - tab 6 [Source](https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest)")
@@ -3560,18 +3559,23 @@ def GlobalData():
                   ' (', (dfnew_G20_temp.iloc[i]['people_vaccinated_per_hundred']), ')', '  ', sep='', end='')
     print()
     print()
-    print("**Global Case Comparison:** Top 16 countries by Cases per 100k in the last week (% with at least one dose)  - Full list - tab 6 [Source](https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest)")
-    dfnew = dfnew.sort_values(by='Last 7 per 100k', ascending = False)
-    dfnew = dfnew.fillna('n/a')
-    for i in range(16):
-        if (i % 4 == 0):
-            print()
-            print('* ',end = '')
+    ###############################################################################################
+    ###############################################################################################
+    # # Top 16 countries globally table
+    # print("**Global Case Comparison:** Top 16 countries by Cases per 100k in the last week (% with at least one dose)  - Full list - tab 6 [Source](https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest)")
+    # dfnew = dfnew.sort_values(by='Last 7 per 100k', ascending = False)
+    # dfnew = dfnew.fillna('n/a')
+    # for i in range(16):
+    #     if (i % 4 == 0):
+    #         print()
+    #         print('* ',end = '')
 
-        if  not np.isnan(dfnew.iloc[i]['Last 7 per 100k']):
-            print(dfnew.index[i],': ',round(dfnew.iloc[i]['Last 7 per 100k'],1),' (',(dfnew.iloc[i]['people_vaccinated_per_hundred']),')','  ',sep = '',end='')
-    print()
-    print()
+    #     if  not np.isnan(dfnew.iloc[i]['Last 7 per 100k']):
+    #         print(dfnew.index[i],': ',round(dfnew.iloc[i]['Last 7 per 100k'],1),' (',(dfnew.iloc[i]['people_vaccinated_per_hundred']),')','  ',sep = '',end='')
+    # print()
+    # print()
+    ###############################################################################################
+    ###############################################################################################
 
     # print("**G20 Vaccine Comparison - doses per 100k in the last week:** - [Source](https://ourworldindata.org/grapher/daily-covid-vaccination-doses-per-capita?tab=chart)")
 
@@ -5150,7 +5154,7 @@ def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
     AgeDF_filePath = 'Pickle/AgeData.csv'
     CumulativeHospitalizations_filePath = 'Pickle/CumulativeHospitalizations.csv'
     VariantCounts_filePath = 'Pickle/VariantCounts.csv'
-    DailyReportFile = 'DailyReport.pdf'
+    DailyReportFile = 'SourceFiles/DailyReport.pdf'
 
     if fileName is None:
         fileName = fileDate
@@ -5168,10 +5172,18 @@ def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
         return
 
     try:
-        df = tables[0].df
+        for i in [0, 1]:
+            df = tables[i].df
+            result = []
+            for col in df.columns:
+                result.append(df[col].str.contains('Ages: 0-4').any())
+            if True in result:
+                break
+
     except IndexError:
         print('Age data table not found')
-        DailyReportExtraction(fileDate, fileName, '2', HospPage)
+        if (AgePage == '3'):
+            DailyReportExtraction(fileDate, fileName, '2', HospPage)
         return
 
     # df = tables[1].df
@@ -5993,7 +6005,7 @@ def UKData():
     OutputDF = OutputDF.sort_values(by='date', ascending=True)
 
     # UKDeathDF.to_csv('aaa1.csv')
-    OutputDF.to_csv('UKData.csv')
+    # OutputDF.to_csv('UKData.csv')
 
     print('EnglandData - deaths: ', round(time.time() - starttime, 2), 'seconds')
     print('------------------------------------------------------------------------')

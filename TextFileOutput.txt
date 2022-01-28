@@ -1,39 +1,39 @@
-Link to report: https://files.ontario.ca/moh-covid-19-report-en-2022-01-26.pdf
+Link to report: https://files.ontario.ca/moh-covid-19-report-en-2022-01-27.pdf
 
 Detailed tables: [Google Sheets mode](https://docs.google.com/spreadsheets/d/1E28C0ylUQ0hHgFySFpXtdjX_LkdY5tlhl-nt0SGhCDg) and [some TLDR charts](https://imgur.com/a/qI0P0X5)
 
 ------------------------------------------------------------
 
 
-* **Throwback** Ontario January 26 update: 1740 New Cases, 2261 Recoveries, 63 Deaths, 30,717  tests (5.66% positive), Current ICUs: 405 (-13 vs. yesterday)  (-15 vs. last week)
+* **Throwback** Ontario January 27 update: 1670 New Cases, 2725 Recoveries, 49 Deaths, 55,191  tests (3.03% positive), Current ICUs: 400 (-5 vs. yesterday)  (-16 vs. last week)
 
 
 ------------------------------------------------------------
 
 **Testing data:** - [Source](https://data.ontario.ca/dataset/status-of-covid-19-cases-in-ontario)
 
-* Backlog: 20,190 (+3,708), 33,687 tests completed (3,061.8 per 100k in week) --> 37,395 swabbed
+* Backlog: 17,276 (-2,914), 33,560 tests completed (2,936.1 per 100k in week) --> 30,646 swabbed
 * MoH positive rate: 14.1% - differs from the cases/tests calc.
-* Positive rate (Day/Week/Prev Week): 15.93% /  17.93% /  19.28% - [Chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1660579214&format=interactive)
+* Positive rate (Day/Week/Prev Week): 17.44% /  17.83% /  19.57% - [Chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1660579214&format=interactive)
 
 **Episode date data (day/week/prev. week)** - [Cases by episode date](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1644344261&format=interactive) and [historical averages of episode date](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1644344261&format=interactive)
 
-* New cases with episode dates in last 3 days: 2,347 / 2,809 / 3,525 (-357 vs. yesterday week avg)
-* New cases - episode dates in last 7 days: 3,206 / 3,812 / 5,586 (-455 vs. yesterday week avg)
-* New cases - episode dates in last 30 days: 5,231 / 5,782 / 9,035 (-620 vs. yesterday week avg)
-* New cases - ALL episode dates: 5,368 / 5,830 / 9,058 (-515 vs. yesterday week avg)
+* New cases with episode dates in last 3 days: 2,729 / 2,737 / 3,334 (-80 vs. yesterday week avg)
+* New cases - episode dates in last 7 days: 3,806 / 3,681 / 5,242 (-6 vs. yesterday week avg)
+* New cases - episode dates in last 30 days: 5,742 / 5,498 / 8,729 (-40 vs. yesterday week avg)
+* New cases - ALL episode dates: 5,852 / 5,557 / 8,750 (+22 vs. yesterday week avg)
 
 **Other data:**
 
-* [7 day average:](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=60082987&format=interactive) 5,830 (-53.7 vs. yesterday) (-3,228 or -35.6% vs. last week), (-1,720 or -22.8% vs. 30 days ago)
-* Today's Rt estimate: 0.77 - [Historical](https://data.ontario.ca/en/dataset/effective-reproduction-number-re-for-covid-19-in-ontario)
-* Active cases: 56,929 (-4,637 vs. yesterday) (-27,337 vs. last week) - [Chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1136841100&format=interactive)
-* Current hospitalizations: 4,016(+8), ICUs: 608(-18), Ventilated: 367(-13), [vs. last week: -116 / +19 / +26] - [Chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1392680472&format=interactive)
+* [7 day average:](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=60082987&format=interactive) 5,557 (-272.1 vs. yesterday) (-3,192 or -36.5% vs. last week), (-2,760 or -33.2% vs. 30 days ago)
+* Today's Rt estimate: 0.80 - [Historical](https://data.ontario.ca/en/dataset/effective-reproduction-number-re-for-covid-19-in-ontario)
+* Active cases: 54,074 (-2,855 vs. yesterday) (-25,296 vs. last week) - [Chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1136841100&format=interactive)
+* Current hospitalizations: 3,645(-371), ICUs: 599(-9), Ventilated: 366(-1), [vs. last week: -416 / +5 / +19] - [Chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1392680472&format=interactive)
 
-* 55.7% / 83.2% of the hospitalizations/ICU numbers are people there FOR COVID.
-* New hospitalizations (Week/prev week avgs.): 284 (286.6 / 228.1), ICUs: 37 (36.7 / 30.0), 
-* Total reported cases to date: 1,010,247
-* Hospitalizations / ICUs/ +veICU count by [Ontario Health Region](https://news.ontario.ca/en/release/54585/ontario-taking-next-steps-to-integrate-health-care-system) (ICUs vs. last week): North: 182/33/31(+6), West: 1134/193/183(-7), East: 821/132/128(+13), Toronto: 581/90/83(+9), Central: 1298/160/152(-2), Total:  4016 / 608 / 577
+* 56.2% / 81.7% of the hospitalizations/ICU numbers are people there FOR COVID.
+* New hospitalizations (Week/prev week avgs.): 309 (279.0 / 244.6), ICUs: 44 (36.1 / 33.0), 
+* Total reported cases to date: 1,016,099
+* Hospitalizations / ICUs/ +veICU count by [Ontario Health Region](https://news.ontario.ca/en/release/54585/ontario-taking-next-steps-to-integrate-health-care-system) (ICUs vs. last week): Central: 1030/157/150(-1), West: 1103/189/178(-4), North: 186/34/32(+0), East: 803/127/121(+4), Toronto: 523/92/85(+6), Total:  3645 / 599 / 566
 
 * Rolling case fatality rates for [outbreak](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1944697683&format=interactive) and [non-outbreak](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=904668388&format=interactive) cases
 * [Chart showing the 7 day average of cases per 100k by age group](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1925334241&format=interactive)
@@ -42,58 +42,58 @@ Detailed tables: [Google Sheets mode](https://docs.google.com/spreadsheets/d/1E2
 
 **LTC Data:**
 
-* 260 / 104 new LTC resident/HCW cases - [Chart of active 70+ cases split by outbreak and non-outbreak cases](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=2044830410&format=interactive)
-* 14 / 85 / 175 / 187 / 4217 LTC deaths in last day / week / 30 / 100 days / all-time
+* 272 / 85 new LTC resident/HCW cases - [Chart of active 70+ cases split by outbreak and non-outbreak cases](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=2044830410&format=interactive)
+* 17 / 76 / 192 / 204 / 4234 LTC deaths in last day / week / 30 / 100 days / all-time
 
-**ICU Capacity (chg in week)** - last updated Jan 26
+**ICU Capacity (chg in week)** - last updated Jan 27
 
-* Total COVID/non-COVID ICU patients: 598 / 1,302 (+18/ +18)
-* Total avail ICU capacity for ALL: 443 (-36)
+* Total COVID/non-COVID ICU patients: 591 / 1,300 (+8/ +16)
+* Total avail ICU capacity for ALL: 452 (-24)
 * Total ICU capacity: 2,343
 
 **Vaccine effectiveness data: (assumed 14 days to effectiveness)** [Source](https://data.ontario.ca/dataset/covid-19-vaccine-data-in-ontario)
 
 |Metric|Unvax_All|Unvax_5+|Partial|Full|Unknown|
 |:-:|:-:|:-:|:-:|:-:|:-:|
-|**Cases - today**|801|645|191|3,805|571|
-|**Cases Per 100k - today**| 31.85|36.08 | 23.45|33.11|- |
-|**Risk vs. full - today**| 0.96x|1.09x | 0.71x|1.00x|- |
-|**Case % less risk vs. unvax - today**| -|- | 35.0%|8.2%|- |
+|**Cases - today**|960|775|236|4,004|652|
+|**Cases Per 100k - today**| 38.36|43.64 | 28.95|34.80|- |
+|**Risk vs. full - today**| 1.10x|1.25x | 0.83x|1.00x|- |
+|**Case % less risk vs. unvax - today**| -|- | 33.7%|20.2%|- |
 |||||||
-|**Avg daily Per 100k - week**| 33.91|37.51 | 25.41|37.01|- |
-|**Risk vs. full - week**| 0.92x|1.01x | 0.69x|1.00x|- |
-|**[Case % less risk vs. unvax - week](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=206167456&format=interactive)**| -|- | 32.3%|1.3%|- |
+|**Avg daily Per 100k - week**| 33.38|36.98 | 24.94|34.73|- |
+|**Risk vs. full - week**| 0.96x|1.06x | 0.72x|1.00x|- |
+|**[Case % less risk vs. unvax - week](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=206167456&format=interactive)**| -|- | 32.6%|6.1%|- |
 |||||||
-|**ICU - count**|206|n/a|20|232|150|
-|**ICU per mill**|81.92|-|24.55|20.19|-|
-|**ICU % less risk vs. unvax**|-|-|70.0%|75.4%|-|
-|**ICU risk vs. full**|4.06x|-|1.22x|1.00x|-|
+|**ICU - count**|204|n/a|19|221|155|
+|**ICU per mill**|81.51|-|23.31|19.21|-|
+|**ICU % less risk vs. unvax**|-|-|71.4%|76.4%|-|
+|**ICU risk vs. full**|4.24x|-|1.21x|1.00x|-|
 |||||||
-|**Non_ICU Hosp - count**|752|n/a|216|1,818|-|
-|**Non_ICU Hosp per mill**|299.05|-|265.19|158.18|-|
-|**Non_ICU Hosp % less risk vs. unvax**|-|-|11.3%|47.1%|-|
-|**Non_ICU Hosp risk vs. full**|1.89x|-|1.68x|1.00x|-|
+|**Non_ICU Hosp - count**|706|n/a|165|1,861|-|
+|**Non_ICU Hosp per mill**|282.09|-|202.41|161.77|-|
+|**Non_ICU Hosp % less risk vs. unvax**|-|-|28.2%|42.7%|-|
+|**Non_ICU Hosp risk vs. full**|1.74x|-|1.25x|1.00x|-|
 |||||||
 
 
 **Vaccines - detailed data:** [Source](https://data.ontario.ca/dataset/covid-19-vaccine-data-in-ontario)
 
-* Total admin: 30,245,859  (+79,059 /  +580,985 in last day/week) 
-* First doses admin: 12,431,738 /  (+7,045 / +55,691 in last day/week) 
-* Second doses admin: 11,644,800 (+15,443 / +83,929 in last day/week)
-* Third doses admin: 6,147,286 (+56,428 / +439,982 in last day/week) 
-* 83.87% / 78.56% / 41.47%  of **all** Ontarians have received at least one / two / three dose to date (0.05% / 0.10% / 0.38% today) (0.38% / 0.57% / 2.97% in last week)
-* 88.69% / 83.10% / 43.87%  of **5+** Ontarians have received at least one / two / three dose to date (0.05% / 0.11% / 0.40% today) (0.40% / 0.60% / 3.12% in last week)
-* 0.480% / 2.927% of the **remaining 12+** unvaccinated population got vaccinated today/this week
+* Total admin: 30,325,181  (+79,322 /  +555,462 in last day/week) 
+* First doses admin: 12,439,112 /  (+7,374 / +53,888 in last day/week) 
+* Second doses admin: 11,660,422 (+15,622 / +90,346 in last day/week)
+* Third doses admin: 6,203,463 (+56,177 / +409,885 in last day/week) 
+* 83.92% / 78.67% / 41.85%  of **all** Ontarians have received at least one / two / three dose to date (0.05% / 0.11% / 0.38% today) (0.36% / 0.61% / 2.77% in last week)
+* 88.74% / 83.21% / 44.28%  of **5+** Ontarians have received at least one / two / three dose to date (0.05% / 0.11% / 0.40% today) (0.38% / 0.64% / 2.91% in last week)
+* 0.482% / 2.825% of the **remaining 12+** unvaccinated population got vaccinated today/this week
 * To date, 32,296,511 vaccines have been delivered to Ontario (last updated December 30)  - [Source](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/covid-19-vaccine-treatment/vaccine-rollout.html)
-* There are 2,050,652 unused vaccines which will take 24.7 days to administer based on the current 7 day average of 82,998 /day
+* There are 1,971,330 unused vaccines which will take 24.8 days to administer based on the current 7 day average of 79,352 /day
 * Ontario's population is 14,822,201 as published [here](https://www.fin.gov.on.ca/en/economy/demographics/projections/#tables). Age group populations as provided by the [MOH here](https://data.ontario.ca/dataset/covid-19-vaccine-data-in-ontario/resource/775ca815-5028-4e9b-9dd4-6975ff1be021)
 * Vaccine uptake report (updated weekly) incl. vaccination coverage by PHUs - [link](https://www.publichealthontario.ca/-/media/documents/ncov/epi/covid-19-vaccine-uptake-ontario-epi-summary.pdf?la=en)
 
 **Random vaccine stats**
 
 
-* Based on this week's vaccination rates, **95% of 12+** Ontarians will have received **at least one** dose by **April 28, 2022 at 13:49** - 92 days to go 
+* Based on this week's vaccination rates, **95% of 12+** Ontarians will have received **at least one** dose by **May 2, 2022 at 11:16** - 95 days to go 
 
 
 
@@ -101,105 +101,84 @@ Detailed tables: [Google Sheets mode](https://docs.google.com/spreadsheets/d/1E2
 
 **Age**|**Cases/100k**|**First doses**|**Second doses**|**Third doses**|**First Dose % (day/week)**|**Second Dose % (day/week)**|**Third Dose % (day/week)**
 :--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-05-11yrs|27.4|2,266|10,265|0|52.46% (+0.21% / +2.07%)|12.25% (+0.95% / +4.76%)|0.00% (+0.00% / +0.00%)
-12-17yrs|32.1|290|404|299|86.81% (+0.03% / +0.22%)|83.21% (+0.04% / +0.27%)|1.43% (+0.03% / +0.21%)
-18-29yrs|43.1|1,796|1,946|10,794|87.00% (+0.07% / +0.52%)|82.84% (+0.08% / +0.49%)|30.70% (+0.43% / +3.44%)
-30-39yrs|46.0|987|1,120|9,473|89.46% (+0.05% / +0.34%)|86.14% (+0.06% / +0.34%)|37.78% (+0.47% / +3.81%)
-40-49yrs|38.9|554|611|9,477|90.13% (+0.03% / +0.20%)|87.79% (+0.03% / +0.21%)|44.58% (+0.51% / +4.17%)
-50-59yrs|35.8|472|493|10,111|90.53% (+0.02% / +0.15%)|88.67% (+0.02% / +0.16%)|54.55% (+0.50% / +3.91%)
-60-69yrs|22.8|302|358|9,343|97.06% (+0.02% / +0.13%)|95.40% (+0.02% / +0.13%)|69.36% (+0.53% / +3.92%)
-70-79yrs|24.3|135|172|4,688|100.20% (+0.01% / +0.09%)|98.72% (+0.02% / +0.09%)|79.86% (+0.41% / +2.92%)
-80+ yrs|68.7|65|80|2,243|102.73% (+0.01% / +0.06%)|100.30% (+0.01% / +0.06%)|81.00% (+0.34% / +2.40%)
-Unknown||178|-6|0|0.04% (+0.00% / +0.01%)|0.01% (-0.00% / -0.00%)|0.00% (+0.00% / +0.00%)
+05-11yrs|31.5|2,267|10,145|0|52.67% (+0.21% / +2.00%)|13.19% (+0.94% / +5.37%)|0.00% (+0.00% / +0.00%)
+12-17yrs|34.1|326|407|278|86.84% (+0.03% / +0.22%)|83.25% (+0.04% / +0.27%)|1.46% (+0.03% / +0.20%)
+18-29yrs|42.4|2,101|2,076|10,928|87.09% (+0.08% / +0.50%)|82.92% (+0.08% / +0.49%)|31.14% (+0.44% / +3.25%)
+30-39yrs|53.9|1,013|1,168|9,980|89.51% (+0.05% / +0.33%)|86.20% (+0.06% / +0.34%)|38.27% (+0.49% / +3.58%)
+40-49yrs|45.7|583|707|9,437|90.16% (+0.03% / +0.19%)|87.83% (+0.04% / +0.21%)|45.08% (+0.51% / +3.87%)
+50-59yrs|36.1|443|545|10,051|90.55% (+0.02% / +0.14%)|88.70% (+0.03% / +0.15%)|55.04% (+0.49% / +3.63%)
+60-69yrs|26.5|319|378|8,943|97.08% (+0.02% / +0.12%)|95.43% (+0.02% / +0.12%)|69.87% (+0.51% / +3.61%)
+70-79yrs|26.4|152|162|4,358|100.21% (+0.01% / +0.09%)|98.74% (+0.01% / +0.09%)|80.24% (+0.38% / +2.67%)
+80+ yrs|71.2|45|49|2,199|102.73% (+0.01% / +0.05%)|100.31% (+0.01% / +0.06%)|81.34% (+0.34% / +2.21%)
+Unknown||125|-15|3|0.04% (+0.00% / +0.01%)|0.01% (-0.00% / -0.00%)|0.00% (+0.00% / +0.00%)
  |||||||
-Total - 18+||4,311|4,780|56,129|92.10% (+0.04% / +0.25%)|89.48% (+0.04% / +0.25%)|51.24% (+0.47% / +3.66%)
-Total - 12+||4,601|5,184|56,428|91.71% (+0.04% / +0.25%)|89.01% (+0.04% / +0.25%)|47.53% (+0.44% / +3.40%)
-Total - 5+||6,867|15,449|56,428|88.69% (+0.05% / +0.39%)|83.10% (+0.11% / +0.60%)|43.87% (+0.40% / +3.14%)
+Total - 18+||4,656|5,085|55,896|92.14% (+0.04% / +0.24%)|89.52% (+0.04% / +0.25%)|51.70% (+0.47% / +3.41%)
+Total - 12+||4,982|5,492|56,174|91.75% (+0.04% / +0.24%)|89.05% (+0.04% / +0.25%)|47.97% (+0.43% / +3.17%)
+Total - 5+||7,249|15,637|56,174|88.74% (+0.05% / +0.38%)|83.21% (+0.11% / +0.65%)|44.28% (+0.40% / +2.93%)
 
 
-**Schools Data:
+**Schools Data**:
 
 * 4 schools are currently closed (0.08% of all)
 
-* The median school has 13% of students/staff absent. The interquartile range is 9% to 17% 
 
-**Outbreak data** *(latest data as of January 25)*- [Source](https://data.ontario.ca/dataset/ontario-covid-19-outbreaks-data) and [Definitions](https://covid-19.ontario.ca/data/covid-19-case-data-glossary#outbreak)
+**Outbreak data** *(latest data as of January 26)*- [Source](https://data.ontario.ca/dataset/ontario-covid-19-outbreaks-data) and [Definitions](https://covid-19.ontario.ca/data/covid-19-case-data-glossary#outbreak)
 
-* New outbreak cases: 151
-* *New outbreak cases (groups with 2+):* Hospital (7), Long-term care home (83), Retirement home (26), Correctional facility (15), Group home/supportive housing (11), Shelter (7), Workplace - other (2), 
-* 1425 active cases in outbreaks (-235 vs. last week)
-* Major categories with active cases (vs. last week):  Long-Term Care Homes: 385(-37), Retirement Homes: 286(-32), Group Home/Supportive Housing: 263(-99), Hospitals: 219(-22), Shelter: 101(-18), Congregate other: 65(-20), Correctional Facility: 27(-1),
+* New outbreak cases: 351
+* *New outbreak cases (groups with 2+):* Hospital (3), Long-term care home (168), Retirement home (71), Congregate other (2), Correctional facility (76), Group home/supportive housing (14), Shelter (7), Workplace - farm (10), 
+* 1400 active cases in outbreaks (-242 vs. last week)
+* Major categories with active cases (vs. last week):  Long-Term Care Homes: 384(-36), Retirement Homes: 282(-34), Group Home/Supportive Housing: 253(-109), Hospitals: 216(-18), Shelter: 96(-15), Congregate other: 59(-20), Correctional Facility: 26(-2),
 
 
 
 **Global Vaccine Comparison:** - % fully vaxxed  - Full list on Tab 6 - [Source](https://ourworldindata.org/covid-vaccinations)
 
-* Chile: 87.8, South Korea: 85.5, China: 84.8, Spain: 81.8, 
-* Japan: 79.1, Canada: 78.5, Australia: 78.1, France: 75.9, 
-* Italy: 75.8, Argentina: 75.3, Sweden: 74.2, Germany: 72.8, 
-* European Union: 70.8, United Kingdom: 70.7, Brazil: 69.7, Saudi Arabia: 66.8, 
-* Israel: 65.3, United States: 63.2, Iran: 63.1, Turkey: 61.5, 
-* Mexico: 58.8, India: 49.5, Russia: 47.6, Bangladesh: 35.5, 
-* Pakistan: 35.5, South Africa: 27.3, Egypt: 24.7, Nigeria: 2.5, 
+* Chile: 87.9, South Korea: 85.6, China: 84.8, Spain: 81.9, 
+* Japan: 79.1, Canada: 78.6, Australia: 78.1, France: 76.0, 
+* Italy: 75.8, Argentina: 75.5, Sweden: 74.2, Germany: 72.9, 
+* European Union: 70.9, United Kingdom: 70.7, Brazil: 69.8, Saudi Arabia: 66.9, 
+* Israel: 65.4, United States: 63.3, Iran: 63.3, Turkey: 61.5, 
+* Mexico: 58.9, India: 49.7, Russia: 47.6, Bangladesh: 35.9, 
+* Pakistan: 35.5, South Africa: 27.5, Egypt: 25.2, Nigeria: 2.5, 
 * Ethiopia: 1.4, 
 * Map charts showing rates of [at least one dose](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1188693775&format=interactive) and [total doses per 100 people](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=760938472&format=interactive)
 
 
 **Global Boosters (% fully vaxxed), doses per 100 people  to date:**
 
-* Chile: 64.6 (87.8) Israel: 54.2 (65.3) United Kingdom: 54.2 (70.7) Italy: 51.6 (75.8) Germany: 50.4 (72.8) 
-* South Korea: 50.3 (85.5) France: 46.2 (75.9) Spain: 42.8 (81.8) European Union: 41.8 (70.8) Canada: 37.9 (78.5) 
-* Turkey: 37.0 (61.5) Sweden: 35.5 (74.2) Australia: 27.3 (78.1) United States: 25.5 (63.2) Argentina: 25.0 (75.3) 
-* Brazil: 20.2 (69.7) Saudi Arabia: 19.7 (66.8) Iran: 17.5 (63.1) Russia: 6.3 (47.6) Japan: 2.3 (79.1) 
-* South Africa: 0.8 (27.3) Bangladesh: 0.7 (35.5) India: 0.6 (49.5) 
+* Chile: 65.0 (87.9) Israel: 54.3 (65.4) United Kingdom: 54.3 (70.7) Italy: 52.3 (75.8) Germany: 50.8 (72.9) 
+* South Korea: 50.8 (85.6) France: 46.6 (76.0) Spain: 43.6 (81.9) European Union: 42.2 (70.9) Canada: 38.5 (78.7) 
+* Turkey: 37.1 (61.5) Sweden: 36.2 (74.2) Australia: 27.5 (78.1) United States: 25.6 (63.3) Argentina: 25.6 (75.5) 
+* Brazil: 20.5 (69.8) Saudi Arabia: 20.2 (66.9) Iran: 18.3 (63.3) Russia: 6.6 (47.6) Japan: 2.5 (79.1) 
+* South Africa: 0.9 (27.5) Bangladesh: 0.8 (35.9) India: 0.7 (49.7) 
 
 **Global Case Comparison:** - Major Countries - Cases per 100k in the last week (% with at least one dose)  - Full list - tab 6 [Source](https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest)
 
 
-* Israel: 7677.7 (71.97)  France: 3805.7 (79.57)  Sweden: 2612.0 (77.02)  Italy: 1978.2 (82.64)  
-* European Union: 1909.6 (74.25)  Spain: 1875.7 (87.33)  Argentina: 1585.8 (86.36)  Australia: 1493.2 (83.27)  
-* United States: 1345.0 (75.69)  Germany: 1032.7 (74.84)  United Kingdom: 954.2 (76.61)  Turkey: 586.5 (67.45)  
-* Chile: 563.3 (91.39)  Brazil: 519.9 (78.76)  Japan: 276.5 (80.41)  Mexico: 265.0 (63.99)  
-* Russia: 255.2 (52.0)  Canada: 226.7 (84.79)  India: 156.7 (66.93)  Vietnam: 111.4 (80.37)  
-* South Korea: 111.3 (86.92)  Saudi Arabia: 98.8 (72.01)  Bangladesh: 50.0 (56.95)  Iran: 46.7 (71.17)  
-* South Africa: 35.5 (32.33)  Pakistan: 21.0 (46.09)  Egypt: 10.5 (36.02)  Indonesia: 7.4 (65.86)  
+* Israel: 6070.6 (71.98)  France: 3792.3 (79.6)  Sweden: 2688.4 (77.05)  European Union: 1939.5 (74.29)  
+* Italy: 1928.5 (82.7)  Spain: 1823.5 (87.39)  Argentina: 1498.5 (86.49)  Australia: 1428.9 (83.33)  
+* United States: 1269.3 (75.76)  Germany: 1139.5 (74.9)  United Kingdom: 945.7 (76.63)  Chile: 611.2 (91.46)  
+* Turkey: 592.1 (67.46)  Brazil: 530.3 (78.94)  Japan: 300.4 (80.43)  Russia: 283.0 (52.1)  
+* Mexico: 265.0 (64.01)  Canada: 213.4 (84.78)  India: 154.5 (67.06)  South Korea: 126.7 (86.94)  
+* Vietnam: 111.4 (80.37)  Saudi Arabia: 94.9 (72.09)  Iran: 55.9 (71.23)  Bangladesh: 53.7 (57.39)  
+* South Africa: 43.0 (32.46)  Pakistan: 21.4 (46.09)  Egypt: 11.0 (36.3)  Indonesia: 9.3 (66.04)  
 * Ethiopia: 3.0 (7.95)  Nigeria: 0.6 (6.51)  China: 0.0 (87.59)  
-
-**Global Case Comparison:** Top 16 countries by Cases per 100k in the last week (% with at least one dose)  - Full list - tab 6 [Source](https://ourworldindata.org/explorers/coronavirus-data-explorer?zoomToSelection=true&time=40..latest)
-
-* Israel: 7677.7 (71.97)  Denmark: 5010.8 (83.32)  France: 3805.7 (79.57)  Slovenia: 3744.5 (60.6)  
-* Portugal: 3556.5 (93.98)  Belgium: 3066.9 (78.17)  Switzerland: 2751.0 (69.51)  Sweden: 2612.0 (77.02)  
-* Norway: 2319.5 (78.83)  Netherlands: 2315.2 (77.77)  Estonia: 2272.0 (64.35)  Uruguay: 2247.6 (82.27)  
-* Italy: 1978.2 (82.64)  Latvia: 1956.7 (71.47)  Austria: 1930.8 (74.4)  European Union: 1909.6 (74.25)  
 
 **Global ICU Comparison:** - Current, adjusted to Ontario's population - [Source](https://ourworldindata.org/grapher/covid-icu-patients-per-million)
 
-* United States: 1,143, Argentina: 865, France: 829, Spain: 704, Canada: 492, 
-* Germany: 427, Italy: 418, Israel: 392, Australia: 215, Sweden: 156, 
-* United Kingdom: 131, South Korea: 114, Japan: 81, 
+* United States: 1,143, Argentina: 902, France: 822, Spain: 688, Canada: 476, 
+* Germany: 421, Israel: 416, Italy: 412, Australia: 220, Sweden: 160, 
+* United Kingdom: 126, South Korea: 112, 
 
 
 **US State comparison - case count** - Top 25 by last 7 ave. case count (Last 7/100k) - [Source](https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html)
 
-* *CA:* 109,969 (1,948.2), *TX:* 53,403 (1,289.2), *FL:* 32,794 (1,068.8), *MI:* 26,220 (1,837.8), *NC:* 26,048 (1,738.5), 
-* *IL:* 24,145 (1,333.8), *NY:* 22,574 (812.3), *AZ:* 19,369 (1,862.7), *GA:* 17,277 (1,139.1), *MN:* 16,578 (2,057.7), 
-* *TN:* 16,203 (1,660.8), *PA:* 14,633 (800.1), *WA:* 14,612 (1,343.2), *OH:* 14,474 (866.8), *IN:* 13,656 (1,419.9), 
-* *VA:* 12,084 (991.0), *KY:* 12,062 (1,889.9), *MA:* 12,053 (1,224.1), *AL:* 11,698 (1,670.0), *MO:* 11,547 (1,317.0), 
-* *OK:* 11,411 (2,018.6), *WI:* 10,998 (1,322.2), *KS:* 10,464 (2,514.2), *CO:* 10,295 (1,251.5), *UT:* 9,193 (2,007.1), 
+* *CA:* 104,436 (1,850.2), *TX:* 49,787 (1,201.9), *FL:* 32,005 (1,043.1), *NC:* 26,153 (1,745.5), *IL:* 22,616 (1,249.3), 
+* *NY:* 21,470 (772.6), *WA:* 19,479 (1,790.6), *AZ:* 19,045 (1,831.5), *TN:* 17,282 (1,771.5), *MI:* 17,208 (1,206.2), 
+* *GA:* 15,924 (1,049.9), *LA:* 15,428 (2,323.1), *OH:* 14,523 (869.7), *PA:* 14,120 (772.0), *SC:* 13,103 (1,781.4), 
+* *MN:* 12,428 (1,542.6), *KY:* 12,267 (1,922.0), *IN:* 12,048 (1,252.7), *VA:* 11,891 (975.2), *OK:* 11,148 (1,972.1), 
+* *MA:* 11,030 (1,120.2), *MO:* 10,879 (1,240.8), *CO:* 10,158 (1,234.8), *WI:* 10,148 (1,220.0), *AL:* 9,254 (1,321.2), 
 
-**US State comparison - vaccines count** - % 2+ dosed (change in week) - [Source](https://ourworldindata.org/us-states-vaccinations#what-share-of-the-population-has-received-at-least-one-dose-of-the-covid-19-vaccine)
-
-* *VT:* 79.2% (0.5%), *PR:* 78.8% (0.8%), *RI:* 78.5% (0.6%), *ME:* 77.3% (0.5%), *CT:* 76.3% (0.5%), 
-* *MA:* 76.1% (0.4%), *HI:* 75.6% (1.0%), *NY:* 73.7% (0.6%), *MD:* 72.3% (0.5%), *NJ:* 72.2% (0.5%), 
-* *VA:* 70.4% (1.4%), *WA:* 69.7% (1.0%), *DC:* 69.7% (0.9%), *NH:* 68.5% (0.5%), *CA:* 68.5% (1.0%), 
-* *NM:* 68.0% (0.8%), *CO:* 68.0% (0.8%), *OR:* 67.6% (0.4%), *MN:* 66.8% (0.5%), *DE:* 66.0% (0.8%), 
-* *IL:* 65.8% (0.5%), *PA:* 65.4% (0.5%), *FL:* 64.8% (0.7%), *WI:* 63.3% (0.5%), *NE:* 61.3% (0.7%), 
-* *UT:* 60.5% (0.6%), *IA:* 60.2% (0.5%), *KS:* 58.8% (0.9%), *SD:* 58.6% (0.6%), *AZ:* 58.5% (0.5%), 
-* *TX:* 58.5% (0.6%), *AK:* 58.2% (1.1%), *NC:* 58.2% (0.6%), *NV:* 58.2% (0.7%), *MI:* 58.0% (0.3%), 
-* *OH:* 56.5% (0.4%), *WV:* 56.0% (0.4%), *KY:* 55.5% (0.5%), *MT:* 55.1% (0.6%), *OK:* 54.9% (0.6%), 
-* *SC:* 54.7% (0.7%), *MO:* 54.2% (0.4%), *ND:* 53.8% (0.5%), *IN:* 53.0% (0.3%), *GA:* 52.6% (0.8%), 
-* *TN:* 52.5% (0.5%), *AR:* 52.5% (0.5%), *ID:* 52.0% (5.3%), *LA:* 51.5% (0.5%), *MS:* 49.9% (0.8%), 
-* *WY:* 49.6% (1.4%), *AL:* 49.2% (0.8%), 
 
 **UK Watch** - [Source](https://coronavirus.data.gov.uk/)
 
@@ -207,24 +186,21 @@ The England age group data below is actually lagged by four days, i.e. the , the
 
 Metric|Today|7d ago |14d ago|21d ago |30d ago|Peak
 :--|:-:|:-:|:-:|:-:|:-:|:-:|
-**Cases - 7-day avg**| 93,225 | 96,284 | 157,666 | 181,411 | 110,829 | 183,084
-**Hosp. - current**| 17,162 | 19,524 | 19,957 | 16,421 | 8,404 | 39,255
-**Vent. - current**| 598 | 713 | 821 | 878 | 838 | 4,077
+**Cases - 7-day avg**| 92,399 | 93,210 | 148,357 | 183,084 | 113,306 | 183,084
+**Hosp. - current**| 16,594 | 19,052 | 19,864 | 17,414 | 8,819 | 39,255
+**Vent. - current**| 575 | 703 | 793 | 900 | 851 | 4,077
  **England weekly cases/100k by age:** | |  | | | | |
-<60| 1180.8 | 1193.7 | 2066.2 | 1851.5 | 1348.2 | 2210.1
-60+| 382.6 | 531.9 | 998.6 | 879.7 | 311.0 | 1130.3
+<60| 1191.7 | 1146.2 | 1982.6 | 1900.1 | 1412.4 | 2210.3
+60+| 377.8 | 494.2 | 940.2 | 950.0 | 351.9 | 1130.3
 
 
-**Jail Data** - *(latest data as of January 23)* [Source](https://data.ontario.ca/en/dataset/covid-19-testing-of-inmates-in-ontario-s-correctional-institutions)
+**Jail Data** - *(latest data as of January 25)* [Source](https://data.ontario.ca/en/dataset/covid-19-testing-of-inmates-in-ontario-s-correctional-institutions)
 
-* Total inmate cases in last day/week: 207/637
+* Total inmate cases in last day/week: 380/952
 * Total inmate tests completed in last day/week (refused test in last day/week): 255/1435 (99/300)
-* Jails with 2+ cases yesterday:  Central North Correctional Centre: 67, Kenora Jail: 45, North Bay Jail: 32, Maplehurst Correctional Complex: 23, Elgin Middlesex Detention Centre: 16, Toronto East Detention Centre: 11, Sudbury Jail: 4, South West Detention Centre: 3, Toronto South Detention Centre: 2, Niagara Detention Centre: 2, 
+* Jails with 2+ cases yesterday:  Central East Correctional Centre: 264, Central North Correctional Centre: 49, Sudbury Jail: 18, Ottawa Carleton Detention Centre: 13, Toronto East Detention Centre: 10, Maplehurst Correctional Complex: 5, Toronto South Detention Centre: 4, Niagara Detention Centre: 3, Elgin Middlesex Detention Centre: 3, Kenora Jail: 3, Sarnia Jail: 2, South West Detention Centre: 2, 
 
-**COVID App Stats** - *latest data as of January 24* - [Source](https://data.ontario.ca/dataset/covid-alert-impact-data)
 
-* Positives Uploaded to app in last day/week/month/since launch: 76 / 729 / 11,240 / 43,406 (2.2% / 1.8% / 3.6% / 4.5% of all cases)
-* App downloads in last day/week/month/since launch: 475 / 3,716 / 26,595 / 2,944,326 (50.1% / 46.0% / 44.4% / 42.8% Android share)
 
 **Case fatality rates by age group (last 30 days):**
 
@@ -233,12 +209,12 @@ Age Group|Outbreak-->|CFR %|Deaths|Non-outbreak-->|CFR%|Deaths|
 19 & under||0.00%|0||0.01%|3
 20s||0.00%|0||0.00%|2
 30s||0.00%|0||0.01%|6
-40s||0.21%|7||0.05%|23
-50s||0.32%|9||0.12%|45
-60s||1.96%|35||0.55%|108
-70s||3.85%|55||2.16%|176
-80s||5.02%|119||5.62%|196
-90+||6.98%|132||9.36%|97
+40s||0.17%|6||0.05%|23
+50s||0.33%|10||0.12%|48
+60s||1.86%|35||0.55%|110
+70s||3.96%|61||2.16%|183
+80s||5.07%|130||5.83%|213
+90+||6.84%|140||10.22%|113
 
 
 ------------------------------------------------------------
@@ -247,85 +223,85 @@ Age Group|Outbreak-->|CFR %|Deaths|Non-outbreak-->|CFR%|Deaths|
 
 PHU|Today|Averages-->|Last 7|Prev 7|Totals per 100k-->|Last 7/100k|Prev 7/100k|Active/100k|Ages (day %)->>|<20|20-29|30-49|50-69|70+|Source (day %)->>|Close contact|Community|Outbreak|Travel|
 :-:|--:|--:|--:|--:|:--|--:|--:|--:|:--|--:|--:|--:|--:|--:|:--|--:|--:|--:|--:|
-Total|5368||5830.0|9058.0||274.5|426.5|383.0||14.2|19.7|31.1|21.2|13.9||8.2|68.0|22.2|1.5
-Toronto PHU|891||1018.4|1773.7||228.5|397.9|358.1||13.7|16.0|34.8|21.4|14.4||2.2|75.3|22.3|0.1
-Peel|765||806.7|1347.6||351.6|587.3|460.3||16.9|24.1|27.6|21.0|10.3||8.6|81.6|9.3|0.5
-York|339||428.3|770.4||244.6|440.0|253.1||13.9|16.2|26.5|28.9|13.9||17.1|56.6|18.0|8.3
-Ottawa|323||337.4|401.3||224.0|266.3|322.9||13.3|20.7|29.1|19.5|18.0||13.0|49.5|34.4|3.1
-Simcoe-Muskoka|322||232.9|356.6||271.9|416.3|364.7||13.7|23.9|34.2|17.7|10.6||4.3|69.9|25.8|0.0
-Halton|266||272.6|505.9||308.2|572.0|321.8||13.2|17.7|35.7|16.9|16.9||7.5|67.3|23.7|1.5
-Durham|257||265.7|674.0||260.9|661.9|426.2||17.9|19.1|28.4|24.9|10.5||3.5|75.1|20.2|1.2
-Niagara|214||211.0|307.6||312.6|455.7|452.5||15.0|18.2|31.8|19.2|15.9||0.5|79.0|21.0|-0.5
-Waterloo Region|208||254.7|444.9||305.1|532.9|421.0||9.6|22.6|35.1|14.9|17.8||4.8|71.2|22.6|1.4
-Hamilton|202||292.4|396.9||345.7|469.1|489.9||8.9|22.8|33.2|18.3|16.8||2.5|66.3|31.2|0.0
-London|158||207.3|266.9||285.9|368.1|452.0||7.6|18.4|36.1|17.1|21.5||12.7|76.6|10.1|0.6
-Windsor|155||209.1|321.4||344.6|529.6|473.1||16.1|21.9|31.0|21.9|9.0||11.0|47.7|37.4|3.9
-Kingston|101||59.0|51.1||194.2|168.3|221.4||21.8|25.7|26.7|19.8|5.0||10.9|86.1|2.0|1.0
-Thunder Bay|100||79.9|77.1||372.7|360.1|536.1||27.0|15.0|30.0|20.0|9.0||21.0|58.0|19.0|2.0
-Sudbury|99||108.9|120.1||382.8|422.5|658.1||9.1|28.3|30.3|24.2|8.1||5.1|57.6|37.4|0.0
-Leeds, Grenville, Lanark|85||56.9|49.6||229.8|200.4|342.4||10.6|23.5|35.3|25.9|4.7||4.7|81.2|14.1|0.0
-Wellington-Guelph|84||99.4|140.4||223.1|315.2|322.2||19.0|11.9|41.7|21.4|6.0||8.3|72.6|19.0|0.0
-Eastern Ontario|81||106.1|125.0||356.0|419.3|456.6||7.4|7.4|23.5|38.3|23.5||4.9|66.7|28.4|0.0
-Haliburton, Kawartha|73||77.7|71.0||287.9|263.0|379.5||4.1|13.7|27.4|24.7|30.1||1.4|16.4|82.2|0.0
-Algoma|71||55.3|52.4||338.3|320.8|511.3||18.3|25.4|28.2|21.1|7.0||9.9|81.7|8.5|0.0
-Hastings|69||50.1|59.4||208.3|246.9|338.3||13.0|20.3|33.3|27.5|5.8||11.6|60.9|26.1|1.4
-Chatham-Kent|64||68.0|69.3||447.7|456.2|533.3||14.1|25.0|25.0|17.2|18.8||14.1|67.2|18.8|0.0
-Northwestern|52||47.4|38.0||378.7|303.5|528.2||23.1|30.8|23.1|19.2|1.9||38.5|42.3|13.5|5.8
-Southwestern|51||72.0|92.6||238.3|306.4|361.7||25.5|13.7|25.5|17.6|17.6||27.5|51.0|17.6|3.9
-Haldimand-Norfolk|47||48.4|64.9||297.2|398.0|448.8||10.6|12.8|25.5|23.4|27.7||10.6|53.2|36.2|0.0
-North Bay|44||37.3|38.6||201.1|208.0|183.4||6.8|25.0|38.6|27.3|2.3||11.4|70.5|15.9|2.3
-Porcupine|42||31.0|34.7||260.0|291.2|437.3||16.7|9.5|26.2|14.3|33.3||31.0|21.4|47.6|0.0
-Grey Bruce|40||37.4|51.3||154.2|211.3|144.2||10.0|7.5|40.0|25.0|17.5||20.0|37.5|15.0|27.5
-Renfrew|38||33.1|37.7||213.6|243.1|270.7||2.6|13.2|23.7|23.7|36.8||18.4|23.7|55.3|2.6
-Peterborough|33||41.7|63.4||197.3|300.0|277.7||21.2|21.2|24.2|18.2|15.2||12.1|72.7|15.2|0.0
-Huron Perth|32||42.0|40.9||210.4|204.6|275.5||25.0|18.8|28.1|18.8|9.4||12.5|68.8|18.8|0.0
-Brant|26||62.7|97.4||282.8|439.4|466.5||15.4|15.4|26.9|15.4|26.9||3.8|53.8|42.3|0.0
-Timiskaming|18||8.9|13.9||189.6|296.7|342.6||5.6|22.2|38.9|16.7|16.7||0.0|66.7|27.8|5.6
-Lambton|18||70.1|102.1||374.9|546.0|567.3||5.6|22.2|22.2|22.2|27.8||11.1|66.7|22.2|0.0
+Total|5852||5557.9|8750.6||261.7|412.1|363.8||14.6|17.8|33.5|20.7|13.5||7.4|70.7|20.7|1.2
+Toronto PHU|1014||967.1|1699.1||217.0|381.2|333.1||13.9|16.9|31.7|23.5|13.9||2.5|79.8|17.6|0.2
+Peel|842||783.3|1296.3||341.4|564.9|427.3||16.5|23.6|31.6|21.4|6.8||6.2|85.2|7.8|0.8
+Ottawa|417||354.1|373.6||235.0|247.9|313.7||10.1|23.3|35.3|17.0|14.4||14.6|56.4|25.9|3.1
+York|318||381.9|719.3||218.1|410.8|224.2||18.2|12.9|32.1|26.7|10.7||19.2|57.5|15.4|7.9
+Waterloo Region|284||236.0|437.1||282.7|523.6|393.8||10.2|18.0|33.1|17.6|21.1||1.1|79.2|19.7|0.0
+Durham|261||250.0|612.9||245.5|601.9|393.5||17.6|13.0|36.0|21.5|11.9||2.7|81.6|14.9|0.8
+Hamilton|247||271.4|394.4||320.9|466.3|460.2||15.4|20.6|34.4|21.9|7.7||2.4|74.5|23.1|0.0
+Windsor|234||205.7|302.6||339.0|498.5|459.5||15.0|12.8|37.2|24.4|10.3||10.3|70.9|17.9|0.9
+Niagara|221||196.0|311.0||290.4|460.7|439.6||12.7|10.0|31.2|23.1|23.1||2.3|89.6|8.1|0.0
+London|217||197.7|266.0||272.7|366.9|435.6||15.2|15.2|38.2|15.2|16.1||8.8|60.8|28.6|1.8
+Halton|216||247.6|499.4||279.9|564.7|305.9||17.1|11.1|33.3|16.7|21.8||2.3|72.7|23.6|1.4
+Simcoe-Muskoka|204||211.9|364.7||247.3|425.8|349.9||13.7|20.1|35.8|15.2|15.2||3.9|68.6|27.5|0.0
+Haliburton, Kawartha|129||82.0|73.9||303.8|273.6|397.4||5.4|27.9|55.8|7.8|3.1||0.0|9.3|90.7|0.0
+Eastern Ontario|113||100.7|115.1||337.8|386.2|460.9||13.3|10.6|31.9|32.7|11.5||12.4|38.1|47.8|1.8
+Sudbury|110||104.1|121.3||366.2|426.5|653.0||5.5|17.3|26.4|18.2|32.7||6.4|36.4|57.3|0.0
+Wellington-Guelph|103||94.9|136.7||212.9|306.8|305.2||8.7|16.5|40.8|23.3|11.7||13.6|79.6|6.8|0.0
+Thunder Bay|92||81.0|73.3||378.1|342.1|546.1||22.8|14.1|28.3|21.7|13.0||13.0|60.9|22.8|3.3
+Southwestern|80||74.7|88.4||247.3|292.7|360.3||5.0|13.8|35.0|17.5|28.7||23.8|26.2|45.0|5.0
+Northwestern|77||51.0|42.3||407.3|337.7|565.8||24.7|26.0|20.8|26.0|2.6||9.1|79.2|11.7|0.0
+Lambton|74||64.0|100.7||342.1|538.3|552.1||10.8|20.3|36.5|20.3|12.2||13.5|78.4|8.1|0.0
+Chatham-Kent|69||64.7|72.7||426.1|478.7|521.1||14.5|23.2|29.0|20.3|13.0||5.8|79.7|14.5|0.0
+Brant|67||57.7|95.4||260.3|430.4|449.1||29.9|10.4|31.3|13.4|14.9||1.5|83.6|14.9|0.0
+Haldimand-Norfolk|66||46.0|61.3||282.3|376.0|469.0||18.2|10.6|30.3|27.3|13.6||4.5|66.7|28.8|0.0
+Algoma|56||53.3|54.0||326.0|330.4|524.4||17.9|17.9|30.4|12.5|21.4||14.3|60.7|25.0|0.0
+Hastings|55||44.6|59.9||185.1|248.6|331.7||12.7|18.2|23.6|23.6|21.8||23.6|54.5|21.8|0.0
+Kingston|44||56.9|51.9||187.1|170.7|213.0||18.2|29.5|36.4|11.4|4.5||22.7|56.8|11.4|9.1
+Huron Perth|43||39.9|44.1||199.6|221.1|267.6||34.9|16.3|25.6|20.9|2.3||7.0|74.4|18.6|0.0
+Leeds, Grenville, Lanark|41||54.3|50.0||219.4|202.1|333.8||17.1|9.8|39.0|19.5|14.6||12.2|65.9|22.0|0.0
+Grey Bruce|40||36.4|51.7||150.1|213.1|142.5||15.0|17.5|32.5|22.5|12.5||25.0|65.0|7.5|2.5
+North Bay|36||37.6|38.9||202.7|209.6|178.8||8.3|13.9|47.2|5.6|25.0||0.0|77.8|22.2|0.0
+Renfrew|34||36.7|34.0||236.6|219.1|251.3||14.7|14.7|32.4|8.8|29.4||14.7|44.1|41.2|0.0
+Porcupine|26||28.9|35.7||242.0|299.6|427.8||23.1|7.7|26.9|38.5|3.8||26.9|65.4|7.7|0.0
+Peterborough|21||38.7|59.0||183.1|279.1|251.4||9.5|42.9|42.9|0.0|4.8||14.3|66.7|19.0|0.0
+Timiskaming|1||7.1|13.9||152.9|296.7|321.2||0.0|100.0|0.0|0.0|0.0||0.0|100.0|0.0|0.0
 Regions of Zeroes|0|0.0|0.0|0.0|0.0||||0.0||||||0.0||||
 
 
 
 ------------------------------------------------------------
 
-**[Vaccine coverage by PHU/age group - as of January 26](https://data.ontario.ca/en/dataset/covid-19-vaccine-data-in-ontario) (% at least two/three dosed, chg. week)** -  
+**[Vaccine coverage by PHU/age group - as of January 27](https://data.ontario.ca/en/dataset/covid-19-vaccine-data-in-ontario) (% at least two/three dosed, chg. week)** -  
 
 |**PHU name**|5+ population|12+||05-11yrs|12-17yrs|18-29yrs|30-39yrs|40-49yrs|50-59yrs|60-69yrs|70-79yrs|80+|
 :-:|:-:|:-:|:-:|:-:|:-:|:--|:-:|:-:|:-:|:-:|:-:|:-:|
-**Leeds, Grenville, Lanark**|88.4%/54.2% *(+0.5%/+4.1%)*|94.2%/58.1% *(+0.2%/+4.4%)*||9.3%/0.0% *(+5.0%/+0.0%)*|81.8%/1.8% *(+0.2%/+0.3%)*|82.4%/32.1% *(+0.4%/+3.5%)*|96.4%/43.2% *(+0.4%/+4.6%)*|89.9%/48.9% *(+0.2%/+5.1%)*|87.6%/58.3% *(+0.2%/+5.4%)*|100.0%/79.0% *(+0.0%/+5.8%)*|100.0%/91.0% *(+0.0%/+3.8%)*|100.0%/91.5% *(+0.0%/+2.8%)*|95.2%/62.3% *(+0.2%/+4.7%)*
-**Northwestern**|86.2%/45.9% *(+0.6%/+2.9%)*|94.8%/50.9% *(+0.2%/+3.2%)*||6.9%/0.0% *(+4.0%/+0.0%)*|86.6%/3.4% *(+0.3%/+0.7%)*|93.0%/33.0% *(+0.4%/+2.8%)*|97.7%/43.6% *(+0.4%/+3.6%)*|95.2%/50.2% *(+0.3%/+3.8%)*|90.9%/57.9% *(+0.2%/+3.9%)*|97.3%/72.0% *(+0.1%/+4.2%)*|100.0%/81.5% *(+0.0%/+2.6%)*|99.4%/81.0% *(+0.0%/+2.7%)*|95.6%/55.6% *(+0.2%/+3.5%)*
-**Kingston**|86.1%/56.4% *(+0.7%/+1.7%)*|91.2%/60.5% *(+0.3%/+1.8%)*||17.4%/0.0% *(+6.5%/+0.0%)*|89.6%/2.0% *(+0.2%/+0.2%)*|84.2%/41.7% *(+0.8%/+2.4%)*|87.3%/50.3% *(+0.4%/+2.1%)*|88.8%/58.6% *(+0.2%/+2.0%)*|88.0%/66.0% *(+0.1%/+1.9%)*|98.9%/83.2% *(+0.1%/+1.8%)*|100.0%/88.6% *(+0.1%/+1.3%)*|100.0%/88.6% *(+0.0%/+1.1%)*|91.3%/64.6% *(+0.3%/+1.9%)*
-**City Of Ottawa**|86.1%/51.3% *(+0.7%/+2.2%)*|91.7%/55.7% *(+0.3%/+2.4%)*||21.0%/0.0% *(+5.9%/+0.0%)*|90.7%/1.8% *(+0.3%/+0.2%)*|82.9%/37.9% *(+0.5%/+2.7%)*|88.6%/48.3% *(+0.4%/+2.9%)*|92.7%/57.6% *(+0.2%/+3.0%)*|93.1%/66.4% *(+0.2%/+2.6%)*|97.2%/77.9% *(+0.1%/+2.3%)*|100.0%/87.6% *(+0.0%/+1.6%)*|100.0%/89.8% *(+0.0%/+1.3%)*|91.8%/60.1% *(+0.3%/+2.5%)*
-**London**|85.2%/45.1% *(+0.7%/+4.0%)*|91.7%/49.1% *(+0.2%/+4.4%)*||10.6%/0.0% *(+5.6%/+0.0%)*|90.0%/1.5% *(+0.3%/+0.3%)*|88.7%/31.9% *(+0.7%/+5.1%)*|88.6%/38.7% *(+0.3%/+5.0%)*|91.1%/46.8% *(+0.2%/+5.6%)*|87.8%/56.4% *(+0.1%/+4.4%)*|95.7%/71.9% *(-0.1%/+4.4%)*|100.0%/84.5% *(+0.0%/+3.6%)*|100.0%/86.7% *(+0.0%/+3.0%)*|91.8%/52.9% *(+0.2%/+4.7%)*
-**Durham**|84.5%/42.9% *(+0.7%/+3.6%)*|91.4%/47.0% *(-0.0%/+3.9%)*||12.6%/0.0% *(+9.1%/+0.0%)*|85.8%/1.5% *(+0.1%/+0.2%)*|83.0%/31.0% *(+0.0%/+3.6%)*|92.5%/38.0% *(+0.1%/+5.0%)*|91.3%/45.0% *(-0.1%/+5.4%)*|90.0%/54.8% *(-0.2%/+4.1%)*|96.7%/69.4% *(-0.1%/+4.2%)*|100.0%/81.0% *(+0.0%/+3.1%)*|100.0%/85.8% *(+0.0%/+2.8%)*|92.0%/51.2% *(-0.1%/+4.2%)*
-**Halton**|84.2%/44.8% *(+0.7%/+4.3%)*|91.6%/49.4% *(+0.2%/+4.7%)*||11.3%/0.0% *(+5.2%/+0.0%)*|90.6%/1.4% *(+0.2%/+0.2%)*|82.5%/33.7% *(+0.3%/+5.0%)*|91.1%/42.3% *(+0.4%/+5.9%)*|90.6%/48.0% *(+0.2%/+6.0%)*|92.4%/59.4% *(+0.2%/+5.5%)*|95.4%/70.9% *(+0.2%/+5.1%)*|99.0%/80.9% *(+0.1%/+3.4%)*|100.0%/87.7% *(+0.0%/+3.0%)*|91.7%/54.5% *(+0.2%/+5.2%)*
-**Toronto PHU**|83.9%/42.7% *(+0.5%/+3.1%)*|88.5%/45.6% *(+0.2%/+3.3%)*||16.9%/0.0% *(+4.5%/+0.0%)*|84.6%/1.6% *(+0.3%/+0.2%)*|83.3%/31.0% *(+0.4%/+3.4%)*|83.9%/38.6% *(+0.2%/+3.6%)*|87.5%/45.0% *(+0.2%/+3.8%)*|92.2%/54.5% *(+0.2%/+4.0%)*|96.9%/66.5% *(+0.1%/+3.8%)*|97.8%/75.0% *(+0.1%/+2.9%)*|92.5%/71.2% *(+0.1%/+2.3%)*|88.8%/48.4% *(+0.2%/+3.5%)*
-**Wellington-Guelph**|83.3%/46.0% *(+0.5%/+2.8%)*|89.3%/50.3% *(+0.0%/+3.1%)*||18.5%/0.0% *(+5.0%/+0.0%)*|82.6%/1.6% *(+0.1%/+0.3%)*|80.4%/32.3% *(+0.1%/+2.9%)*|87.6%/40.3% *(+0.1%/+3.4%)*|87.0%/47.5% *(+0.0%/+3.7%)*|88.8%/56.9% *(-0.1%/+3.9%)*|96.6%/73.6% *(-0.0%/+4.0%)*|100.0%/86.9% *(+0.0%/+2.3%)*|100.0%/93.7% *(+0.0%/+1.6%)*|89.9%/54.6% *(+0.0%/+3.3%)*
-**York**|83.0%/43.8% *(+0.6%/+3.3%)*|89.1%/47.7% *(+0.2%/+3.6%)*||13.3%/0.0% *(+4.8%/+0.0%)*|87.1%/1.4% *(+0.3%/+0.2%)*|82.7%/36.5% *(+0.3%/+4.4%)*|87.3%/40.9% *(+0.3%/+4.3%)*|89.6%/46.0% *(+0.2%/+4.8%)*|88.9%/53.8% *(+0.2%/+3.6%)*|92.2%/65.9% *(+0.2%/+3.4%)*|96.6%/75.7% *(+0.1%/+2.7%)*|100.0%/78.6% *(+0.0%/+2.4%)*|89.3%/52.0% *(+0.2%/+3.9%)*
-**Waterloo Region**|82.9%/44.8% *(+0.8%/+2.6%)*|89.1%/48.9% *(+0.3%/+2.8%)*||15.2%/0.0% *(+5.9%/+0.0%)*|84.0%/1.4% *(+0.2%/+0.2%)*|84.5%/34.2% *(+0.6%/+3.1%)*|88.4%/42.5% *(+0.3%/+3.1%)*|87.9%/49.1% *(+0.2%/+3.0%)*|88.0%/57.4% *(+0.1%/+3.0%)*|93.4%/70.9% *(+0.1%/+3.7%)*|98.4%/82.5% *(+0.1%/+2.3%)*|100.0%/87.6% *(+0.0%/+2.5%)*|89.5%/52.9% *(+0.3%/+3.1%)*
-**Peel**|82.9%/33.9% *(+0.5%/+3.4%)*|89.9%/36.9% *(+0.3%/+3.7%)*||4.3%/0.0% *(+2.0%/+0.0%)*|82.2%/0.9% *(+0.3%/+0.1%)*|91.7%/25.3% *(+0.6%/+3.3%)*|84.4%/27.7% *(+0.5%/+3.9%)*|87.0%/34.1% *(+0.2%/+4.5%)*|91.4%/47.7% *(+0.2%/+4.6%)*|95.0%/58.6% *(+0.2%/+4.7%)*|96.4%/67.7% *(+0.2%/+3.5%)*|98.5%/71.0% *(+0.1%/+2.8%)*|90.6%/40.2% *(+0.3%/+4.0%)*
-**Algoma**|82.4%/49.3% *(+0.8%/+2.8%)*|87.2%/53.0% *(+0.3%/+3.0%)*||19.0%/0.0% *(+8.1%/+0.0%)*|79.6%/2.2% *(+0.4%/+0.2%)*|75.0%/29.5% *(+0.5%/+2.5%)*|85.6%/39.2% *(+0.5%/+3.3%)*|85.6%/45.6% *(+0.4%/+3.3%)*|82.8%/53.5% *(+0.2%/+3.6%)*|94.7%/72.6% *(+0.1%/+4.0%)*|97.4%/82.0% *(+0.1%/+2.9%)*|98.2%/82.4% *(+0.0%/+2.2%)*|87.7%/56.5% *(+0.3%/+3.2%)*
-**Thunder Bay**|82.4%/45.5% *(+0.8%/+4.2%)*|88.3%/49.2% *(+0.2%/+4.5%)*||10.1%/0.0% *(+8.0%/+0.0%)*|79.7%/2.4% *(+0.5%/+0.4%)*|79.1%/26.9% *(+0.5%/+4.1%)*|88.5%/38.5% *(+0.3%/+5.5%)*|86.5%/45.1% *(+0.3%/+6.0%)*|86.9%/55.2% *(+0.2%/+5.2%)*|93.3%/69.5% *(+0.1%/+5.1%)*|100.0%/82.6% *(+0.0%/+3.6%)*|100.0%/83.5% *(+0.0%/+3.2%)*|88.9%/52.7% *(+0.2%/+4.8%)*
-**Sudbury**|82.2%/45.4% *(+0.5%/+2.9%)*|88.2%/49.0% *(+0.3%/+3.1%)*||8.0%/0.0% *(+3.7%/+0.0%)*|82.1%/1.9% *(+0.3%/+0.3%)*|78.7%/26.7% *(+0.6%/+2.7%)*|83.4%/33.3% *(+0.5%/+2.8%)*|85.5%/43.0% *(+0.3%/+3.5%)*|86.2%/54.2% *(+0.1%/+3.8%)*|96.3%/71.9% *(+0.0%/+4.2%)*|100.0%/84.9% *(+0.0%/+3.3%)*|100.0%/84.0% *(+0.0%/+2.8%)*|88.6%/52.5% *(+0.3%/+3.4%)*
-**Haliburton, Kawartha**|82.0%/49.0% *(+0.8%/+3.5%)*|86.9%/52.2% *(+0.7%/+3.7%)*||5.8%/0.0% *(+2.6%/+0.0%)*|74.1%/1.6% *(+0.4%/+0.3%)*|76.7%/27.7% *(+0.7%/+3.2%)*|86.5%/34.7% *(+0.9%/+3.6%)*|83.2%/41.3% *(+1.3%/+4.4%)*|80.9%/49.7% *(+0.9%/+4.2%)*|93.3%/69.8% *(+0.5%/+4.4%)*|96.1%/79.6% *(+0.4%/+3.7%)*|100.0%/82.7% *(+0.0%/+3.1%)*|87.8%/55.4% *(+0.7%/+3.9%)*
-**Peterborough**|81.9%/50.8% *(+0.4%/+2.5%)*|87.4%/54.7% *(+0.2%/+2.7%)*||9.6%/0.0% *(+2.3%/+0.0%)*|79.6%/1.6% *(+0.3%/+0.2%)*|74.3%/31.1% *(+0.3%/+3.6%)*|87.6%/43.6% *(+0.4%/+3.1%)*|85.6%/49.5% *(+0.3%/+3.2%)*|81.0%/55.4% *(+0.2%/+2.7%)*|94.6%/74.5% *(+0.1%/+2.9%)*|100.0%/87.1% *(+0.0%/+2.1%)*|100.0%/88.0% *(+0.0%/+1.8%)*|87.9%/58.3% *(+0.2%/+2.9%)*
-**City Of Hamilton**|81.9%/44.1% *(+0.5%/+2.2%)*|87.6%/47.8% *(+0.2%/+2.4%)*||13.9%/0.0% *(+3.8%/+0.0%)*|80.6%/1.3% *(+0.2%/+0.2%)*|82.4%/32.1% *(+0.5%/+2.5%)*|85.3%/39.6% *(+0.3%/+2.5%)*|86.2%/44.2% *(+0.2%/+2.9%)*|86.7%/53.9% *(+0.1%/+2.8%)*|93.0%/68.3% *(+0.1%/+2.8%)*|97.2%/79.1% *(+0.1%/+2.2%)*|98.7%/79.3% *(+0.1%/+2.0%)*|88.1%/51.5% *(+0.2%/+2.6%)*
-**Niagara**|81.6%/44.2% *(+0.6%/+4.2%)*|87.2%/47.6% *(+0.3%/+4.5%)*||8.5%/0.0% *(+4.2%/+0.0%)*|77.1%/1.0% *(+0.3%/+0.2%)*|77.2%/26.6% *(+0.5%/+4.2%)*|87.2%/34.2% *(+0.5%/+5.2%)*|85.5%/40.8% *(+0.3%/+5.6%)*|84.8%/50.5% *(+0.2%/+5.1%)*|94.3%/68.1% *(+0.2%/+5.6%)*|97.2%/79.0% *(+0.1%/+4.3%)*|99.8%/80.9% *(+0.1%/+3.3%)*|88.0%/51.1% *(+0.3%/+4.9%)*
-**Windsor**|81.5%/42.3% *(+0.9%/+1.9%)*|87.4%/45.9% *(+0.5%/+2.0%)*||12.1%/0.0% *(+5.2%/+0.0%)*|78.2%/0.9% *(+0.3%/+0.1%)*|76.8%/27.2% *(+1.3%/+2.7%)*|90.1%/33.3% *(+0.6%/+2.7%)*|87.2%/40.4% *(+0.4%/+2.5%)*|88.0%/52.8% *(+0.2%/+2.1%)*|93.6%/70.1% *(+0.2%/+1.7%)*|98.0%/81.8% *(+0.1%/+1.4%)*|98.8%/81.8% *(+0.0%/+1.1%)*|88.1%/49.8% *(+0.5%/+2.2%)*
-**Eastern Ontario**|81.3%/44.5% *(+0.4%/+4.9%)*|88.0%/48.4% *(+0.2%/+5.3%)*||5.7%/0.0% *(+2.6%/+0.0%)*|79.3%/1.2% *(+0.4%/+0.3%)*|77.0%/25.2% *(+0.4%/+4.2%)*|86.0%/34.0% *(+0.4%/+5.2%)*|85.4%/40.3% *(+0.3%/+6.5%)*|84.6%/51.3% *(+0.2%/+6.6%)*|96.2%/70.8% *(+0.2%/+6.9%)*|99.5%/81.2% *(+0.1%/+5.1%)*|100.0%/83.0% *(+0.0%/+3.8%)*|88.7%/52.2% *(+0.2%/+5.7%)*
-**Brant County**|81.1%/42.9% *(+0.9%/+3.7%)*|87.9%/47.0% *(+0.2%/+4.0%)*||11.0%/0.0% *(+8.3%/+0.0%)*|75.3%/0.9% *(+0.4%/+0.1%)*|79.6%/26.5% *(+0.4%/+4.2%)*|83.8%/34.0% *(+0.4%/+4.5%)*|87.1%/41.4% *(+0.2%/+5.0%)*|86.8%/53.3% *(+0.1%/+5.0%)*|94.8%/70.7% *(+0.0%/+4.4%)*|100.0%/87.0% *(+0.0%/+2.9%)*|100.0%/90.0% *(+0.0%/+3.6%)*|89.1%/51.2% *(+0.2%/+4.4%)*
-**Simcoe-Muskoka**|80.9%/44.0% *(+0.6%/+3.4%)*|86.9%/47.6% *(+0.2%/+3.6%)*||8.6%/0.0% *(+5.5%/+0.0%)*|79.0%/1.7% *(+0.3%/+0.3%)*|77.3%/25.7% *(+0.3%/+3.8%)*|84.6%/33.2% *(+0.3%/+4.4%)*|84.0%/41.2% *(+0.2%/+4.5%)*|83.8%/52.7% *(+0.1%/+3.9%)*|95.9%/71.5% *(+0.1%/+4.0%)*|97.5%/80.6% *(+0.0%/+3.1%)*|100.0%/87.1% *(+0.0%/+2.4%)*|87.5%/51.2% *(+0.2%/+3.9%)*
-**Huron Perth**|80.6%/49.2% *(+0.2%/+2.4%)*|87.1%/53.8% *(+0.1%/+2.6%)*||11.8%/0.0% *(+2.4%/+0.0%)*|72.1%/1.8% *(+0.1%/+0.2%)*|74.2%/29.5% *(+0.2%/+2.5%)*|81.7%/38.1% *(+0.1%/+3.1%)*|81.5%/44.4% *(+0.0%/+3.4%)*|82.7%/55.9% *(+0.0%/+3.0%)*|98.4%/79.0% *(-0.1%/+3.3%)*|100.0%/92.8% *(+0.0%/+2.0%)*|100.0%/93.5% *(+0.0%/+1.9%)*|88.4%/58.3% *(+0.0%/+2.8%)*
-**North Bay**|80.3%/47.9% *(+0.6%/+2.5%)*|85.7%/51.4% *(+0.2%/+2.6%)*||7.4%/0.0% *(+4.7%/+0.0%)*|76.5%/1.3% *(+0.4%/+0.2%)*|72.4%/26.4% *(+0.3%/+1.8%)*|82.0%/35.2% *(+0.4%/+2.6%)*|82.2%/43.7% *(+0.2%/+3.0%)*|81.6%/52.7% *(+0.2%/+3.0%)*|95.2%/73.1% *(+0.2%/+3.6%)*|97.0%/81.5% *(+0.1%/+2.8%)*|100.0%/86.3% *(+0.0%/+2.3%)*|86.3%/54.9% *(+0.2%/+2.8%)*
-**Porcupine**|79.8%/42.0% *(+0.5%/+1.6%)*|86.9%/46.0% *(+0.2%/+1.8%)*||5.4%/0.0% *(+3.0%/+0.0%)*|79.4%/1.9% *(+0.2%/+0.2%)*|77.4%/23.5% *(+0.4%/+1.8%)*|82.3%/30.6% *(+0.6%/+2.0%)*|84.8%/39.6% *(+0.3%/+2.1%)*|86.9%/53.2% *(+0.1%/+2.1%)*|95.2%/71.5% *(+0.1%/+1.9%)*|99.7%/82.7% *(+0.0%/+1.5%)*|100.0%/84.7% *(+0.0%/+1.7%)*|87.6%/49.9% *(+0.2%/+1.9%)*
-**Hastings**|79.6%/49.1% *(+0.6%/+1.9%)*|85.0%/52.9% *(+0.2%/+2.1%)*||9.3%/0.0% *(+5.5%/+0.0%)*|76.8%/1.6% *(+0.3%/+0.3%)*|72.4%/28.3% *(+0.5%/+1.8%)*|76.3%/36.3% *(+0.4%/+2.1%)*|80.4%/44.8% *(+0.2%/+2.5%)*|81.1%/55.1% *(+0.1%/+2.5%)*|96.4%/75.1% *(+0.1%/+2.5%)*|98.3%/83.3% *(+0.0%/+2.0%)*|100.0%/86.3% *(+0.0%/+1.7%)*|85.6%/56.6% *(+0.2%/+2.2%)*
-**Timiskaming**|79.4%/47.4% *(+0.7%/+1.3%)*|85.3%/51.4% *(+0.2%/+1.4%)*||9.0%/0.0% *(+6.0%/+0.0%)*|77.0%/1.4% *(+0.1%/+0.1%)*|75.8%/27.9% *(+0.4%/+1.1%)*|79.0%/35.0% *(+0.3%/+1.5%)*|83.3%/44.5% *(+0.3%/+1.8%)*|81.0%/54.0% *(+0.2%/+1.9%)*|92.0%/70.5% *(+0.1%/+1.4%)*|98.7%/84.2% *(+0.1%/+1.3%)*|100.0%/82.9% *(+0.1%/+1.4%)*|85.9%/55.0% *(+0.2%/+1.5%)*
-**Chatham-Kent**|79.3%/44.6% *(+0.5%/+1.6%)*|85.3%/48.4% *(+0.2%/+1.7%)*||8.8%/0.0% *(+4.4%/+0.0%)*|70.0%/1.2% *(+0.2%/+0.1%)*|73.8%/26.5% *(+0.3%/+1.6%)*|79.3%/30.0% *(+0.3%/+1.9%)*|83.1%/37.7% *(+0.2%/+2.0%)*|82.6%/48.9% *(+0.1%/+2.0%)*|95.7%/72.0% *(+0.1%/+2.0%)*|100.0%/84.7% *(+0.1%/+1.9%)*|100.0%/85.9% *(+0.0%/+1.6%)*|86.6%/52.3% *(+0.2%/+1.9%)*
-**Lambton**|78.0%/42.9% *(+0.5%/+4.7%)*|83.5%/46.4% *(+0.2%/+5.1%)*||12.2%/0.0% *(+4.2%/+0.0%)*|74.7%/1.2% *(+0.4%/+0.2%)*|72.7%/24.3% *(+0.4%/+4.4%)*|82.4%/33.2% *(+0.3%/+5.1%)*|82.3%/38.9% *(+0.2%/+5.7%)*|80.1%/47.1% *(+0.1%/+6.6%)*|88.6%/64.4% *(+0.1%/+7.4%)*|95.9%/80.5% *(+0.0%/+4.1%)*|96.2%/81.0% *(-0.0%/+2.7%)*|84.1%/49.9% *(+0.2%/+5.4%)*
-**Renfrew**|77.8%/44.6% *(+0.5%/+4.5%)*|84.0%/48.5% *(+0.2%/+4.9%)*||7.0%/0.0% *(+3.7%/+0.0%)*|76.3%/1.5% *(+0.3%/+0.3%)*|73.1%/26.3% *(+0.4%/+3.7%)*|69.6%/30.0% *(+0.4%/+4.4%)*|77.6%/39.4% *(+0.3%/+5.3%)*|83.2%/52.0% *(+0.2%/+5.7%)*|97.9%/72.2% *(+0.1%/+6.9%)*|99.5%/80.7% *(+0.0%/+5.5%)*|99.8%/80.8% *(+0.1%/+4.6%)*|84.5%/51.9% *(+0.2%/+5.2%)*
-**Southwestern**|77.7%/41.1% *(+0.6%/+3.7%)*|84.8%/45.2% *(+0.3%/+4.1%)*||6.0%/0.0% *(+3.7%/+0.0%)*|71.5%/1.2% *(+0.2%/+0.2%)*|72.8%/23.3% *(+0.4%/+3.4%)*|82.4%/30.6% *(+0.3%/+4.1%)*|82.6%/37.0% *(+0.3%/+4.9%)*|83.7%/50.1% *(+0.2%/+4.8%)*|94.7%/70.1% *(+0.5%/+5.4%)*|99.2%/82.5% *(+0.4%/+4.4%)*|100.0%/85.4% *(+0.0%/+3.8%)*|86.0%/49.2% *(+0.3%/+4.4%)*
-**Grey Bruce**|77.2%/48.7% *(+0.8%/+2.4%)*|83.1%/52.8% *(+0.5%/+2.6%)*||7.9%/0.0% *(+3.4%/+0.0%)*|71.0%/1.8% *(+0.7%/+0.3%)*|70.1%/28.7% *(+0.7%/+2.5%)*|79.7%/39.2% *(+0.6%/+2.7%)*|83.2%/46.4% *(+0.7%/+3.0%)*|78.5%/53.3% *(+0.5%/+2.9%)*|91.0%/72.4% *(+0.5%/+3.5%)*|95.7%/82.2% *(+0.4%/+2.4%)*|93.5%/78.9% *(+0.3%/+1.9%)*|84.0%/56.5% *(+0.5%/+2.8%)*
-**Haldimand-Norfolk**|77.1%/41.3% *(+0.4%/+2.8%)*|82.8%/44.9% *(+0.2%/+3.0%)*||9.6%/0.0% *(+3.0%/+0.0%)*|64.2%/1.2% *(+0.3%/+0.2%)*|66.6%/20.4% *(+0.3%/+2.7%)*|80.9%/26.7% *(+0.3%/+2.5%)*|82.0%/34.0% *(+0.3%/+3.1%)*|80.6%/45.5% *(+0.2%/+3.4%)*|92.0%/66.2% *(+0.1%/+4.1%)*|98.8%/83.3% *(+0.0%/+3.5%)*|100.0%/87.6% *(+0.0%/+2.3%)*|84.3%/48.3% *(+0.2%/+3.2%)*
+**Leeds, Grenville, Lanark**|88.6%/54.7% *(+0.6%/+3.7%)*|94.3%/58.7% *(+0.2%/+4.0%)*||10.8%/0.0% *(+6.4%/+0.0%)*|81.8%/1.8% *(+0.2%/+0.3%)*|82.5%/32.6% *(+0.4%/+3.4%)*|96.5%/43.8% *(+0.3%/+4.3%)*|89.9%/49.6% *(+0.3%/+4.7%)*|87.6%/59.1% *(+0.1%/+4.8%)*|100.0%/79.8% *(+0.0%/+5.2%)*|100.0%/91.5% *(+0.0%/+3.4%)*|100.0%/91.9% *(+0.0%/+2.7%)*|95.2%/62.9% *(+0.2%/+4.3%)*
+**Northwestern**|86.5%/46.7% *(+0.8%/+3.1%)*|94.8%/51.7% *(+0.3%/+3.4%)*||9.2%/0.0% *(+6.2%/+0.0%)*|86.7%/3.8% *(+0.4%/+0.9%)*|93.2%/33.7% *(+0.4%/+2.9%)*|97.8%/44.3% *(+0.4%/+3.9%)*|95.2%/51.2% *(+0.3%/+4.0%)*|90.9%/58.9% *(+0.2%/+4.1%)*|97.4%/73.0% *(+0.1%/+4.3%)*|100.0%/82.3% *(+0.0%/+3.0%)*|99.4%/81.6% *(+0.0%/+2.9%)*|95.7%/56.5% *(+0.3%/+3.7%)*
+**City Of Ottawa**|86.3%/51.5% *(+0.8%/+2.1%)*|91.8%/56.0% *(+0.3%/+2.3%)*||22.2%/0.0% *(+6.8%/+0.0%)*|90.7%/1.8% *(+0.3%/+0.2%)*|83.0%/38.2% *(+0.6%/+2.7%)*|88.6%/48.7% *(+0.4%/+2.8%)*|92.8%/58.0% *(+0.2%/+2.8%)*|93.1%/66.7% *(+0.2%/+2.4%)*|97.2%/78.2% *(+0.1%/+2.2%)*|100.0%/87.9% *(+0.0%/+1.5%)*|100.0%/90.0% *(+0.0%/+1.2%)*|91.8%/60.4% *(+0.3%/+2.4%)*
+**Kingston**|86.2%/56.6% *(+0.8%/+1.6%)*|91.2%/60.8% *(+0.3%/+1.7%)*||18.6%/0.0% *(+7.2%/+0.0%)*|89.6%/2.0% *(+0.2%/+0.2%)*|84.3%/42.1% *(+0.7%/+2.3%)*|87.3%/50.6% *(+0.3%/+2.0%)*|88.9%/58.9% *(+0.2%/+1.9%)*|88.1%/66.3% *(+0.1%/+1.8%)*|98.9%/83.5% *(+0.1%/+1.5%)*|100.0%/88.8% *(+0.1%/+1.1%)*|100.0%/88.9% *(+0.0%/+1.0%)*|91.3%/64.9% *(+0.3%/+1.8%)*
+**London**|85.4%/45.6% *(+0.9%/+3.7%)*|91.8%/49.5% *(+0.3%/+4.0%)*||12.9%/0.0% *(+7.6%/+0.0%)*|90.0%/1.5% *(+0.3%/+0.3%)*|88.8%/32.5% *(+0.7%/+4.7%)*|88.7%/39.2% *(+0.3%/+4.6%)*|91.1%/47.4% *(+0.3%/+5.1%)*|87.8%/56.8% *(+0.1%/+4.1%)*|95.7%/72.5% *(+0.0%/+4.2%)*|100.0%/84.9% *(+0.0%/+3.4%)*|100.0%/87.0% *(+0.0%/+2.7%)*|91.9%/53.4% *(+0.3%/+4.4%)*
+**Durham**|84.6%/43.2% *(+0.8%/+3.1%)*|91.4%/47.4% *(-0.1%/+3.4%)*||14.0%/0.0% *(+10.2%/+0.0%)*|85.8%/1.5% *(+0.1%/+0.2%)*|83.0%/31.4% *(-0.1%/+3.2%)*|92.5%/38.6% *(+0.0%/+4.4%)*|91.3%/45.5% *(-0.2%/+4.6%)*|89.9%/55.2% *(-0.3%/+3.6%)*|96.6%/69.8% *(-0.2%/+3.6%)*|100.0%/81.3% *(+0.0%/+2.7%)*|100.0%/86.2% *(+0.0%/+2.5%)*|91.9%/51.6% *(-0.1%/+3.7%)*
+**Halton**|84.3%/45.5% *(+0.8%/+3.9%)*|91.6%/50.1% *(+0.2%/+4.3%)*||12.2%/0.0% *(+6.0%/+0.0%)*|90.6%/1.5% *(+0.2%/+0.2%)*|82.5%/34.4% *(+0.3%/+4.6%)*|91.2%/43.1% *(+0.4%/+5.4%)*|90.7%/48.8% *(+0.2%/+5.4%)*|92.4%/60.4% *(+0.2%/+4.9%)*|95.4%/71.7% *(+0.2%/+4.5%)*|99.0%/81.5% *(+0.1%/+3.0%)*|100.0%/88.2% *(+0.0%/+2.5%)*|91.7%/55.3% *(+0.2%/+4.7%)*
+**Toronto PHU**|84.0%/43.1% *(+0.5%/+3.0%)*|88.6%/46.1% *(+0.2%/+3.2%)*||17.6%/0.0% *(+4.6%/+0.0%)*|84.6%/1.6% *(+0.3%/+0.2%)*|83.4%/31.5% *(+0.4%/+3.3%)*|83.9%/39.0% *(+0.3%/+3.5%)*|87.5%/45.5% *(+0.2%/+3.7%)*|92.2%/55.0% *(+0.2%/+3.9%)*|97.0%/67.0% *(+0.1%/+3.7%)*|97.8%/75.4% *(+0.1%/+2.7%)*|92.5%/71.6% *(+0.1%/+2.1%)*|88.8%/48.9% *(+0.2%/+3.4%)*
+**Wellington-Guelph**|83.4%/46.4% *(+0.5%/+2.5%)*|89.3%/50.7% *(-0.0%/+2.7%)*||20.2%/0.0% *(+6.3%/+0.0%)*|82.6%/1.7% *(-0.0%/+0.3%)*|80.3%/32.6% *(+0.1%/+2.6%)*|87.6%/40.7% *(+0.1%/+3.0%)*|87.0%/48.0% *(-0.1%/+3.3%)*|88.7%/57.3% *(-0.1%/+3.5%)*|96.6%/73.9% *(-0.1%/+3.3%)*|100.0%/87.1% *(+0.0%/+2.0%)*|100.0%/93.9% *(+0.0%/+1.4%)*|89.9%/55.0% *(-0.0%/+2.9%)*
+**Waterloo Region**|83.1%/45.1% *(+0.8%/+2.4%)*|89.1%/49.2% *(+0.3%/+2.6%)*||16.2%/0.0% *(+6.6%/+0.0%)*|84.0%/1.4% *(+0.3%/+0.2%)*|84.6%/34.7% *(+0.6%/+3.0%)*|88.4%/43.0% *(+0.3%/+3.0%)*|87.9%/49.5% *(+0.2%/+2.8%)*|88.1%/57.8% *(+0.2%/+2.7%)*|93.4%/71.3% *(+0.1%/+3.3%)*|98.4%/82.8% *(+0.1%/+2.1%)*|100.0%/87.9% *(+0.0%/+2.1%)*|89.6%/53.3% *(+0.3%/+2.8%)*
+**York**|83.0%/44.2% *(+0.6%/+3.0%)*|89.2%/48.1% *(+0.2%/+3.3%)*||13.9%/0.0% *(+5.0%/+0.0%)*|87.2%/1.4% *(+0.3%/+0.2%)*|82.7%/37.0% *(+0.3%/+4.1%)*|87.4%/41.4% *(+0.3%/+4.0%)*|89.7%/46.5% *(+0.2%/+4.4%)*|89.0%/54.3% *(+0.2%/+3.3%)*|92.3%/66.3% *(+0.1%/+3.1%)*|96.6%/76.0% *(+0.1%/+2.4%)*|100.0%/78.9% *(+0.0%/+2.2%)*|89.4%/52.5% *(+0.2%/+3.6%)*
+**Peel**|83.0%/34.3% *(+0.5%/+3.3%)*|89.9%/37.4% *(+0.3%/+3.6%)*||4.8%/0.0% *(+2.5%/+0.0%)*|82.3%/0.9% *(+0.3%/+0.1%)*|91.8%/25.7% *(+0.6%/+3.2%)*|84.5%/28.2% *(+0.4%/+3.9%)*|87.0%/34.7% *(+0.2%/+4.4%)*|91.4%/48.3% *(+0.2%/+4.5%)*|95.1%/59.3% *(+0.2%/+4.6%)*|96.4%/68.1% *(+0.2%/+3.3%)*|98.5%/71.5% *(+0.1%/+2.6%)*|90.6%/40.7% *(+0.3%/+3.9%)*
+**Algoma**|82.5%/49.7% *(+0.9%/+2.7%)*|87.2%/53.4% *(+0.3%/+2.9%)*||19.9%/0.0% *(+8.6%/+0.0%)*|79.7%/2.2% *(+0.4%/+0.2%)*|75.1%/29.8% *(+0.5%/+2.3%)*|85.7%/39.5% *(+0.5%/+3.0%)*|85.7%/46.0% *(+0.4%/+3.1%)*|82.8%/53.9% *(+0.2%/+3.4%)*|94.7%/73.2% *(+0.1%/+4.1%)*|97.5%/82.4% *(+0.1%/+2.9%)*|98.2%/82.7% *(+0.1%/+2.2%)*|87.7%/56.9% *(+0.3%/+3.1%)*
+**Thunder Bay**|82.5%/46.0% *(+0.9%/+3.9%)*|88.3%/49.8% *(+0.2%/+4.2%)*||11.4%/0.0% *(+8.9%/+0.0%)*|79.7%/2.5% *(+0.4%/+0.4%)*|79.1%/27.4% *(+0.5%/+3.8%)*|88.6%/39.1% *(+0.3%/+5.1%)*|86.5%/45.8% *(+0.2%/+5.5%)*|86.9%/55.8% *(+0.2%/+4.8%)*|93.3%/70.1% *(+0.1%/+4.8%)*|100.0%/83.3% *(+0.0%/+3.6%)*|100.0%/84.0% *(+0.0%/+3.2%)*|89.0%/53.3% *(+0.2%/+4.5%)*
+**Sudbury**|82.3%/45.7% *(+0.5%/+2.7%)*|88.2%/49.4% *(+0.2%/+2.9%)*||8.7%/0.0% *(+4.2%/+0.0%)*|82.2%/2.0% *(+0.2%/+0.2%)*|78.8%/27.0% *(+0.5%/+2.5%)*|83.5%/33.8% *(+0.4%/+2.7%)*|85.6%/43.5% *(+0.3%/+3.2%)*|86.2%/54.6% *(+0.1%/+3.5%)*|96.3%/72.4% *(+0.0%/+3.8%)*|100.0%/85.2% *(+0.0%/+2.8%)*|100.0%/84.5% *(+0.0%/+2.7%)*|88.7%/52.9% *(+0.2%/+3.1%)*
+**Haliburton, Kawartha**|82.2%/49.5% *(+1.0%/+3.4%)*|87.1%/52.8% *(+0.8%/+3.6%)*||6.4%/0.0% *(+3.1%/+0.0%)*|74.3%/1.6% *(+0.6%/+0.3%)*|77.1%/28.2% *(+1.0%/+3.1%)*|86.9%/35.4% *(+1.3%/+3.6%)*|83.5%/41.9% *(+1.5%/+4.2%)*|81.1%/50.5% *(+1.1%/+4.2%)*|93.4%/70.5% *(+0.5%/+4.4%)*|96.2%/80.2% *(+0.4%/+3.7%)*|100.0%/83.3% *(+0.0%/+3.2%)*|88.0%/56.1% *(+0.8%/+3.9%)*
+**Peterborough**|82.0%/51.1% *(+0.4%/+2.2%)*|87.4%/54.9% *(+0.2%/+2.3%)*||10.6%/0.0% *(+3.2%/+0.0%)*|79.7%/1.6% *(+0.4%/+0.2%)*|74.3%/31.6% *(+0.3%/+3.2%)*|87.6%/43.9% *(+0.4%/+2.8%)*|85.7%/49.8% *(+0.3%/+2.7%)*|81.0%/55.6% *(+0.2%/+2.3%)*|94.6%/74.8% *(+0.1%/+2.5%)*|100.0%/87.3% *(+0.0%/+1.8%)*|100.0%/88.3% *(+0.0%/+1.7%)*|88.0%/58.6% *(+0.2%/+2.5%)*
+**City Of Hamilton**|82.0%/44.4% *(+0.5%/+2.1%)*|87.6%/48.1% *(+0.2%/+2.2%)*||14.4%/0.0% *(+4.1%/+0.0%)*|80.7%/1.3% *(+0.3%/+0.2%)*|82.5%/32.4% *(+0.5%/+2.4%)*|85.3%/39.9% *(+0.3%/+2.4%)*|86.3%/44.5% *(+0.2%/+2.6%)*|86.8%/54.3% *(+0.1%/+2.6%)*|93.0%/68.6% *(+0.1%/+2.5%)*|97.2%/79.4% *(+0.1%/+2.0%)*|98.7%/79.4% *(+0.1%/+1.8%)*|88.2%/51.8% *(+0.2%/+2.4%)*
+**Niagara**|81.7%/44.6% *(+0.6%/+3.8%)*|87.3%/48.0% *(+0.3%/+4.1%)*||9.2%/0.0% *(+4.7%/+0.0%)*|77.2%/1.0% *(+0.4%/+0.2%)*|77.3%/27.1% *(+0.5%/+3.8%)*|87.2%/34.7% *(+0.5%/+4.7%)*|85.6%/41.4% *(+0.4%/+5.1%)*|84.8%/51.0% *(+0.2%/+4.7%)*|94.3%/68.7% *(+0.2%/+5.0%)*|97.2%/79.5% *(+0.1%/+3.8%)*|99.9%/81.4% *(+0.1%/+3.1%)*|88.0%/51.6% *(+0.3%/+4.4%)*
+**Windsor**|81.6%/42.5% *(+0.8%/+1.7%)*|87.4%/46.1% *(+0.5%/+1.8%)*||12.6%/0.0% *(+5.3%/+0.0%)*|78.2%/0.9% *(+0.3%/+0.1%)*|76.9%/27.5% *(+1.1%/+2.3%)*|90.2%/33.7% *(+0.6%/+2.5%)*|87.2%/40.8% *(+0.3%/+2.3%)*|88.0%/53.0% *(+0.2%/+1.9%)*|93.6%/70.3% *(+0.2%/+1.5%)*|98.1%/82.0% *(+0.1%/+1.1%)*|98.9%/82.0% *(+0.1%/+1.1%)*|88.2%/50.0% *(+0.5%/+1.9%)*
+**Eastern Ontario**|81.4%/45.2% *(+0.5%/+4.6%)*|88.0%/49.2% *(+0.2%/+5.0%)*||6.6%/0.0% *(+3.1%/+0.0%)*|79.4%/1.3% *(+0.5%/+0.4%)*|77.1%/25.7% *(+0.3%/+4.0%)*|86.1%/35.0% *(+0.4%/+5.2%)*|85.4%/41.2% *(+0.2%/+6.2%)*|84.6%/52.1% *(+0.1%/+6.2%)*|96.2%/71.7% *(+0.1%/+6.3%)*|99.5%/81.8% *(+0.1%/+4.7%)*|100.0%/83.4% *(+0.0%/+3.3%)*|88.7%/53.0% *(+0.2%/+5.4%)*
+**Brant County**|81.3%/43.1% *(+1.1%/+2.9%)*|88.0%/47.3% *(+0.2%/+3.2%)*||13.1%/0.0% *(+10.2%/+0.0%)*|75.4%/0.9% *(+0.5%/+0.1%)*|79.7%/26.8% *(+0.4%/+3.4%)*|83.9%/34.3% *(+0.4%/+3.7%)*|87.1%/41.8% *(+0.2%/+3.9%)*|86.8%/53.6% *(+0.1%/+3.9%)*|94.9%/71.0% *(+0.1%/+3.4%)*|100.0%/87.2% *(+0.0%/+2.3%)*|100.0%/90.2% *(+0.0%/+2.9%)*|89.1%/51.5% *(+0.2%/+3.5%)*
+**Simcoe-Muskoka**|81.0%/44.4% *(+0.6%/+2.9%)*|86.9%/48.0% *(+0.2%/+3.2%)*||9.5%/0.0% *(+6.1%/+0.0%)*|79.0%/1.8% *(+0.3%/+0.2%)*|77.3%/26.2% *(+0.3%/+3.5%)*|84.7%/33.7% *(+0.3%/+3.9%)*|84.0%/41.8% *(+0.2%/+4.0%)*|83.8%/53.1% *(+0.1%/+3.5%)*|95.9%/71.9% *(+0.1%/+3.3%)*|97.5%/81.0% *(+0.0%/+2.5%)*|100.0%/87.3% *(+0.0%/+2.0%)*|87.5%/51.7% *(+0.2%/+3.4%)*
+**Huron Perth**|80.6%/49.5% *(+0.2%/+2.1%)*|87.0%/54.2% *(-0.0%/+2.3%)*||12.7%/0.0% *(+2.9%/+0.0%)*|72.0%/1.8% *(+0.1%/+0.1%)*|74.2%/29.9% *(+0.2%/+2.2%)*|81.7%/38.5% *(+0.0%/+2.7%)*|81.5%/44.8% *(-0.0%/+3.1%)*|82.6%/56.2% *(-0.0%/+2.7%)*|98.4%/79.3% *(-0.2%/+2.8%)*|100.0%/93.1% *(+0.0%/+1.8%)*|100.0%/93.8% *(+0.0%/+1.7%)*|88.3%/58.7% *(-0.0%/+2.5%)*
+**North Bay**|80.4%/48.4% *(+0.6%/+2.7%)*|85.8%/52.0% *(+0.3%/+2.9%)*||7.7%/0.0% *(+4.6%/+0.0%)*|76.6%/1.4% *(+0.4%/+0.2%)*|72.5%/26.9% *(+0.4%/+2.0%)*|82.1%/35.9% *(+0.5%/+3.0%)*|82.2%/44.4% *(+0.2%/+3.3%)*|81.6%/53.2% *(+0.2%/+3.3%)*|95.2%/73.7% *(+0.2%/+3.9%)*|97.0%/81.9% *(+0.1%/+3.0%)*|100.0%/86.7% *(+0.0%/+2.3%)*|86.4%/55.5% *(+0.3%/+3.0%)*
+**Porcupine**|79.9%/42.2% *(+0.6%/+1.6%)*|87.0%/46.3% *(+0.2%/+1.7%)*||6.4%/0.0% *(+3.9%/+0.0%)*|79.5%/2.0% *(+0.3%/+0.2%)*|77.5%/23.7% *(+0.4%/+1.7%)*|82.4%/31.1% *(+0.6%/+2.2%)*|84.9%/39.9% *(+0.3%/+2.1%)*|87.0%/53.5% *(+0.1%/+2.0%)*|95.2%/71.9% *(+0.1%/+1.9%)*|99.7%/82.8% *(-0.0%/+1.3%)*|100.0%/85.0% *(+0.0%/+1.5%)*|87.6%/50.1% *(+0.2%/+1.8%)*
+**Timiskaming**|79.7%/47.6% *(+0.9%/+1.1%)*|85.3%/51.6% *(+0.2%/+1.2%)*||13.2%/0.0% *(+9.8%/+0.0%)*|77.0%/1.4% *(+0.0%/+0.1%)*|75.9%/28.1% *(+0.4%/+1.0%)*|79.1%/35.2% *(+0.3%/+1.2%)*|83.3%/44.8% *(+0.1%/+1.7%)*|81.0%/54.2% *(+0.2%/+1.5%)*|92.0%/70.7% *(+0.0%/+1.1%)*|98.7%/84.2% *(+0.1%/+0.9%)*|100.0%/83.0% *(+0.1%/+1.1%)*|85.9%/55.2% *(+0.2%/+1.2%)*
+**Hastings**|79.6%/49.3% *(+0.6%/+1.8%)*|85.0%/53.1% *(+0.2%/+1.9%)*||9.6%/0.0% *(+5.1%/+0.0%)*|76.8%/1.6% *(+0.2%/+0.3%)*|72.5%/28.6% *(+0.5%/+1.7%)*|76.4%/36.5% *(+0.4%/+2.0%)*|80.5%/45.1% *(+0.3%/+2.2%)*|81.1%/55.3% *(+0.1%/+2.2%)*|96.4%/75.4% *(+0.1%/+2.4%)*|98.3%/83.5% *(+0.0%/+1.8%)*|100.0%/86.4% *(+0.0%/+1.5%)*|85.6%/56.8% *(+0.2%/+2.0%)*
+**Chatham-Kent**|79.5%/44.9% *(+0.6%/+1.6%)*|85.4%/48.7% *(+0.2%/+1.8%)*||10.2%/0.0% *(+5.8%/+0.0%)*|70.1%/1.2% *(+0.2%/+0.1%)*|73.9%/26.8% *(+0.4%/+1.7%)*|79.3%/30.4% *(+0.3%/+1.9%)*|83.2%/38.1% *(+0.3%/+2.2%)*|82.7%/49.2% *(+0.1%/+2.1%)*|95.8%/72.4% *(+0.1%/+2.0%)*|100.0%/85.1% *(+0.1%/+1.9%)*|100.0%/86.2% *(+0.0%/+1.4%)*|86.7%/52.7% *(+0.2%/+1.9%)*
+**Lambton**|78.1%/43.8% *(+0.5%/+4.4%)*|83.5%/47.4% *(+0.2%/+4.8%)*||12.8%/0.0% *(+4.5%/+0.0%)*|74.8%/1.3% *(+0.4%/+0.2%)*|72.8%/25.1% *(+0.5%/+4.2%)*|82.4%/33.9% *(+0.3%/+4.6%)*|82.4%/39.8% *(+0.3%/+5.4%)*|80.1%/48.6% *(+0.1%/+6.3%)*|88.6%/65.9% *(+0.1%/+6.8%)*|96.0%/81.4% *(+0.1%/+3.9%)*|96.2%/81.5% *(-0.0%/+2.3%)*|84.2%/50.9% *(+0.2%/+5.1%)*
+**Renfrew**|77.9%/45.1% *(+0.5%/+3.9%)*|84.0%/49.0% *(+0.2%/+4.3%)*||8.0%/0.0% *(+4.1%/+0.0%)*|76.4%/1.5% *(+0.3%/+0.2%)*|73.1%/26.9% *(+0.4%/+3.5%)*|69.6%/30.6% *(+0.4%/+4.0%)*|77.6%/39.9% *(+0.2%/+4.4%)*|83.3%/52.7% *(+0.2%/+4.9%)*|97.9%/72.7% *(+0.1%/+5.7%)*|99.5%/81.2% *(+0.0%/+4.8%)*|99.8%/81.2% *(+0.0%/+4.3%)*|84.5%/52.5% *(+0.2%/+4.6%)*
+**Southwestern**|77.9%/41.6% *(+0.7%/+3.2%)*|84.8%/45.7% *(+0.2%/+3.5%)*||7.8%/0.0% *(+5.3%/+0.0%)*|71.5%/1.3% *(+0.2%/+0.2%)*|72.9%/23.8% *(+0.3%/+3.0%)*|82.5%/31.1% *(+0.2%/+3.5%)*|82.6%/37.5% *(+0.2%/+4.1%)*|83.7%/50.7% *(+0.1%/+4.1%)*|94.7%/70.7% *(+0.3%/+4.5%)*|99.2%/83.1% *(+0.2%/+3.6%)*|100.0%/85.8% *(+0.0%/+3.2%)*|86.0%/49.8% *(+0.2%/+3.8%)*
+**Grey Bruce**|77.5%/49.2% *(+1.0%/+2.4%)*|83.3%/53.3% *(+0.7%/+2.6%)*||9.0%/0.0% *(+4.2%/+0.0%)*|71.2%/1.9% *(+0.8%/+0.2%)*|70.4%/29.3% *(+0.9%/+2.5%)*|79.9%/39.7% *(+0.8%/+2.7%)*|83.4%/46.9% *(+1.0%/+3.1%)*|78.7%/53.9% *(+0.7%/+3.0%)*|91.1%/73.0% *(+0.6%/+3.2%)*|95.8%/82.6% *(+0.5%/+2.3%)*|93.7%/79.3% *(+0.4%/+2.0%)*|84.2%/57.1% *(+0.7%/+2.8%)*
+**Haldimand-Norfolk**|77.1%/41.7% *(+0.5%/+2.4%)*|82.8%/45.2% *(+0.2%/+2.6%)*||10.3%/0.0% *(+3.6%/+0.0%)*|64.2%/1.2% *(+0.3%/+0.2%)*|66.7%/20.8% *(+0.4%/+2.7%)*|80.9%/27.0% *(+0.2%/+2.1%)*|82.0%/34.3% *(+0.3%/+2.8%)*|80.6%/46.0% *(+0.2%/+3.1%)*|92.0%/66.6% *(+0.1%/+3.4%)*|98.8%/83.8% *(+0.0%/+3.0%)*|100.0%/88.0% *(+0.0%/+1.9%)*|84.3%/48.7% *(+0.2%/+2.8%)*
 
 
 ------------------------------------------------------------
@@ -333,25 +309,25 @@ Regions of Zeroes|0|0.0|0.0|0.0|0.0||||0.0||||||0.0||||
 
 
 
-**Canada comparison** - [Source](https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html) - data as of January 25 
+**Canada comparison** - [Source](https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19/epidemiological-economic-research-data.html) - data as of January 26 
 
 Province|Yesterday|Averages->>|Last 7|Prev 7|Per 100k->>|Last 7/100k|Prev 7/100k|Positive % - last 7|Vaccines->>|Vax(day)|To date (per 100)|Weekly vax update->>|% with 1+|% with both|
 :--|--:|:--|--:|--:|:--|--:|--:|--:|:-:|:-:|:-:|--:|--:|--:|
-Canada|14,165||19818.4|28243.6||362.7|516.9|20.8||301,368|198.9||83.38|77.5
+Canada|18,489||19274.4|26789.6||352.8|490.3|20.9||53,449|199.0||83.38|77.5
  ||||||||||||||
-Ontario|3,424||5883.7|9635.0||277.8|454.9|17.2||66,528|203.5||82.93|77.5
-Quebec|2,977||5016.9|6817.1||408.1|554.6|19.5||86,488|200.5||84.89|78.7
-Alberta|2,722||3168.7|5446.7||499.2|858.2|34.8||76,938|184.6||78.59|72.6
-British Columbia|1,711||1944.1|2156.9||261.0|289.5|17.7||39,478|201.5||84.84|78.9
-Saskatchewan|1,049||1258.0|1223.1||746.4|725.7|30.3||1,368|156.7||79.56|73.6
-Manitoba|637||762.6|1071.0||385.8|541.8|31.7||5,239|196.1||81.93|75.4
-Nova Scotia|492||526.1|643.3||371.2|453.9|14.2||11,352|206.5||88.79|81.4
-New Brunswick|350||462.6|373.3||410.3|331.1|18.3||7,086|204.6||86.6|79.2
-Newfoundland|296||354.9|446.6||477.2|600.5|18.0||0|216.1||93.78|86.2
-Prince Edward Island|275||249.9|230.1||1064.4|980.4|208.7||5,961|201.9||88.92|81.9
-Northwest Territories|158||126.6|130.3||1947.1|2004.2|373.8||930|210.7||78.96|71.7
-Yukon|22||33.4|43.1||544.4|702.6|inf||0|208.8||83.25|76.3
-Nunavut|52||31.0|27.0||550.7|479.7|10.3||0|173.5||78.54|62.7
+Ontario|5,368||5830.0|9058.0||275.2|427.7|17.8||79,059|204.0||82.93|77.5
+Quebec|4,150||4735.0|6498.9||385.2|528.7|18.8||86,062|201.5||84.89|78.7
+Alberta|3,341||3097.9|5025.0||488.1|791.7|35.3||19,021|185.0||78.59|72.6
+British Columbia|2,086||1901.1|2124.7||255.2|285.2|17.8||45,195|202.3||84.84|78.9
+Saskatchewan|1,246||1256.1|1246.6||745.3|739.6|30.7||1,846|156.8||79.56|73.6
+Manitoba|625||721.3|991.4||364.9|501.5|31.1||5,917|196.5||81.93|75.4
+Nova Scotia|346||500.3|599.0||353.0|422.7|13.7||15,171|208.1||88.79|81.4
+New Brunswick|520||465.7|393.1||413.1|348.7|19.0||8,029|205.6||86.6|79.2
+Newfoundland|304||325.3|415.3||437.4|558.4|15.8||-207,076|176.3||93.78|86.2
+Prince Edward Island|255||242.9|240.7||1034.6|1025.5|205.6||0|201.9||88.92|81.9
+Northwest Territories|175||131.9|129.3||2028.4|1988.8|403.1||0|210.7||78.96|71.7
+Nunavut|48||35.0|29.4||621.8|522.8|10.4||0|173.5||78.54|62.7
+Yukon|25||32.0|38.1||521.1|621.1|inf||225|209.3||83.25|76.3
 
 
 
@@ -362,42 +338,40 @@ Nunavut|52||31.0|27.0||550.7|479.7|10.3||0|173.5||78.54|62.7
 
 LTC_Home|City|Beds|New LTC cases|Current Active Cases|
 :--|:--|--:|--:|--:|
-Pinehaven Nursing Home|Waterloo|84|27.5|25.0
-Caressant Care Fergus Nursing Home|Fergus|87|23.0|23.0
-Terrace Lodge|Aylmer|100|19.0|19.0
-Cummer Lodge|North York|391|13.0|22.0
-Bonnechere Manor|Renfrew|180|12.0|12.0
-The Villa Care Centre|Midland|114|10.0|33.0
-The Village of Taunton Mills|Whitby|120|9.5|16.0
-Hillcrest Village Care Centre|Midland|164|9.5|12.0
-Residence Prescott et Russell|Hawkesbury|146|8.0|22.0
-Rockcliffe Care Community|Scarborough|204|7.0|39.0
-Idlewyld Manor|Hamilton|192|6.5|9.0
-Westside|Etobicoke|242|5.5|6.0
-Southbridge Pinewood|Thunder Bay|128|5.0|10.0
-Extendicare Bayview|North York|205|5.0|5.0
-LaPointe-Fisher Nursing Home|Guelph|92|4.5|7.0
+F.J. Davey Home|Sault Ste. Marie|374|20.5|18.0
+Au Chateau|Sturgeon Falls|162|18.0|18.0
+Chartwell Aurora Long Term Care Residence|Aurora|235|18.0|17.0
+St. Andrew's Terrace Long Term Care Community|Cambridge|128|17.0|27.0
+Granite Ridge Care Community|Stittsville|224|15.0|15.0
+Seven Oaks|Scarborough|249|12.0|11.0
+Victoria Gardens Long Term Care|Hamilton|76|11.5|14.0
+Extendicare Rouge Valley|Toronto|192|9.0|14.0
+Glen Hill Strathaven|Bowmanville|158|9.0|24.0
+Hogarth Riverview Manor|Thunder Bay|543|7.5|10.0
+Arbour Creek Long-Term Care Centre|Hamilton|129|6.5|24.0
+Chartwell Trilogy Long Term Care Residence|Scarborough|197|5.5|8.0
+Maple Villa Long Term Care Centre|Burlington|93|5.0|5.0
+Camilla Care Community|Mississauga|236|5.0|11.0
+Providence Healthcare|Scarborough|288|5.0|10.0
+Chartwell Westbury Long Term Care Residence|Etobicoke|187|5.0|11.0
+Cooksville Care Centre|Mississauga|192|5.0|5.0
 
 **LTC Deaths today:** - this section is reported by the Ministry of LTC and the data may not reconcile with the LTC data above because that is published by the MoH.
 
 LTC_Home|City|Beds|Today's Deaths|All-time Deaths|
 :--|:--|:--|--:|--:|
-Muskoka Landing|Huntsville|94.0|3.5|6.0
-Caressant Care Lindsay Nursing Home|Lindsay|124.0|2.5|2.5
-Pinehaven Nursing Home|Waterloo|84.0|2.5|2.5
-Extendicare York|Sudbury|288.0|2.5|5.0
-Trillium Villa Nursing Home|Sarnia|152.0|2.5|2.5
-Terrace Lodge|Aylmer|100.0|2.5|2.5
-The Village of Taunton Mills|Whitby|120.0|2.5|2.5
-Riverview Manor Nursing Home|Peterborough|124.0|2.5|2.5
-Chartwell Brant Centre Long Term Care Residence|Burlington|175.0|2.0|7.0
-Westside|Etobicoke|242.0|2.0|52.0
-Pinecrest (Plantagenet)|Plantagenet|60.0|1.0|12.0
-Kennedy Lodge|Scarborough|289.0|1.0|43.0
-Rockcliffe Care Community|Scarborough|204.0|1.0|24.0
-Rosebridge Manor|Jasper|78.0|1.0|6.0
-Extendicare Mississauga|Mississauga|140.0|1.0|12.0
-The Jewish Home for the Aged|North York|472.0|1.0|11.0
+Chartwell Aurora Long Term Care Residence|Aurora|235.0|8.0|19.0
+Silverthorn Care Community|Mississauga|160.0|2.5|2.5
+Arbour Creek Long-Term Care Centre|Hamilton|129.0|2.5|2.5
+F.J. Davey Home|Sault Ste. Marie|374.0|2.5|2.5
+Victoria Gardens Long Term Care|Hamilton|76.0|2.5|2.5
+Seven Oaks|Scarborough|249.0|1.0|42.0
+Copernicus Lodge|Toronto|228.0|1.0|23.0
+Chartwell Westbury Long Term Care Residence|Etobicoke|187.0|1.0|27.0
+Allendale|Milton|200.0|1.0|29.0
+Tendercare Living Centre|Scarborough|254.0|1.0|82.0
+St. Joseph's Villa, Dundas|Dundas|425.0|1.0|10.0
+Extendicare Guildwood|Scarborough|169.0|1.0|49.0
 
 
 
@@ -405,119 +379,80 @@ The Jewish Home for the Aged|North York|472.0|1.0|11.0
 
 |Reporting_PHU|Age_Group|Client_Gender|Case_AcquisitionInfo|Case_Reported_Date|Episode_Date|Count| 
 :--|:--|:--|:--|:--|:--|--:|
-Durham|40s|MALE|Outbreak|2022-01-14|2022-01-07|1
-Durham|40s|MALE|Community|2022-01-14|2022-01-07|-1
-London|40s|MALE|Community|2022-01-20|2022-01-20|-1
-Thunder Bay|40s|MALE|Outbreak|2021-03-05|2021-03-03|1
-Halton|50s|MALE|Community|2022-01-22|2022-01-21|1
-Huron Perth|50s|MALE|Community|2022-01-12|2022-01-11|1
-Eastern Ontario|60s|MALE|Outbreak|2022-01-06|2022-01-03|1
-Grey Bruce|60s|MALE|Community|2022-01-25|2022-01-25|1
-Haliburton, Kawartha|60s|FEMALE|Outbreak|2022-01-07|2022-01-07|1
-Hamilton|60s|MALE|Close contact|2022-01-04|2022-01-04|1
-Lambton|60s|FEMALE|Close contact|2022-01-18|2022-01-17|1
-North Bay|60s|MALE|Close contact|2022-01-23|2022-01-18|1
-Sudbury|60s|FEMALE|Outbreak|2022-01-22|2022-01-21|1
-Thunder Bay|60s|FEMALE|Community|2022-01-13|2022-01-12|1
-Toronto PHU|60s|FEMALE|Community|2022-01-12|2021-12-30|1
-Windsor|60s|MALE|Community|2022-01-15|2022-01-15|1
-Windsor|60s|FEMALE|Outbreak|2022-01-20|2022-01-19|1
-York|60s|MALE|Community|2022-01-10|2022-01-02|1
-York|60s|MALE|Community|2022-01-09|2022-01-06|1
-York|60s|MALE|Community|2022-01-09|2022-01-09|-1
-York|60s|MALE|Community|2022-01-04|2022-01-02|1
-York|60s|FEMALE|Close contact|2022-01-13|2022-01-08|1
-York|60s|FEMALE|Community|2022-01-12|2022-01-04|1
-York|60s|FEMALE|Community|2022-01-12|2022-01-10|-1
-Chatham-Kent|70s|MALE|Community|2022-01-18|2022-01-17|1
-Halton|70s|MALE|Outbreak|2022-01-10|2022-01-10|1
-Hamilton|70s|MALE|Outbreak|2022-01-14|2022-01-12|1
-Hamilton|70s|MALE|Community|2022-01-10|2022-01-10|1
-Hamilton|70s|FEMALE|Community|2022-01-18|2022-01-17|1
-Hamilton|70s|FEMALE|Outbreak|2022-01-13|2022-01-11|1
-Hastings|70s|MALE|Outbreak|2022-01-19|2022-01-19|1
-Hastings|70s|FEMALE|Community|2022-01-03|2022-01-03|1
-London|70s|MALE|Outbreak|2022-01-05|2022-01-03|1
-Niagara|70s|MALE|Community|2022-01-22|2022-01-21|1
-Peel|70s|MALE|Community|2022-01-21|2022-01-12|1
-Peel|70s|MALE|Close contact|2022-01-15|2022-01-10|1
-Peterborough|70s|MALE|Community|2022-01-12|2022-01-12|1
-Simcoe-Muskoka|70s|FEMALE|Close contact|2022-01-13|2022-01-05|1
-Sudbury|70s|MALE|Outbreak|2022-01-15|2022-01-13|1
-Toronto PHU|70s|MALE|Community|2022-01-18|2022-01-18|1
-Toronto PHU|70s|MALE|Community|2022-01-08|2022-01-07|1
-Toronto PHU|70s|MALE|Community|2022-01-01|2021-12-31|1
-Waterloo Region|70s|FEMALE|Outbreak|2022-01-01|2021-12-30|1
-Windsor|70s|FEMALE|Community|2022-01-24|2022-01-21|1
-Windsor|70s|FEMALE|Outbreak|2022-01-14|2022-01-10|1
-York|70s|FEMALE|Community|2022-01-14|2022-01-11|1
-Algoma|80s|MALE|Community|2022-01-17|2022-01-16|1
-Brant|80s|FEMALE|Outbreak|2022-01-05|2022-01-05|1
-Eastern Ontario|80s|MALE|Outbreak|2022-01-11|2022-01-10|1
-Eastern Ontario|80s|FEMALE|Outbreak|2022-01-20|2022-01-18|1
-Eastern Ontario|80s|FEMALE|Community|2022-01-20|2022-01-18|-1
-Halton|80s|MALE|Community|2022-01-19|2022-01-19|1
-Hamilton|80s|MALE|Community|2022-01-17|2022-01-17|1
-Hastings|80s|FEMALE|Community|2022-01-13|2022-01-12|1
-Niagara|80s|FEMALE|Community|2022-01-22|2022-01-21|1
-Ottawa|80s|MALE|Community|2022-01-16|2022-01-14|1
-Ottawa|80s|FEMALE|Outbreak|2022-01-20|2022-01-18|1
-Ottawa|80s|FEMALE|Community|2022-01-20|2022-01-18|-1
-Peel|80s|MALE|Outbreak|2022-01-09|2022-01-02|1
-Peel|80s|MALE|Community|2022-01-04|2021-12-30|1
-Peel|80s|MALE|Community|2022-01-03|2021-12-31|1
-Peel|80s|MALE|Community|2022-01-01|2021-12-30|1
-Peel|80s|FEMALE|Outbreak|2022-01-23|2022-01-21|1
-Porcupine|80s|FEMALE|Community|2022-01-17|2022-01-17|1
-Simcoe-Muskoka|80s|FEMALE|Outbreak|2022-01-15|2022-01-14|1
-Southwestern|80s|MALE|Community|2022-01-17|2022-01-14|1
-Sudbury|80s|MALE|Outbreak|2022-01-13|2022-01-12|1
-Toronto PHU|80s|MALE|Community|2022-01-15|2022-01-13|1
-Toronto PHU|80s|MALE|Outbreak|2022-01-14|2022-01-10|1
-Toronto PHU|80s|MALE|Community|2022-01-07|2022-01-06|1
-Toronto PHU|80s|MALE|Outbreak|2022-01-03|2022-01-01|1
-Toronto PHU|80s|MALE|Community|2021-12-26|2021-12-26|1
-Toronto PHU|80s|FEMALE|Community|2022-01-22|2022-01-21|1
-Toronto PHU|80s|FEMALE|Community|2022-01-21|2022-01-20|1
-Waterloo Region|80s|MALE|Outbreak|2022-01-14|2022-01-07|1
-Waterloo Region|80s|FEMALE|Community|2022-01-09|2022-01-08|1
-York|80s|MALE|Community|2022-01-12|2021-12-31|1
-York|80s|MALE|Community|2022-01-12|2022-01-06|1
-York|80s|MALE|Community|2022-01-07|2022-01-01|1
-York|80s|FEMALE|Community|2022-01-16|2022-01-08|1
-York|80s|FEMALE|Community|2022-01-16|2022-01-13|-1
-York|80s|FEMALE|Close contact|2022-01-12|2022-01-09|1
-York|80s|FEMALE|Close contact|2022-01-12|2022-01-12|-1
-Chatham-Kent|90+|FEMALE|Outbreak|2022-01-22|2022-01-19|1
-Chatham-Kent|90+|FEMALE|Outbreak|2022-01-15|2022-01-13|1
-Durham|90+|MALE|Outbreak|2022-01-07|2022-01-07|1
-Eastern Ontario|90+|FEMALE|Outbreak|2022-01-06|2022-01-03|1
-Halton|90+|MALE|Community|2022-01-17|2022-01-14|1
-Halton|90+|MALE|Outbreak|2022-01-09|2022-01-01|1
-Hamilton|90+|MALE|Outbreak|2022-01-19|2022-01-11|-1
-Niagara|90+|MALE|Outbreak|2022-01-08|2022-01-07|1
-Ottawa|90+|MALE|Community|2022-01-20|2022-01-19|1
-Ottawa|90+|MALE|Outbreak|2022-01-11|2022-01-10|1
-Peel|90+|FEMALE|Close contact|2022-01-03|2021-12-31|1
-Peel|90+|FEMALE|Community|2021-12-30|2021-12-26|1
-Simcoe-Muskoka|90+|MALE|Community|2022-01-12|2022-01-07|1
-Simcoe-Muskoka|90+|FEMALE|Community|2022-01-22|2022-01-21|1
-Simcoe-Muskoka|90+|FEMALE|Outbreak|2022-01-14|2022-01-11|1
-Southwestern|90+|FEMALE|Outbreak|2022-01-19|2022-01-18|1
-Sudbury|90+|MALE|Outbreak|2022-01-19|2022-01-18|1
-Toronto PHU|90+|MALE|Community|2022-01-20|2022-01-19|1
-Toronto PHU|90+|MALE|Community|2022-01-19|2022-01-18|1
-Toronto PHU|90+|MALE|Outbreak|2022-01-18|2022-01-17|1
-Toronto PHU|90+|MALE|Community|2022-01-15|2022-01-14|1
-Toronto PHU|90+|FEMALE|Community|2022-01-19|2022-01-10|1
-Toronto PHU|90+|FEMALE|Community|2022-01-19|2022-01-19|-1
-Toronto PHU|90+|FEMALE|Outbreak|2022-01-18|2022-01-14|1
-Toronto PHU|90+|FEMALE|Community|2022-01-17|2022-01-16|1
-Toronto PHU|90+|FEMALE|Outbreak|2021-12-31|2021-12-24|1
-Toronto PHU|90+|FEMALE|Outbreak|2021-12-31|2021-12-31|-1
-Waterloo Region|90+|MALE|Community|2022-01-21|2022-01-20|1
-Windsor|90+|MALE|Community|2022-01-14|2022-01-13|1
-York|90+|MALE|Community|2022-01-22|2022-01-21|1
-York|90+|FEMALE|Community|2022-01-21|2022-01-21|1
-York|90+|FEMALE|Community|2022-01-06|2021-12-30|1
-York|90+|FEMALE|Community|2022-01-06|2022-01-04|-1
+Thunder Bay|40s|MALE|Outbreak|2021-03-05|2021-03-03|-1
+Eastern Ontario|50s|FEMALE|Community|2022-01-18|2022-01-17|1
+London|50s|MALE|Community|2022-01-04|2022-01-04|1
+Simcoe-Muskoka|50s|FEMALE|Outbreak|2022-01-19|2022-01-19|1
+York|50s|MALE|Community|2022-01-15|2022-01-14|1
+Hamilton|60s|MALE|Close contact|2022-01-04|2022-01-04|-1
+Peel|60s|MALE|Community|2022-01-09|2022-01-02|1
+Thunder Bay|60s|FEMALE|Community|2022-01-13|2022-01-12|-1
+Toronto PHU|60s|MALE|Community|2022-01-20|2022-01-20|1
+Toronto PHU|60s|MALE|Community|2022-01-08|2022-01-08|1
+Toronto PHU|60s|FEMALE|Community|2022-01-17|2022-01-16|1
+Durham|70s|FEMALE|Community|2022-01-24|2022-01-23|1
+Kingston|70s|MALE|Community|2021-11-26|2021-11-20|1
+Lambton|70s|FEMALE|Community|2022-01-07|2022-01-05|1
+London|70s|MALE|Close contact|2021-10-23|2021-10-20|1
+Niagara|70s|MALE|Community|2022-01-24|2022-01-23|1
+North Bay|70s|MALE|Outbreak|2022-01-11|2022-01-11|1
+Ottawa|70s|FEMALE|Outbreak|2022-01-19|2022-01-17|1
+Ottawa|70s|FEMALE|Community|2022-01-07|2022-01-06|1
+Southwestern|70s|MALE|Community|2022-01-24|2022-01-24|1
+Toronto PHU|70s|MALE|Outbreak|2022-01-18|2022-01-17|1
+Toronto PHU|70s|MALE|Community|2022-01-05|2022-01-03|1
+Toronto PHU|70s|MALE|Outbreak|2022-01-04|2021-12-30|1
+Toronto PHU|70s|FEMALE|Community|2022-01-05|2022-01-04|1
+Brant|80s|MALE|Community|2022-01-12|2022-01-12|1
+Chatham-Kent|80s|FEMALE|Outbreak|2022-01-09|2022-01-07|1
+Durham|80s|FEMALE|Outbreak|2022-01-22|2022-01-19|1
+Eastern Ontario|80s|FEMALE|Community|2022-01-19|2022-01-17|1
+Halton|80s|FEMALE|Outbreak|2022-01-18|2022-01-15|1
+Halton|80s|FEMALE|Outbreak|2021-12-31|2021-12-30|1
+London|80s|MALE|Outbreak|2022-01-21|2022-01-12|1
+London|80s|MALE|Outbreak|2022-01-17|2022-01-16|1
+London|80s|MALE|Outbreak|2022-01-12|2022-01-10|1
+London|80s|MALE|Community|2022-01-01|2021-12-31|1
+London|80s|FEMALE|Community|2022-01-09|2022-01-06|1
+London|80s|FEMALE|Outbreak|2022-01-06|2022-01-05|1
+Niagara|80s|FEMALE|Outbreak|2022-01-06|2022-01-06|1
+Ottawa|80s|FEMALE|Outbreak|2022-01-16|2022-01-15|1
+Peel|80s|MALE|Close contact|2022-01-08|2022-01-01|1
+Peterborough|80s|MALE|Community|2022-01-21|2022-01-20|1
+Simcoe-Muskoka|80s|FEMALE|Outbreak|2022-01-13|2022-01-12|1
+Toronto PHU|80s|MALE|Community|2022-01-24|2022-01-21|1
+Toronto PHU|80s|MALE|Outbreak|2022-01-16|2022-01-15|1
+Toronto PHU|80s|MALE|Community|2022-01-15|2022-01-15|1
+Toronto PHU|80s|MALE|Community|2022-01-11|2022-01-11|1
+Toronto PHU|80s|MALE|Community|2022-01-10|2022-01-10|1
+Toronto PHU|80s|MALE|Outbreak|2022-01-09|2022-01-08|1
+Waterloo Region|80s|UNSPECIFIED|Community|2022-01-21|2022-01-11|1
+Windsor|80s|FEMALE|Community|2022-01-25|2022-01-24|1
+York|80s|MALE|Close contact|2022-01-15|2022-01-06|1
+York|80s|MALE|Community|2022-01-13|2022-01-10|1
+York|80s|MALE|Community|2022-01-13|2022-01-11|1
+Brant|90+|FEMALE|Community|2022-01-17|2022-01-17|1
+Grey Bruce|90+|FEMALE|Close contact|2022-01-21|2022-01-19|1
+Grey Bruce|90+|FEMALE|Outbreak|2022-01-18|2022-01-17|1
+Halton|90+|MALE|Community|2022-01-16|2022-01-16|1
+Halton|90+|FEMALE|Outbreak|2022-01-11|2022-01-09|1
+Hastings|90+|FEMALE|Outbreak|2022-01-11|2022-01-10|2
+Lambton|90+|MALE|Community|2022-01-15|2022-01-13|1
+Ottawa|90+|MALE|Community|2022-01-21|2022-01-20|1
+Ottawa|90+|FEMALE|Outbreak|2022-01-11|2022-01-05|1
+Peel|90+|FEMALE|Community|2021-12-22|2021-12-17|1
+Peterborough|90+|FEMALE|Outbreak|2022-01-14|2022-01-12|1
+Peterborough|90+|FEMALE|Outbreak|2022-01-14|2022-01-13|1
+Renfrew|90+|FEMALE|Outbreak|2022-01-05|2022-01-03|-1
+Simcoe-Muskoka|90+|FEMALE|Community|2022-01-20|2022-01-12|1
+Toronto PHU|90+|MALE|Community|2022-01-21|2022-01-19|1
+Toronto PHU|90+|MALE|Community|2022-01-12|2022-01-12|1
+Toronto PHU|90+|MALE|Community|2022-01-10|2022-01-10|1
+Toronto PHU|90+|MALE|Community|2022-01-07|2022-01-06|1
+Toronto PHU|90+|MALE|Community|2022-01-05|2022-01-04|1
+Toronto PHU|90+|FEMALE|Community|2022-01-22|2022-01-22|1
+Toronto PHU|90+|FEMALE|Outbreak|2022-01-15|2022-01-13|1
+Toronto PHU|90+|FEMALE|Community|2022-01-15|2022-01-11|1
+Toronto PHU|90+|FEMALE|Outbreak|2022-01-13|2022-01-12|1
+Toronto PHU|90+|FEMALE|Community|2022-01-13|2022-01-08|1
+Toronto PHU|90+|FEMALE|Community|2022-01-09|2022-01-08|1
