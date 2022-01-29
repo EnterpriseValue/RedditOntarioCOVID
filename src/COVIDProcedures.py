@@ -4108,6 +4108,7 @@ def LTCData():
     DisplayDF = DisplayDF.set_index('LTC_Home')
 
     DeathDisplayDF = DisplayDF.copy()
+    DeathDisplayDF['Beds'] = DeathDisplayDF['Beds'].astype(int)
     DeathDisplayDF = DeathDisplayDF.merge(newLTCDeaths[newLTCDeaths.columns[0]],how = 'inner',left_index = True,right_index=True)
     DeathDisplayDF = DeathDisplayDF.merge(pivotLTCDeaths[pivotLTCDeaths.columns[0]],how = 'inner',left_index = True,right_index=True)
     DeathDisplayDF = DeathDisplayDF.sort_values(by = "Today's Deaths",ascending = False)
@@ -5144,6 +5145,28 @@ def VaccineData_HospData():
 
 def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
                           VariantPage='13'):
+    """
+    Extract age, hospitalization data and variant data from the daily pdf file.
+
+
+    Parameters
+    ----------
+    fileDate : String
+        date of the odf file in the 2022-01-01 format.
+    fileName : TYPE, optional
+        DESCRIPTION. The default is None.
+    AgePage : TYPE, optional
+        DESCRIPTION. The default is '3'.
+    HospPage : TYPE, optional
+        DESCRIPTION. The default is '7'.
+    VariantPage : TYPE, optional
+        DESCRIPTION. The default is '13'.
+
+    Returns
+    -------
+    None.
+
+    """
     starttime = time.time()
     print('------------------------------------------------------------------------')
     print(f'DailyReportExtraction \nStarted: {datetime.datetime.now():%Y-%m-%d %H:%M:%S}')
@@ -5444,11 +5467,11 @@ def school_absenteeism():
     df.to_pickle('Pickle/SchoolAbsenteeism-List.pickle')
 
     sys.stdout = open(school_absenteeism_filename, 'w', encoding='utf-8')
-    if (df.index.max() + pd.Timedelta(days=2) >= TODAYS_DATE_GLOBAL):
+    if (df.index.max() + pd.Timedelta(days=3) >= TODAYS_DATE_GLOBAL):
         print(f"* The median school has {median_absent:.0%} of students/staff absent.",
               f"The interquartile range is {lower_quartile:.0%} to {upper_quartile:.0%} ")
     else:
-        print("No school absenteeism data reported.")
+        print("* No school absenteeism data reported.")
     sys.stdout = ConsoleOut
 
     endtime = datetime.datetime.now()
