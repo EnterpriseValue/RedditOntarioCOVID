@@ -1278,6 +1278,8 @@ def DailyReports_Compile():
     import subprocess
 
     child = subprocess.Popen(['notepad', 'TextFileOutput.txt'])
+    child = subprocess.Popen(['notepad', 'TextOutput/PostTitle.txt'])
+
     # child.kill()
     endTime = datetime.datetime.now()
     print(f'DailyReports_Compile Ended:   {endTime:%Y-%m-%d %H:%M:%S} {(endTime - starttime).total_seconds():.2f} seconds')
@@ -5377,7 +5379,7 @@ def icu_capacity_stats():
     print()
     print(f"* Total COVID/non-COVID ICU patients: {icu_covid_count:,.0f} / {icu_noncovid_count:,.0f}",
           f"({icu_covid_count_wkchange:+.0f}/ {icu_noncovid_count_wkchange:+.0f})")
-    print(f"* Total avail ICU capacity for ALL: {available_icu_all} ({available_icu_all_wkchange})")
+    print(f"* Total avail ICU capacity for ALL: {available_icu_all} ({available_icu_all_wkchange+:.0f})")
     print(f"* Total ICU capacity: {total_icu_capacity:,.0f}")
     sys.stdout = ConsoleOut
     endtime = datetime.datetime.now()
