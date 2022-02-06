@@ -10,3 +10,4 @@ SourceFiles
 **/__pycache__/
 *.pyc
 EVHelper.py
+*.bak

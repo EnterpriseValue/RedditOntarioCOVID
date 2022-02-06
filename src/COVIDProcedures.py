@@ -181,7 +181,7 @@ def DailyReports_Individual(FileNameIn):
     if os.path.exists('PickleNew/ChangeInCasesByPHU.pickle'):
         tempDF = pd.read_pickle('PickleNew/ChangeInCasesByPHU.pickle')
         tempDF = tempDF.merge(changeInCasesByPHU[TodaysDate], left_index=True, right_index=True,
-                              how='outer', suffixes=('drop', None) )
+                              how='outer', suffixes=('drop', None))
         tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)], axis=1)
         changeInCasesByPHU = tempDF
 
@@ -226,7 +226,7 @@ def DailyReports_Individual(FileNameIn):
                                                                - pd.DateOffset(days=7))], values='Row_ID',
                                               index=['Reporting_PHU'], columns='Age_Group',
                                               aggfunc=np.count_nonzero, margins=False).fillna(0)).fillna(0)
-    changeInAgesByPHUWeek.rename(columns = {'19 & under': '<20', 'Unknown': 'N/A'},  inplace=True)
+    changeInAgesByPHUWeek.rename(columns={'19 & under':'<20', 'Unknown': 'N/A'}, inplace=True)
 
     ############################################################################################
     ############################################################################################
@@ -1753,7 +1753,6 @@ def DailyReports():
         tempDataFrame.to_csv(f,header = True)
         f.write('\n')
 
-
     with open('PivotTable.csv', 'a',newline='') as f:
         f.write("Table 3 - How long ago do  the day's new cases relate to? \n")
         changeInReportingLag.iloc[1:31,:].to_csv(f,header = True)
@@ -1762,8 +1761,6 @@ def DailyReports():
 
     changeInReportingLag = changeInReportingLag.fillna(0)
     changeInReportingLag.to_pickle('Pickle/Tab2Table3CasesByEpisodeDate.pickle')
-
-
 
 
     casesByEpisodeDate = pd.pivot_table(MasterDataFrame,values = 'Row_ID',index = ['Episode_Date'],columns = 'File_Date',aggfunc=np.count_nonzero, margins = False)
@@ -1931,10 +1928,10 @@ def TorontoCOVID():
     print('------------------------------------------------------------------------')
     print(f'TorontoCOVID \nStarted: {datetime.datetime.now():%Y-%m-%d %H:%M:%S}')
     starttime = time.time()
-    dateRange = pd.date_range(start='2020-02-01', end='2021-12-01', freq="m")
+    dateRange = pd.date_range(start='2020-02-01', end='2022-01-01', freq="m")
     dateRange = dateRange[::-1]
 
-    filename = 'TorontoCOVID.csv'
+    filename = 'FilesToUpload/TorontoCOVID.csv'
     f = open(filename, 'w')
     f.close()
 
@@ -2257,7 +2254,8 @@ def OntarioCaseStatus():
     df['Number of patients in ICU on a ventilator due to COVID-19'] = \
         df['Number of patients in ICU on a ventilator due to COVID-19'].fillna(df['Num. of patients in ICU on a ventilator testing positive'])
 
-    for column in ['Number of patients in ICU due to COVID-19','Number of patients in ICU on a ventilator due to COVID-19']:
+    for column in ['Number of patients in ICU due to COVID-19',
+                   'Number of patients in ICU on a ventilator due to COVID-19']:
         df[column] = df[column].fillna(method='ffill')
     df = df.fillna(0)
 
@@ -2481,7 +2479,7 @@ def OntarioCaseStatus():
     PostTitleFileName = 'TextOutput/PostTitle.txt'
     sys.stdout = open(PostTitleFileName, 'w', encoding='utf-8')
 
-    #f"Ontario {custom_strftime('%b {S}',TodaysDate)}
+    # f"Ontario {custom_strftime('%b {S}',TodaysDate)}
     PostTitle = f"Ontario {TodaysDate:%b %d}: {NewCases:,.0f} Cases, " \
         + f"{df['newly_reported_deaths'][0]:.0f} new " \
         + f"{df['deaths_data_cleaning'][0]:.0f} old Deaths, " \
@@ -2615,7 +2613,6 @@ def OntarioCaseStatus():
     #       + ' / ' + format(NewVariants_Delta, "+,d"), f"/ {NewVariants_Omicron:+,d}"
     #       + ' - [This data lags quite a bit](https://www.reddit.com/r/ontario/comments/ls8ohl/ontario_february_25_update_1138_new_cases_1094/gopq2kb/)')
     HospitalMetrics()
-
 
     # with open('TextOutput/DeathProjectionText.txt', 'r') as ff:
     #     DeathProjectionLines = ff.read()
@@ -2960,45 +2957,45 @@ def LoadCOVIDData(filenameIn):
 
     if filename == "":
         for filename in os.listdir(path):
-           with open(os.path.join(path, filename), 'r') as f:
-               #print(f)
-               currentDataFrame = pd.read_csv(f)
+            with open(os.path.join(path, filename), 'r') as f:
+                #print(f)
+                currentDataFrame = pd.read_csv(f)
 
-               "currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Row_ID').columns), axis = 1, inplace = True)"
-               currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Address').columns), axis = 1, inplace = True)
-               currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_City').columns), axis = 1, inplace = True)
-               currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Postal_Code').columns), axis = 1, inplace = True)
-               currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Website').columns), axis = 1, inplace = True)
-               currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Latitude').columns), axis = 1, inplace = True)
-               currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Longitude').columns), axis = 1, inplace = True)
-               currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Days to report').columns), axis = 1, inplace = True)
-               currentDataFrame['Outbreak_Related'] = currentDataFrame['Outbreak_Related'].replace('(blank)','No')
-               filenameLength = len(filename)
-               ################
-               try: FileNameDate = datetime.datetime(int(filename[0:4]),int(filename[5:7]),int(filename[8:10]))
+                "currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Row_ID').columns), axis = 1, inplace = True)"
+                currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Address').columns), axis = 1, inplace = True)
+                currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_City').columns), axis = 1, inplace = True)
+                currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Postal_Code').columns), axis = 1, inplace = True)
+                currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Website').columns), axis = 1, inplace = True)
+                currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Latitude').columns), axis = 1, inplace = True)
+                currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Reporting_PHU_Longitude').columns), axis = 1, inplace = True)
+                currentDataFrame.drop(list(currentDataFrame.filter(regex = 'Days to report').columns), axis = 1, inplace = True)
+                currentDataFrame['Outbreak_Related'] = currentDataFrame['Outbreak_Related'].replace('(blank)','No')
+                filenameLength = len(filename)
+                ################
+                try: FileNameDate = datetime.datetime(int(filename[0:4]),int(filename[5:7]),int(filename[8:10]))
 
-               except ValueError as ve:
-                   FileNameDate = datetime.datetime(2020,int(filename[filenameLength-14:filenameLength-12]),int(filename[filenameLength-11:filenameLength-9]))
-
-
-               ################
-               currentDataFrame['File_Date'] = FileNameDate
-               """".strftime("%d-%b")"""
-
-               currentDataFrame.rename(columns = {'Accurate_Episode_Date':'Episode_Date', 'CLIENT_GENDER':'Client_Gender',
-                                'CASE_ACQUISITIONINFO': 'Case_AcquisitionInfo',
-                        'Outcome1':'Outcome'}, inplace = True)
+                except ValueError as ve:
+                    FileNameDate = datetime.datetime(2020,int(filename[filenameLength-14:filenameLength-12]),int(filename[filenameLength-11:filenameLength-9]))
 
 
-               PHU_Rename(currentDataFrame)
-               currentDataFrame['Reporting_Lag'] = currentDataFrame['File_Date'] - currentDataFrame['Episode_Date']
+                ################
+                currentDataFrame['File_Date'] = FileNameDate
+                """".strftime("%d-%b")"""
+
+                currentDataFrame.rename(columns = {'Accurate_Episode_Date':'Episode_Date', 'CLIENT_GENDER':'Client_Gender',
+                                 'CASE_ACQUISITIONINFO': 'Case_AcquisitionInfo',
+                         'Outcome1':'Outcome'}, inplace = True)
 
 
-               MasterDataFrame = pd.concat([MasterDataFrame,currentDataFrame],ignore_index=True)
+                PHU_Rename(currentDataFrame)
+                currentDataFrame['Reporting_Lag'] = currentDataFrame['File_Date'] - currentDataFrame['Episode_Date']
 
-               print(round((time.time()-starttime),2),FileNameDate)
 
-               #print(filename)
+                MasterDataFrame = pd.concat([MasterDataFrame,currentDataFrame],ignore_index=True)
+
+                print(round((time.time()-starttime),2),FileNameDate)
+
+                #print(filename)
 
     else:
         #MasterDataFrame = pd.read_pickle(pickleFileName)
@@ -3987,34 +3984,41 @@ def COVIDAppData():
     ConsoleOut = sys.stdout
     TextFileName = 'TextOutput/COVIDAppDataText.txt'
 
-    dfUpload = pd.read_csv('https://data.ontario.ca/dataset/06a61019-62c1-48d8-8d4d-2267ae0f1144/resource/b792e734-9c69-47d5-8451-40fc85c2f3c6/download/covid_alert_positive_uploads_ontario.csv',parse_dates = [0],infer_datetime_format=True)
+    dfUpload = pd.read_csv('https://data.ontario.ca/dataset/06a61019-62c1-48d8-8d4d-2267ae0f1144/resource/b792e734-9c69-47d5-8451-40fc85c2f3c6/download/covid_alert_positive_uploads_ontario.csv',
+                           parse_dates=[0], infer_datetime_format=True)
     dfUpload.to_csv('SourceFiles/COVIDAppData-uploads')
     dfUpload = dfUpload.sort_values(by='date', ascending=False)
     dfUpload = dfUpload.set_index('date')
     dfUpload.to_pickle('Pickle/AppUpload.pickle')
     CaseStatusDF = pd.read_pickle('Pickle/OntarioCaseStatus.pickle')
-    CaseStatusDF = CaseStatusDF[CaseStatusDF.index>'2020-07-30']
-    PctPositiveCasesDay = round(dfUpload.iloc[0].daily_positive_otks_uploaded_ontario/CaseStatusDF.iloc[0]['Day new cases'], 4)
+    CaseStatusDF = CaseStatusDF[CaseStatusDF.index > '2020-07-30']
+    PctPositiveCasesDay = round(dfUpload.iloc[0].daily_positive_otks_uploaded_ontario
+                                / CaseStatusDF.iloc[0]['Day new cases'], 4)
     PctPositiveCasesDay = "{:,.1%}".format(PctPositiveCasesDay)
-    PctPositiveCasesWeek = round(dfUpload.iloc[0:7].daily_positive_otks_uploaded_ontario.sum()/CaseStatusDF.iloc[0:7]['Day new cases'].sum(),4)
+    PctPositiveCasesWeek = round(dfUpload.iloc[0:7].daily_positive_otks_uploaded_ontario.sum()
+                                 / CaseStatusDF.iloc[0:7]['Day new cases'].sum(), 4)
     PctPositiveCasesWeek = "{:,.1%}".format(PctPositiveCasesWeek)
-    PctPositiveCasesMonth = round(dfUpload.iloc[0:30].daily_positive_otks_uploaded_ontario.sum()/CaseStatusDF.iloc[0:30]['Day new cases'].sum(),4)
+    PctPositiveCasesMonth = round(dfUpload.iloc[0:30].daily_positive_otks_uploaded_ontario.sum()
+                                  / CaseStatusDF.iloc[0:30]['Day new cases'].sum(), 4)
     PctPositiveCasesMonth = "{:,.1%}".format(PctPositiveCasesMonth)
-    PctPositiveCasesAllTime = round(dfUpload['daily_positive_otks_uploaded_ontario'].sum()/CaseStatusDF['Day new cases'].sum(),4)
+    PctPositiveCasesAllTime = round(dfUpload['daily_positive_otks_uploaded_ontario'].sum()
+                                    / CaseStatusDF['Day new cases'].sum(), 4)
     PctPositiveCasesAllTime = "{:,.1%}".format(PctPositiveCasesAllTime)
 
-
     sys.stdout = open(TextFileName, 'w')
-    print('**COVID App Stats** - *latest data as of ',dfUpload.iloc[0].name.strftime('%B %d'),'* - [Source](https://data.ontario.ca/dataset/covid-alert-impact-data)',sep = '')
+    print('**COVID App Stats** - *latest data as of ', dfUpload.iloc[0].name.strftime('%B %d'),
+          '* - [Source](https://data.ontario.ca/dataset/covid-alert-impact-data)', sep='')
     print()
     print('* Positives Uploaded to app in last day/week/month/since launch: ',
-        "{:,}".format(dfUpload.iloc[0].daily_positive_otks_uploaded_ontario),
-        ' / ',"{:,}".format(dfUpload.iloc[0:7].daily_positive_otks_uploaded_ontario.sum()),
-        ' / ',"{:,}".format(dfUpload.iloc[0:30].daily_positive_otks_uploaded_ontario.sum()),
-        ' / ',"{:,}".format(dfUpload['daily_positive_otks_uploaded_ontario'].sum()),
-        ' (',PctPositiveCasesDay,' / ',PctPositiveCasesWeek,' / ',PctPositiveCasesMonth,' / ',PctPositiveCasesAllTime,' of all cases)',sep = '')
+          "{:,}".format(dfUpload.iloc[0].daily_positive_otks_uploaded_ontario),
+          ' / ', "{:,}".format(dfUpload.iloc[0:7].daily_positive_otks_uploaded_ontario.sum()),
+          ' / ', "{:,}".format(dfUpload.iloc[0:30].daily_positive_otks_uploaded_ontario.sum()),
+          ' / ', "{:,}".format(dfUpload['daily_positive_otks_uploaded_ontario'].sum()),
+          ' (', PctPositiveCasesDay, ' / ', PctPositiveCasesWeek, ' / ', PctPositiveCasesMonth, ' / ',
+          PctPositiveCasesAllTime, ' of all cases)', sep='')
 
-    dfDown = pd.read_csv('https://data.ontario.ca/dataset/06a61019-62c1-48d8-8d4d-2267ae0f1144/resource/37cfeca2-059e-4a5f-a228-249f6ab1b771/download/covid_alert_downloads_canada.csv',parse_dates = [0],infer_datetime_format=True)
+    dfDown = pd.read_csv('https://data.ontario.ca/dataset/06a61019-62c1-48d8-8d4d-2267ae0f1144/resource/37cfeca2-059e-4a5f-a228-249f6ab1b771/download/covid_alert_downloads_canada.csv',
+                         parse_dates=[0], infer_datetime_format=True)
     dfDown.to_csv('SourceFiles/COVIDAppData-downloads.csv')
     dfDown = dfDown.sort_values(by='date', ascending=False)
     dfDown = dfDown.set_index('date')
@@ -4024,31 +4028,35 @@ def COVIDAppData():
         dfDown[column] = dfDown[column].fillna(0).astype(int)
         dfDown[column] = dfDown[column].astype(int)
 
-
     dfDown.to_pickle('Pickle/AppDownload.pickle')
 
-    PctAndroidDay = dfDown.iloc[0].daily_android_downloads_canada/dfDown.iloc[0].daily_total_downloads_canada
+    PctAndroidDay = (dfDown.iloc[0].daily_android_downloads_canada
+                     / dfDown.iloc[0].daily_total_downloads_canada)
     PctAndroidDay = "{:,.1%}".format(PctAndroidDay)
 
-    PctAndroidWeek = dfDown.iloc[0:7].daily_android_downloads_canada.sum()/dfDown.iloc[0:7].daily_total_downloads_canada.sum()
+    PctAndroidWeek = (dfDown.iloc[0:7].daily_android_downloads_canada.sum()
+                      / dfDown.iloc[0:7].daily_total_downloads_canada.sum())
     PctAndroidWeek = "{:,.1%}".format(PctAndroidWeek)
 
-    PctAndroidMonth = dfDown.iloc[0:30].daily_android_downloads_canada.sum()/dfDown.iloc[0:30].daily_total_downloads_canada.sum()
+    PctAndroidMonth = (dfDown.iloc[0:30].daily_android_downloads_canada.sum()
+                       / dfDown.iloc[0:30].daily_total_downloads_canada.sum())
     PctAndroidMonth = "{:,.1%}".format(PctAndroidMonth)
 
-    PctAndroidAllTime = dfDown.iloc[:].daily_android_downloads_canada.sum()/dfDown.iloc[:].daily_total_downloads_canada.sum()
+    PctAndroidAllTime = (dfDown.iloc[:].daily_android_downloads_canada.sum()
+                         / dfDown.iloc[:].daily_total_downloads_canada.sum())
     PctAndroidAllTime = "{:,.1%}".format(PctAndroidAllTime)
 
     print('* App downloads in last day/week/month/since launch: ',
-    "{:,}".format(dfDown.iloc[0].daily_android_downloads_canada),
-    ' / ',"{:,}".format(dfDown.iloc[0:7].daily_android_downloads_canada.sum()),
-    ' / ',"{:,}".format(dfDown.iloc[0:30].daily_android_downloads_canada.sum()),
-    ' / ',"{:,}".format(dfDown.iloc[:].daily_android_downloads_canada.sum()),
-    ' (',PctAndroidDay,' / ',PctAndroidWeek,' / ',PctAndroidMonth,' / ',PctAndroidAllTime,' Android share)',sep = '')
+          "{:,}".format(dfDown.iloc[0].daily_android_downloads_canada),
+          ' / ', "{:,}".format(dfDown.iloc[0:7].daily_android_downloads_canada.sum()),
+          ' / ', "{:,}".format(dfDown.iloc[0:30].daily_android_downloads_canada.sum()),
+          ' / ', "{:,}".format(dfDown.iloc[:].daily_android_downloads_canada.sum()),
+          ' (', PctAndroidDay, ' / ', PctAndroidWeek, ' / ', PctAndroidMonth, ' / ',
+          PctAndroidAllTime, ' Android share)', sep='')
     sys.stdout = ConsoleOut
-    #print('Report as of: ',dfDown.iloc[0].name.strftime('%B %d'))
+    # print('Report as of: ',dfDown.iloc[0].name.strftime('%B %d'))
     print('------------------------------------------------------------------------')
-    print('COVIDAppData: ',round(time.time()-starttime,2),'seconds')
+    print('COVIDAppData: ', round(time.time() - starttime, 2), 'seconds')
     print('------------------------------------------------------------------------')
 
 
@@ -4082,54 +4090,63 @@ def LTCData():
 
     df2['Active Outbreak'] = False
     df2['Report_Data_Extracted'] = pd.to_datetime(df2['Report_Data_Extracted'])
-    df2['Total_LTC_Resident_Deaths'] = df2['Total_LTC_Resident_Deaths'].str.replace("^<5", "<5", regex=True)
+    df2['Total_LTC_Resident_Deaths'] = df2['Total_LTC_Resident_Deaths'].str.replace("^<5", "<5",
+                                                                                    regex=True)
     abc = df.copy()
     abc = abc.append(df2)
-    abc = abc.replace({'<5':2.5})
+    abc = abc.replace({'<5': 2.5})
     abc = abc.fillna(0)
 
-    abc.sort_values(by='Report_Data_Extracted',ascending = False)
-    abc = abc.sort_values(by='Report_Data_Extracted',ascending = False)
+    abc.sort_values(by='Report_Data_Extracted', ascending=False)
+    abc = abc.sort_values(by='Report_Data_Extracted', ascending=False)
     abc['Total_LTC_Resident_Cases'] = pd.to_numeric(abc['Total_LTC_Resident_Cases'])
     abc['Total_LTC_Resident_Deaths'] = pd.to_numeric(abc['Total_LTC_Resident_Deaths'])
     abc['Total_LTC_HCW_Cases'] = pd.to_numeric(abc['Total_LTC_HCW_Cases'])
 
     # pivotdf = pd.pivot_table(abc,values = 'Report_Date',index = 'LTC_Home',aggfunc = np.count_non_zero(), fill_value=0)
-    pivotLTCDeaths = pd.pivot_table(abc,values = 'Total_LTC_Resident_Deaths',index = 'LTC_Home', columns ='Report_Data_Extracted', aggfunc = np.sum, fill_value=0)
-    pivotLTCDeaths = pivotLTCDeaths.reindex(columns = sorted( pivotLTCDeaths.columns,reverse = True))
-    pivotLTCDeaths = pivotLTCDeaths.sort_values(by=pivotLTCDeaths.columns[0],ascending = False)
-    pivotLTCDeaths = pivotLTCDeaths.rename(columns = {pivotLTCDeaths.columns[0]:"All-time Deaths"})
+    pivotLTCDeaths = pd.pivot_table(abc, values='Total_LTC_Resident_Deaths', index='LTC_Home',
+                                    columns='Report_Data_Extracted', aggfunc=np.sum, fill_value=0)
+    pivotLTCDeaths = pivotLTCDeaths.reindex(columns=sorted(pivotLTCDeaths.columns, reverse=True))
+    pivotLTCDeaths = pivotLTCDeaths.sort_values(by=pivotLTCDeaths.columns[0], ascending=False)
+    pivotLTCDeaths = pivotLTCDeaths.rename(columns={pivotLTCDeaths.columns[0]: "All-time Deaths"})
 
-    newLTCDeaths = pivotLTCDeaths-pivotLTCDeaths.shift(-1,axis=1)
-    newLTCDeaths = newLTCDeaths.sort_values(by=[newLTCDeaths.columns[0],newLTCDeaths.columns[1]],ascending = False)
-    newLTCDeaths = newLTCDeaths.rename(columns = {newLTCDeaths.columns[0]:"Today's Deaths"})
+    newLTCDeaths = pivotLTCDeaths - pivotLTCDeaths.shift(-1, axis=1)
+    newLTCDeaths = newLTCDeaths.sort_values(by=[newLTCDeaths.columns[0], newLTCDeaths.columns[1]],
+                                            ascending=False)
+    newLTCDeaths = newLTCDeaths.rename(columns={newLTCDeaths.columns[0]: "Today's Deaths"})
     Report_Date = abc['Report_Data_Extracted'].max()
 
-    DisplayDF = pd.DataFrame(abc[['LTC_Home','City','Beds']])
-    DisplayDF = DisplayDF.drop_duplicates(subset=['LTC_Home'],keep = 'first')
+    DisplayDF = pd.DataFrame(abc[['LTC_Home', 'City', 'Beds']])
+    DisplayDF = DisplayDF.drop_duplicates(subset=['LTC_Home'], keep='first')
     DisplayDF = DisplayDF.set_index('LTC_Home')
 
     DeathDisplayDF = DisplayDF.copy()
     DeathDisplayDF['Beds'] = DeathDisplayDF['Beds'].astype(int)
-    DeathDisplayDF = DeathDisplayDF.merge(newLTCDeaths[newLTCDeaths.columns[0]],how = 'inner',left_index = True,right_index=True)
-    DeathDisplayDF = DeathDisplayDF.merge(pivotLTCDeaths[pivotLTCDeaths.columns[0]],how = 'inner',left_index = True,right_index=True)
-    DeathDisplayDF = DeathDisplayDF.sort_values(by = "Today's Deaths",ascending = False)
-    DeathDisplayDF = DeathDisplayDF[abs(DeathDisplayDF["Today's Deaths"])>0]
+    DeathDisplayDF = DeathDisplayDF.merge(newLTCDeaths[newLTCDeaths.columns[0]], how='inner',
+                                          left_index=True, right_index=True)
+    DeathDisplayDF = DeathDisplayDF.merge(pivotLTCDeaths[pivotLTCDeaths.columns[0]], how='inner',
+                                          left_index=True, right_index=True)
+    DeathDisplayDF = DeathDisplayDF.sort_values(by="Today's Deaths", ascending=False)
+    DeathDisplayDF = DeathDisplayDF[abs(DeathDisplayDF["Today's Deaths"]) > 0]
 
-    NewLTCCasePivot = pd.pivot_table(abc,values = 'Total_LTC_Resident_Cases',index = 'LTC_Home', columns ='Report_Data_Extracted', aggfunc = np.sum, fill_value=0)
-    NewLTCCasePivot = NewLTCCasePivot.reindex(columns = sorted( NewLTCCasePivot.columns,reverse = True))
-    NewLTCCasePivot = NewLTCCasePivot.sort_values(by=NewLTCCasePivot.columns[0],ascending = False)
-    NewLTCCasePivot = NewLTCCasePivot.rename(columns = {NewLTCCasePivot.columns[0]:"Current Active Cases"})
-    NewLTCCasePivot['Change in active cases'] = NewLTCCasePivot[NewLTCCasePivot.columns[0]]-NewLTCCasePivot[NewLTCCasePivot.columns[1]]
-    NewLTCCasePivot = NewLTCCasePivot[['Current Active Cases','Change in active cases']]
-    NewLTCCasePivot = pd.merge(NewLTCCasePivot,newLTCDeaths[newLTCDeaths.columns[0]],left_index = True,right_index = True)
-    NewLTCCasePivot = pd.merge(NewLTCCasePivot,DisplayDF,left_index = True,right_index = True,how = 'left')
-    NewLTCCasePivot['New LTC cases'] = NewLTCCasePivot['Change in active cases']+NewLTCCasePivot["Today's Deaths"]
-    #NewLTCCasePivot = NewLTCCasePivot.sort_values(by = 'New LTC cases',ascending = False)
+    NewLTCCasePivot = pd.pivot_table(abc, values='Total_LTC_Resident_Cases', index='LTC_Home',
+                                     columns='Report_Data_Extracted', aggfunc=np.sum, fill_value=0)
+    NewLTCCasePivot = NewLTCCasePivot.reindex(columns=sorted(NewLTCCasePivot.columns, reverse=True))
+    NewLTCCasePivot = NewLTCCasePivot.sort_values(by=NewLTCCasePivot.columns[0], ascending=False)
+    NewLTCCasePivot = NewLTCCasePivot.rename(columns={NewLTCCasePivot.columns[0]: "Current Active Cases"})
+    NewLTCCasePivot['Change in active cases'] = (NewLTCCasePivot[NewLTCCasePivot.columns[0]]
+                                                 - NewLTCCasePivot[NewLTCCasePivot.columns[1]])
+    NewLTCCasePivot = NewLTCCasePivot[['Current Active Cases', 'Change in active cases']]
+    NewLTCCasePivot = pd.merge(NewLTCCasePivot, newLTCDeaths[newLTCDeaths.columns[0]],
+                               left_index=True, right_index=True)
+    NewLTCCasePivot = pd.merge(NewLTCCasePivot, DisplayDF, left_index=True,
+                               right_index=True, how='left')
+    NewLTCCasePivot['New LTC cases'] = NewLTCCasePivot['Change in active cases'] + NewLTCCasePivot["Today's Deaths"]
+    # NewLTCCasePivot = NewLTCCasePivot.sort_values(by = 'New LTC cases',ascending = False)
     # NewLTCCasePivot = NewLTCCasePivot.replace(to_replace='.0', value='', regex=True)
     NewLTCCasePivot['Beds'] = NewLTCCasePivot['Beds'].astype(float).astype(int)
-    NewLTCCasePivot = NewLTCCasePivot[['City','Beds','New LTC cases','Current Active Cases']]
-    NewLTCCasePivot = NewLTCCasePivot[NewLTCCasePivot['New LTC cases']>4].sort_values(by = 'New LTC cases',ascending = False)
+    NewLTCCasePivot = NewLTCCasePivot[['City', 'Beds', 'New LTC cases', 'Current Active Cases']]
+    NewLTCCasePivot = NewLTCCasePivot[NewLTCCasePivot['New LTC cases'] > 4].sort_values(by='New LTC cases', ascending=False)
 
     # with open(filename, 'w',newline='') as f:
     #     f.write('New LTC Deaths '+str(Report_Date)+'\n')
@@ -4190,8 +4207,8 @@ def VaccineData():
     ConsoleOut = sys.stdout
     VaccineDataFileName = 'TextOutput/VaccineDataText.txt'
 
-    TotalDelivered = 32296511
-    DeliveryDataDate = datetime.datetime(2021, 12, 30).strftime('%B %#d')
+    TotalDelivered = 35805101
+    DeliveryDataDate = datetime.datetime(2022, 2, 3).strftime('%B %#d')
 
     OntarioPopulationDF = pd.read_pickle('Pickle/OntarioPopulation.pickle')
     OntarioPopulation = (int)(OntarioPopulationDF.loc['REFERENCE', 2021, 'TOTAL'].sum())
@@ -4281,8 +4298,7 @@ def VaccineData():
                                                           - dfVaxAge.loc[age]['fully_vaccinated_cumulative'].shift(-7)).fillna(0).astype(int)
 
         dfVaxAge.loc[age, 'ThirdDose - in last week'] = (dfVaxAge.loc[age]['third_dose_cumulative']
-                                                        - dfVaxAge.loc[age]['third_dose_cumulative'].shift(-7)).fillna(0).astype(int)
-
+                                                         - dfVaxAge.loc[age]['third_dose_cumulative'].shift(-7)).fillna(0).astype(int)
 
     ###########################################################################
     ###########################################################################
@@ -4300,8 +4316,8 @@ def VaccineData():
         # dfVaxAge[dfVaxAge['Date'] == day].loc['Total - 5+'] = dfVaxAge[dfVaxAge['Date'] == day].fillna(0).loc[: '80+ yrs'].sum()
 
         tempSeries = dfVaxAge[dfVaxAge['Date'] == day].fillna(0).loc['12-17yrs':
-                                                                     '80+ yrs'].iloc[:,1:].sum()
-        ccc = pd.Series({'Date':day})
+                                                                     '80+ yrs'].iloc[:, 1:].sum()
+        ccc = pd.Series({'Date': day})
         tempSeries = tempSeries.append(ccc)
         tempSeries.name = 'Ontario_12plusNew'
         dfVaxAge = dfVaxAge.append(tempSeries)
@@ -4314,7 +4330,7 @@ def VaccineData():
     dfVaxAge = dfVaxAge.drop('Ontario_12plus')
     dfVaxAge = dfVaxAge.rename(index={'Ontario_12plusNew': 'Ontario_12plus'})
     dfVaxAge = dfVaxAge.sort_values(['Date', 'Agegroup'], ascending=[False, True])
-    #dfVaxAge.to_csv('aa.csv')
+    # dfVaxAge.to_csv('aa.csv')
 
     dfVaxAge['Percent_at_least_one_dose'] = dfVaxAge['At least one dose_cumulative'] / dfVaxAge['Total population']
     dfVaxAge['Percent_fully_vaccinated'] = dfVaxAge['fully_vaccinated_cumulative'] / dfVaxAge['Total population']
@@ -4326,14 +4342,13 @@ def VaccineData():
     dfVaxAge['SecondDose - in last day %'] = ((dfVaxAge['SecondDose - in last day']
                                                / dfVaxAge['Total population']).round(4))
     dfVaxAge['ThirdDose - in last day %'] = ((dfVaxAge['ThirdDose - in last day']
-                                               / dfVaxAge['Total population']).round(4))
+                                              / dfVaxAge['Total population']).round(4))
     dfVaxAge['FirstDose - in last week %'] = (dfVaxAge['FirstDose - in last week']
                                               / dfVaxAge['Total population']).round(4)
     dfVaxAge['SecondDose - in last week %'] = (dfVaxAge['SecondDose - in last week']
                                                / dfVaxAge['Total population']).round(4)
     dfVaxAge['ThirdDose - in last week %'] = ((dfVaxAge['ThirdDose - in last week']
                                                / dfVaxAge['Total population']).round(4))
-
 
     dfVaxAge = dfVaxAge.sort_values(by='Date', ascending=False)
 
@@ -4393,7 +4408,6 @@ def VaccineData():
     TodaysDFVax['ThirdDose - in last week %'] = ((TodaysDFVax['ThirdDose - in last week']
                                                   / TodaysDFVax['Total population']).round(4))
 
-
     # TodaysDFVax['FirstDose - in last week %'] = TodaysDFVax['FirstDose - in last week %']
 
     if (TodaysDFVax.loc['05-11yrs']['FirstDose - in last week'] == 0):
@@ -4430,31 +4444,25 @@ def VaccineData():
     TotalAtLeastOneDose = df['total_individuals_at_least_one'][0]
     TotalThreeDosed = df['total_individuals_3doses'][0]
 
-
-    #RemainingAdults_20Pct_Second = OntarioAdultPopulation*0.2-(TotalTwoDoses-Vaccines_U18_TwoDosed)
-    RemainingAdults_20Pct_Second = TodaysDFVax.loc['Adults_18plus']['Total population']*.2 -TodaysDFVax.loc['Adults_18plus']['Second_dose_cumulative']
-    RemainingAdults_25Pct_Second = TodaysDFVax.loc['Adults_18plus']['Total population']*.25 -TodaysDFVax.loc['Adults_18plus']['Second_dose_cumulative']
-    #RemainingAdults_75Pct_Second = TodaysDFVax.loc['Adults_18plus']['Total population']*.75 -TodaysDFVax.loc['Adults_18plus']['Second_dose_cumulative']
-    RemainingAdults_75Pct_Second = 0.75-TodaysDFVax.loc['Adults_18plus']['Percent_fully_vaccinated']
-    #RemainingAdults_80Pct_First = TodaysDFVax.loc['Adults_18plus']['Total population']*.80-TodaysDFVax.loc['Adults_18plus']['At least one dose_cumulative']
-    RemainingAdults_80Pct_First = 0.8-TodaysDFVax.loc['Adults_18plus']['Percent_at_least_one_dose']
-
-    #RemainingAdults_80Pct_Both = TodaysDFVax.loc['Adults_18plus']['Total population']*1.6 - (TotalAdministered-Vaccines_U18_Total_Doses)
     RemainingAdults_80Pct_Both = TodaysDFVax.loc['Adults_18plus']['Total population']*1.6 - TodaysDFVax.loc['Adults_18plus']['At least one dose_cumulative'] - TodaysDFVax.loc['Adults_18plus']['Second_dose_cumulative']
 
-    TotalVaccinationsLeft = (OntarioAdultPopulation-TotalTwoDoses) * 2 - TotalOneDose
+    TotalVaccinationsLeft = (OntarioAdultPopulation - TotalTwoDoses) * 2 - TotalOneDose
 
     #DaysTo80Pct_First_Adults = RemainingAdults_80Pct_First/df['FirstDoseInDay'][0:7].mean()
     DaysTo80Pct_First_Adults = (RemainingAdults_80Pct_First
-                                / (TodaysDFVax.loc['Adults_18plus']['FirstDose - in last week %']/7))
+                                / (TodaysDFVax.loc['Adults_18plus']['FirstDose - in last week %'] / 7))
 
-    DaysTo80Pct_First_Eligible = (0.8 - TodaysDFVax.loc['Total - eligible 12+']['Percent_at_least_one_dose'])/(TodaysDFVax.loc['Total - eligible 12+']['FirstDose - in last week %']/7)
-    DaysTo75Pct_Second_Eligible = (0.75 - TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])/(TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last week %']/7)
-    DaysTo80Pct_Second_Eligible = (0.80 - TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])/(TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last week %']/7)
-    DaysTo85Pct_Second_Eligible = (0.85 - TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])/(TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last week %']/7)
+    DaysTo80Pct_First_Eligible = ((0.8 - TodaysDFVax.loc['Total - eligible 12+']['Percent_at_least_one_dose'])
+                                  / (TodaysDFVax.loc['Total - eligible 12+']['FirstDose - in last week %'] / 7))
+    DaysTo75Pct_Second_Eligible = ((0.75 - TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])
+                                   / (TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last week %'] / 7))
+    DaysTo80Pct_Second_Eligible = ((0.80 - TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])
+                                   / (TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last week %'] / 7))
+    DaysTo85Pct_Second_Eligible = ((0.85 - TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])
+                                   / (TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last week %'] / 7))
 
     TotalUnused = TotalDelivered - TotalAdministered
-    #df['TotalAtLeastOneDose'] = df['total_doses_administered']-df['total_doses_in_fully_vaccinated_individuals']/2
+    # df['TotalAtLeastOneDose'] = df['total_doses_administered']-df['total_doses_in_fully_vaccinated_individuals']/2
     df['TotalAtLeastOneDose'] = df['total_individuals_at_least_one']
     df['TotalAtLeastOneDose'] = df['TotalAtLeastOneDose'].astype(int)
     df['PercentAtLeastOneDosed'] = (df['TotalAtLeastOneDose'] / OntarioPopulation)
@@ -4467,44 +4475,6 @@ def VaccineData():
 
     df = EVHelper.TestDFIsPrime(df, 'previous_day_total_doses_administered', 'DayVaccineCount_IsPrime')
     df.to_pickle('Pickle/VaccinesData.pickle')
-
-    ###########################################################################################
-    ###########################################################################################
-    ###########################################################################################
-    # This recalculates the Ontario 5 plus again for some reason - DELETE IN FUTURE
-    # abc = pd.DataFrame()
-    # for dates in sorted(set(dfVaxAge['Date'])):
-    #     tempDFVaxAge = dfVaxAge[dfVaxAge['Date'] == dates].copy()
-    #     tempDFVaxAge = tempDFVaxAge.drop(['Adults_18plus', 'Ontario_12plus', 'Ontario_5plus'])
-
-    #     data = tempDFVaxAge.sum()
-    #     data = data.rename(dates)
-    #     abc = abc.append( data,)
-
-    # abc['Percent_at_least_one_dose'] = abc['At least one dose_cumulative']/abc['Total population']
-    # abc['Percent_fully_vaccinated'] = abc['Second_dose_cumulative']/abc['Total population']
-    # abc['FirstDose - in last day'] = (abc['At least one dose_cumulative'] - abc['At least one dose_cumulative'].shift(1)).fillna(0).astype(int)
-    # abc['FirstDose - in last day %'] = ((abc['FirstDose - in last day'] / abc['Total population']).round(4))
-    # abc['SecondDose - in last day'] = (abc['Second_dose_cumulative'] - abc['Second_dose_cumulative'].shift(1)).fillna(0).astype(int)
-    # abc['SecondDose - in last day %'] = ((abc['SecondDose - in last day'] / abc['Total population']).round(4))
-    # abc['FirstDose - in last week'] = (abc['At least one dose_cumulative'] - abc['At least one dose_cumulative'].shift(7)).fillna(0).astype(int)
-    # abc['FirstDose - in last week %'] = (abc['FirstDose - in last week'] / abc['Total population']).round(4)
-    # abc['SecondDose - in last week'] = (abc['Second_dose_cumulative'] - abc['Second_dose_cumulative'].shift(1)).fillna(0).astype(int)
-    # abc['SecondDose - in last week %'] = (abc['SecondDose - in last week'] / abc['Total population']).round(4)
-    # abc = abc.sort_index(ascending=False)
-    # TodayFullyVax = abc.iloc[0]['Percent_fully_vaccinated']
-    # DateFirstDoseWasCurrentSecondDose = abc[abc['Percent_at_least_one_dose']>TodayFullyVax].index.min()
-    # DateFirstDoseWas75 = abc[abc['Percent_at_least_one_dose']>.75].index.min()
-    # DateFirstDoseWas80 = abc[abc['Percent_at_least_one_dose']>.80].index.min()
-    # DateFirstDoseWas85 = abc[abc['Percent_at_least_one_dose']>.85].index.min()
-
-    # DaysRemaining = DateFirstDoseWas75 - DateFirstDoseWasCurrentSecondDose
-    # DaysRemaining_80 = DateFirstDoseWas80 - DateFirstDoseWasCurrentSecondDose
-    # DaysRemaining_85 = DateFirstDoseWas85 - DateFirstDoseWasCurrentSecondDose
-
-    # abc.to_pickle('Pickle/EligiblePopVax.pickle')
-    ###########################################################################################
-    ###########################################################################################
 
     VaccineData_PHU()  # Vaccines by PHU by age
     VaccineData_CaseStatus()  # Cases by vaccine status
@@ -4627,26 +4597,24 @@ def VaccineData():
     ThirdDoseTodayPct_All = df['ThirdDoseInDay'][0] / OntarioPopulation
     ThirdDoseWeekPct_All = df['ThirdDoseInDay'][0:7].sum() / OntarioPopulation
     print(f"* {TotalAtLeastOneDose/OntarioPopulation:.2%} / {TotalTwoDoses/OntarioPopulation:.2%} / {TotalThreeDosed/OntarioPopulation:.2%}",
-          f" of **all** Ontarians have received at least one / two / three dose to date",
+          " of **all** Ontarians have received at least one / two / three dose to date",
           f"({FirstDoseTodayPct_All:.2%} / {SecondDoseTodayPct_All:.2%} / {ThirdDoseTodayPct_All:.2%} today)",
           f"({FirstDoseWeekPct_All:.2%} / {SecondDoseWeekPct_All:.2%} / {ThirdDoseWeekPct_All:.2%} in last week)")
 
-    FirstDoseTodayPct_5Plus = df['FirstDoseInDay'][0]/Population_5Plus
-    FirstDoseWeekPct_5Plus = df['FirstDoseInDay'][0:7].sum()/Population_5Plus
-    SecondDoseTodayPct_5Plus = df['SecondDoseInDay'][0]/Population_5Plus
-    SecondDoseWeekPct_5Plus = df['SecondDoseInDay'][0:7].sum()/Population_5Plus
+    FirstDoseTodayPct_5Plus = df['FirstDoseInDay'][0] / Population_5Plus
+    FirstDoseWeekPct_5Plus = df['FirstDoseInDay'][0:7].sum() / Population_5Plus
+    SecondDoseTodayPct_5Plus = df['SecondDoseInDay'][0] / Population_5Plus
+    SecondDoseWeekPct_5Plus = df['SecondDoseInDay'][0:7].sum() / Population_5Plus
     ThirdDoseTodayPct_5Plus = df['ThirdDoseInDay'][0] / Population_5Plus
     ThirdDoseWeekPct_5Plus = df['ThirdDoseInDay'][0:7].sum() / Population_5Plus
     print(f"* {TodaysDFVax.loc['Ontario_5plus']['Percent_at_least_one_dose']:.2%} / {TodaysDFVax.loc['Ontario_5plus']['Percent_fully_vaccinated']:.2%} / {TodaysDFVax.loc['Ontario_5plus']['Percent_3doses']:.2%}",
-          f" of **5+** Ontarians have received at least one / two / three dose to date",
+          " of **5+** Ontarians have received at least one / two / three dose to date",
           f"({FirstDoseTodayPct_5Plus:.2%} / {SecondDoseTodayPct_5Plus:.2%} / {ThirdDoseTodayPct_5Plus:.2%} today)",
           f"({FirstDoseWeekPct_5Plus:.2%} / {SecondDoseWeekPct_5Plus:.2%} / {ThirdDoseWeekPct_5Plus:.2%} in last week)")
-
 
     # print('* ',"{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['Percent_at_least_one_dose']),' / ',"{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])," of **12+** Ontarians have received at least one / both dose(s) to date (",
     #       "{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['FirstDose - in last day %']),' / ', "{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last day %']),' today, ',
     #       "{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['FirstDose - in last week %']),' / ',"{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last week %']),' in last week)',sep = '')
-
 
     # print('* ',"{:.2%}".format(TodaysDFVax.loc['Adults_18plus']['Percent_at_least_one_dose']),' / ',"{:.2%}".format(TodaysDFVax.loc['Adults_18plus']['Percent_fully_vaccinated'])," of **18+** Ontarians have received at least one / both dose(s) to date (",
     #       "{:.2%}".format(TodaysDFVax.loc['Adults_18plus']['FirstDose - in last day %']),' / ', "{:.2%}".format(TodaysDFVax.loc['Adults_18plus']['SecondDose - in last day %']),' today, ',
@@ -4656,11 +4624,17 @@ def VaccineData():
     PercentOfRemaining_First_Week = TodaysDFVax.loc['Total - eligible 12+']['PercentOfRemaining_First - in last week']
     print(f"* {PercentOfRemaining_First_Day:.3%} / {PercentOfRemaining_First_Week:.3%} of the **remaining 12+** unvaccinated population got vaccinated today/this week")
 
-    #print("* To deliver at least one/both doses to all **adult** Ontarians by September 30th, ","{:,.0f}".format((OntarioAdultPopulation-TotalAtLeastOneDose)/DaysToSep30),' / ',"{:,.0f}".format(TotalVaccinationsLeft/DaysToSep30),' people need to be vaccinated every day from here on',sep='')
-    #print("* To deliver at least one dose to [all **adult** Ontarians by June 20th](https://globalnews.ca/news/7679338/ontario-coronavirus-phase-2-vaccine-rollout/), ","{:,.0f}".format((RemainingAdults_All)/DaysToJun20),' people need to be vaccinated every day from here on',sep='')
+    # print("* To deliver at least one/both doses to all **adult** Ontarians by September 30th, ","{:,.0f}".format((OntarioAdultPopulation-TotalAtLeastOneDose)/DaysToSep30),' / ',"{:,.0f}".format(TotalVaccinationsLeft/DaysToSep30),' people need to be vaccinated every day from here on',sep='')
+    # print("* To deliver at least one dose to [all **adult** Ontarians by June 20th](https://globalnews.ca/news/7679338/ontario-coronavirus-phase-2-vaccine-rollout/), ","{:,.0f}".format((RemainingAdults_All)/DaysToJun20),' people need to be vaccinated every day from here on',sep='')
 
-    print("* To date, ","{:,}".format(TotalDelivered)," vaccines have been delivered to Ontario (last updated ",DeliveryDataDate,")  - [Source](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/covid-19-vaccine-treatment/vaccine-rollout.html)",sep = '')
-    print("* There are","{:,}".format(TotalUnused),"unused vaccines which will take",round(TotalUnused/AvgDailyVaccinationsWeek,1),"days to administer based on the current 7 day average of","{:,.0f}".format(AvgDailyVaccinationsWeek),'/day')
+    print("* To date, ", "{:,}".format(TotalDelivered),
+          " vaccines have been delivered to Ontario (last updated ", DeliveryDataDate,
+          ")  - [Source](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection/prevention-risks/covid-19-vaccine-treatment/vaccine-rollout.html)",
+          sep='')
+    print("* There are", "{:,}".format(TotalUnused), "unused vaccines which will take",
+          round(TotalUnused / AvgDailyVaccinationsWeek, 1),
+          "days to administer based on the current 7 day average of",
+          "{:,.0f}".format(AvgDailyVaccinationsWeek), '/day')
     # print("* Adults make up", "{:.0%}".format(OntarioAdultPopulation/OntarioPopulation), "of [Ontario's population](https://www.fin.gov.on.ca/en/economy/demographics/projections/#tables)")
     print("* Ontario's population is 14,822,201 as published [here](https://www.fin.gov.on.ca/en/economy/demographics/projections/#tables). Age group populations as provided by the [MOH here](https://data.ontario.ca/dataset/covid-19-vaccine-data-in-ontario/resource/775ca815-5028-4e9b-9dd4-6975ff1be021)")
     print('* Vaccine uptake report (updated weekly) incl. vaccination coverage by PHUs - [link](https://www.publichealthontario.ca/-/media/documents/ncov/epi/covid-19-vaccine-uptake-ontario-epi-summary.pdf?la=en)')
@@ -4743,7 +4717,6 @@ def VaccineData():
     TodaysDFVax['ThirdDose - in last day'] = TodaysDFVax['ThirdDose - in last day'].map('{:,.0f}'.format)
     TodaysDFVax['ThirdDose - in last week'] = TodaysDFVax['ThirdDose - in last week'].map('{:,.0f}'.format)
 
-
     TodaysDFVax['FirstDose - in last day %'] = TodaysDFVax['FirstDose - in last day %'].map('{:+.2%}'.format)
     TodaysDFVax['FirstDose - in last week %'] = TodaysDFVax['FirstDose - in last week %'].map('{:+.2%}'.format)
     TodaysDFVax['SecondDose - in last day %'] = TodaysDFVax['SecondDose - in last day %'].map('{:+.2%}'.format)
@@ -4762,9 +4735,8 @@ def VaccineData():
                                                + TodaysDFVax['SecondDose - in last day %'].astype(str)
                                                + ' / ' + TodaysDFVax['SecondDose - in last week %'].astype(str) + ')')
     TodaysDFVax['Third dose % (day/week)'] = (TodaysDFVax['Percent_3doses'].astype(str) + ' ('
-                                               + TodaysDFVax['ThirdDose - in last day %'].astype(str)
-                                               + ' / ' + TodaysDFVax['ThirdDose - in last week %'].astype(str) + ')')
-
+                                              + TodaysDFVax['ThirdDose - in last day %'].astype(str)
+                                              + ' / ' + TodaysDFVax['ThirdDose - in last week %'].astype(str) + ')')
 
     # TodaysDFVax = TodaysDFVax.drop('Date', axis=1)
 
@@ -5036,7 +5008,7 @@ def VaccineData_PHU():
         DisplayDF_VaxPHU['Both ' + age + '_Change'] = (DisplayDF_VaxPHU['Both ' + age]
                                                        - DisplayDF_VaxPHU['Both ' + age + '_WeekAgo']).map('{:+.1%}'.format)
         DisplayDF_VaxPHU['Third ' + age + '_Change'] = (DisplayDF_VaxPHU['Third ' + age]
-                                                       - DisplayDF_VaxPHU['Third ' + age + '_WeekAgo']).map('{:+.1%}'.format)
+                                                        - DisplayDF_VaxPHU['Third ' + age + '_WeekAgo']).map('{:+.1%}'.format)
 
         DisplayDF_VaxPHU['AtLeastOne ' + age + '_Text'] = DisplayDF_VaxPHU['AtLeastOne ' + age].map('{:.1%}'.format)
         DisplayDF_VaxPHU['Both ' + age + '_Text'] = DisplayDF_VaxPHU['Both ' + age].map('{:.1%}'.format)
@@ -5379,7 +5351,7 @@ def icu_capacity_stats():
     print()
     print(f"* Total COVID/non-COVID ICU patients: {icu_covid_count:,.0f} / {icu_noncovid_count:,.0f}",
           f"({icu_covid_count_wkchange:+.0f}/ {icu_noncovid_count_wkchange:+.0f})")
-    print(f"* Total avail ICU capacity for ALL: {available_icu_all} ({available_icu_all_wkchange+:.0f})")
+    print(f"* Total avail ICU capacity for ALL: {available_icu_all} ({available_icu_all_wkchange:+.0f})")
     print(f"* Total ICU capacity: {total_icu_capacity:,.0f}")
     sys.stdout = ConsoleOut
     endtime = datetime.datetime.now()
@@ -5506,7 +5478,7 @@ def DeathProjection():
 
     TodayDF = df[df['File_Date'] == df['File_Date'].max()]
     # TodayPivot = pd.crosstab(index=TodayDF['Age_Group'], columns = TodayDF['Outcome'] , values=TodayDF['Row_ID'], rownames=None, colnames=None, aggfunc=np.count_nonzero, margins=False,  normalize=False)
-    MonthAgoDF = df[df['File_Date'] == df['File_Date'].max()-datetime.timedelta(days=30)]
+    MonthAgoDF = df[df['File_Date'] == df['File_Date'].max() - datetime.timedelta(days=30)]
     # MonthAgoPivot = pd.crosstab(index=MonthAgoDF['Age_Group'], columns = MonthAgoDF['Outcome'] , values=MonthAgoDF['Row_ID'], rownames=None, colnames=None, aggfunc=np.count_nonzero, margins=False,  normalize=False)
     # ChangePivot = TodayPivot - MonthAgoPivot
 
@@ -5515,47 +5487,61 @@ def DeathProjection():
     # NewCasesToday = pd.read_pickle('Pickle/ChangeInCasesByAge.pickle')
     # TotalDeathsToday = (NewCasesToday[NewCasesToday.columns[0]]*LastMonthDeathRates).fillna(0)
 
-    TodaysPivot = pd.pivot_table(TodayDF,columns = ['Outbreak_Related','Outcome'],index = 'Age_Group',values = 'Row_ID',aggfunc = np.count_nonzero)
-    MonthAgosPivot = pd.pivot_table(MonthAgoDF,columns = ['Outbreak_Related','Outcome'],index = 'Age_Group',values = 'Row_ID',aggfunc = np.count_nonzero)
+    TodaysPivot = pd.pivot_table(TodayDF, columns=['Outbreak_Related', 'Outcome'],
+                                 index='Age_Group', values='Row_ID', aggfunc=np.count_nonzero)
+    MonthAgosPivot = pd.pivot_table(MonthAgoDF, columns=['Outbreak_Related', 'Outcome'],
+                                    index='Age_Group', values='Row_ID', aggfunc=np.count_nonzero)
 
-    ChangePivot_Outbreak = (TodaysPivot.loc[:,'Yes'] - MonthAgosPivot.loc[:,'Yes'] ).fillna(0)
-    ChangePivot_NonOutbreak = (TodaysPivot.loc[:,'No'] - MonthAgosPivot.loc[:,'No']).fillna(0)
-    LastMonthDeathRates_Outbreak = ChangePivot_Outbreak['Fatal']/(ChangePivot_Outbreak['Fatal']+ChangePivot_Outbreak['Resolved'])
+    ChangePivot_Outbreak = (TodaysPivot.loc[:, 'Yes'] - MonthAgosPivot.loc[:, 'Yes']).fillna(0)
+    ChangePivot_NonOutbreak = (TodaysPivot.loc[:, 'No'] - MonthAgosPivot.loc[:, 'No']).fillna(0)
+    LastMonthDeathRates_Outbreak = (ChangePivot_Outbreak['Fatal']
+                                    / (ChangePivot_Outbreak['Fatal'] + ChangePivot_Outbreak['Resolved']))
     LastMonthDeathRates_Outbreak = LastMonthDeathRates_Outbreak.fillna(0)
-    LastMonthDeathRates_NonOutbreak = ChangePivot_NonOutbreak['Fatal']/(ChangePivot_NonOutbreak['Fatal']+ChangePivot_NonOutbreak['Resolved'])
+    LastMonthDeathRates_NonOutbreak = (ChangePivot_NonOutbreak['Fatal']
+                                       / (ChangePivot_NonOutbreak['Fatal'] + ChangePivot_NonOutbreak['Resolved']))
     LastMonthDeathRates_NonOutbreak = LastMonthDeathRates_NonOutbreak.fillna(0)
 
-    casesByAgeAndOutbreak = pd.pivot_table(df,values = 'Row_ID',index = ['Outbreak_Related','Age_Group'],columns = 'File_Date',aggfunc=np.count_nonzero)
+    casesByAgeAndOutbreak = pd.pivot_table(df, values='Row_ID',
+                                           index=['Outbreak_Related', 'Age_Group'],
+                                           columns='File_Date', aggfunc=np.count_nonzero)
 
-    changeInCases_Outbreak = (casesByAgeAndOutbreak.loc['Yes']-casesByAgeAndOutbreak.loc['Yes'].shift(1,axis=1))
-    NewCases_Outbreak = changeInCases_Outbreak[changeInCases_Outbreak.columns[len(changeInCases_Outbreak.columns)-1]]
-    changeInCases_NonOutbreak = (casesByAgeAndOutbreak.loc['No']-casesByAgeAndOutbreak.loc['No'].shift(1,axis=1))
-    NewCases_NonOutbreak = changeInCases_NonOutbreak[changeInCases_NonOutbreak.columns[len(changeInCases_NonOutbreak.columns)-1]]
-    #TotalDeathsToday = pd.DataFrame(((LastMonthDeathRates_Outbreak.T*NewCases_Outbreak)+(LastMonthDeathRates_NonOutbreak.T*NewCases_NonOutbreak)).T)
-    TotalDeathsToday = ((LastMonthDeathRates_Outbreak.T*NewCases_Outbreak)+(LastMonthDeathRates_NonOutbreak.T*NewCases_NonOutbreak))
-    TotalOutbreakDeathsToday = (LastMonthDeathRates_Outbreak.T*NewCases_Outbreak)
-    TotalNonOutbreakDeathsToday = (LastMonthDeathRates_NonOutbreak.T*NewCases_NonOutbreak)
+    changeInCases_Outbreak = (casesByAgeAndOutbreak.loc['Yes']
+                              - casesByAgeAndOutbreak.loc['Yes'].shift(1, axis=1))
+    NewCases_Outbreak = changeInCases_Outbreak[changeInCases_Outbreak.columns[len(changeInCases_Outbreak.columns) - 1]]
+    changeInCases_NonOutbreak = (casesByAgeAndOutbreak.loc['No'] - casesByAgeAndOutbreak.loc['No'].shift(1, axis=1))
+    NewCases_NonOutbreak = changeInCases_NonOutbreak[changeInCases_NonOutbreak.columns[len(changeInCases_NonOutbreak.columns) - 1]]
 
+    TotalDeathsToday = ((LastMonthDeathRates_Outbreak.T * NewCases_Outbreak)
+                        + (LastMonthDeathRates_NonOutbreak.T * NewCases_NonOutbreak))
+    TotalOutbreakDeathsToday = (LastMonthDeathRates_Outbreak.T * NewCases_Outbreak)
+    TotalNonOutbreakDeathsToday = (LastMonthDeathRates_NonOutbreak.T * NewCases_NonOutbreak)
 
+    sys.stdout = open(TextFileName, 'w')
+    print('* Based on death rates from completed cases over the past month, **',
+          TotalDeathsToday.sum().round(1),
+          "** people from today's new cases are expected to die of which ",
+          TotalDeathsToday[0:4].sum().round(1), ' are less than 50 years old, and ',
+          TotalDeathsToday[4].sum().round(1), ', ', TotalDeathsToday[5].sum().round(1), ', ',
+          TotalDeathsToday[6].sum().round(1), ', ', TotalDeathsToday[7].sum().round(1), ' and ',
+          TotalDeathsToday[8].sum().round(1),
+          ' are in their 50s, 60s, 70s, 80s and 90s respectively. Of these, ',
+          TotalOutbreakDeathsToday.sum().round(1), ' are from outbreaks, and ',
+          TotalNonOutbreakDeathsToday.sum().round(1), ' are non-outbreaks', sep='')
 
-
-    #print(LastMonthDeathRates.fillna(0))
-    #print()
-    sys.stdout = open(TextFileName,'w')
-    print('* Based on death rates from completed cases over the past month, **',TotalDeathsToday.sum().round(1),"** people from today's new cases are expected to die of which ",
-          TotalDeathsToday[0:4].sum().round(1),' are less than 50 years old, and ',TotalDeathsToday[4].sum().round(1),', ',TotalDeathsToday[5].sum().round(1),', ',TotalDeathsToday[6].sum().round(1)
-          ,', ',TotalDeathsToday[7].sum().round(1),' and ',TotalDeathsToday[8].sum().round(1),' are in their 50s, 60s, 70s, 80s and 90s respectively. Of these, ',
-          TotalOutbreakDeathsToday.sum().round(1),' are from outbreaks, and ',TotalNonOutbreakDeathsToday.sum().round(1),' are non-outbreaks',sep='')
-    #print()
-    sys.stdout = open(TableFileName,'w')
+    sys.stdout = open(TableFileName, 'w')
     print('**Case fatality rates by age group (last 30 days):**')
     print()
     print('Age Group|Outbreak-->|CFR %|Deaths|Non-outbreak-->|CFR%|Deaths|')
     print(':-:|:--|--:|--:|:--|--:|--:|')
-    for i in range(len(LastMonthDeathRates_Outbreak)-1):
-        print(LastMonthDeathRates_Outbreak.index[i],'||',(LastMonthDeathRates_Outbreak.iloc[i]*100).round(2),'%|',ChangePivot_Outbreak.iloc[i,0].astype(int),'||',(LastMonthDeathRates_NonOutbreak.iloc[i]*100).round(2),'%|',ChangePivot_NonOutbreak.iloc[i,0].astype(int),sep='')
+    for i in range(len(LastMonthDeathRates_Outbreak) - 1):
+        print(LastMonthDeathRates_Outbreak.index[i], '||',
+              (LastMonthDeathRates_Outbreak.iloc[i] * 100).round(2), '%|',
+              ChangePivot_Outbreak.iloc[i, 0].astype(int), '||',
+              (LastMonthDeathRates_NonOutbreak.iloc[i] * 100).round(2), '%|',
+              ChangePivot_NonOutbreak.iloc[i, 0].astype(int), sep='')
 
     sys.stdout = ConsoleOut
+
 
 def OutbreakData():
     ConsoleOut = sys.stdout
@@ -5568,36 +5554,43 @@ def OutbreakData():
     df['outbreak_subgroup'] = df['outbreak_subgroup'].str.capitalize()
 
     sys.stdout = open(TextFileName, 'w')
-    print('**Outbreak data** *(latest data as of ',ReportDate.strftime('%B %d'),')*- [Source](https://data.ontario.ca/dataset/ontario-covid-19-outbreaks-data) and [Definitions](https://covid-19.ontario.ca/data/covid-19-case-data-glossary#outbreak)',sep='')
+    print('**Outbreak data** *(latest data as of ', ReportDate.strftime('%B %d'),
+          ')*- [Source](https://data.ontario.ca/dataset/ontario-covid-19-outbreaks-data) and [Definitions](https://covid-19.ontario.ca/data/covid-19-case-data-glossary#outbreak)',
+          sep='')
     print()
-    print('* New outbreak cases:',df['TOTAL_CASES'].sum())
-    print('* *New outbreak cases (groups with 2+):* ',end = '')
+    print('* New outbreak cases:', df['TOTAL_CASES'].sum())
+    print('* *New outbreak cases (groups with 2+):* ', end='')
     df = df[abs(df['TOTAL_CASES']) >= 2]
     for i in range(len(df)):
-        print(df.iloc[i]['outbreak_subgroup'], ' (', df.iloc[i]['TOTAL_CASES'],'), ',sep = '', end='')
+        print(df.iloc[i]['outbreak_subgroup'], ' (', df.iloc[i]['TOTAL_CASES'], '), ',
+              sep='', end='')
 
     sys.stdout = ConsoleOut
-
     sys.stdout = open(TextFileName, 'a')
 
     dfActive = pd.read_csv('https://data.ontario.ca/dataset/5472ffc1-88e2-48ca-bc9f-4aa249c1298d/resource/66d15cce-bfee-4f91-9e6e-0ea79ec52b3d/download/ongoing_outbreaks.csv')
     dfActive.to_csv('SourceFiles/OutbreakData-ongoing_outbreaks.csv')
     dfActive['date'] = pd.to_datetime(dfActive['date'])
     ReportDateActive = dfActive['date'].max()
-    activePivot = pd.pivot_table(dfActive,index = 'outbreak_subgroup', columns='date', aggfunc=sum)
-    activePivot = activePivot.reindex(columns=sorted(activePivot.columns,reverse = True))
-    activePivot = activePivot.sort_values(by = activePivot.columns[0],ascending = False)
+    activePivot = pd.pivot_table(dfActive, index='outbreak_subgroup', columns='date', aggfunc=sum)
+    activePivot = activePivot.reindex(columns=sorted(activePivot.columns, reverse=True))
+    activePivot = activePivot.sort_values(by=activePivot.columns[0], ascending=False)
     activePivot = activePivot.fillna(0).astype(int)
     print()
-    print('* ',activePivot.iloc[:,0].sum(),' active cases in outbreaks (',format(activePivot.iloc[:,0].sum()-activePivot.iloc[:,7].sum(),"+,d"),' vs. last week)',sep='')
-    print('* Major categories with active cases (vs. last week): ',end='')
+    print('* ', activePivot.iloc[:, 0].sum(), ' active cases in outbreaks (',
+          format(activePivot.iloc[:, 0].sum() - activePivot.iloc[:, 7].sum(), "+,d"),
+          ' vs. last week)', sep='')
+    print('* Major categories with active cases (vs. last week): ', end='')
     for i in range(7):
-        print(str(activePivot.index[i]).translate(str.maketrans('','','1234567890')),': ',activePivot.iloc[i,0],'(',format(activePivot.iloc[i,0]-activePivot.iloc[i,7],"+,d"),')',sep = '',end =',')
+        print(str(activePivot.index[i]).translate(str.maketrans('', '', '1234567890')), ': ',
+              activePivot.iloc[i, 0],
+              '(', format(activePivot.iloc[i, 0] - activePivot.iloc[i, 7], "+,d"), ')',
+              sep='', end=',')
     print()
     sys.stdout = ConsoleOut
 
-def AdHocCodes():
 
+def AdHocCodes():
 
     #------------------------------------------------------------------------
     #Episode Date for specific PHU
@@ -5714,58 +5707,56 @@ def AdHocCodes():
     abc = abc.reindex(columns=sorted(abc.columns,reverse = True))
 
 
-
 def OntarioZones():
     df = pd.read_csv('https://data.ontario.ca/dataset/cbb4d08c-4e56-4b07-9db6-48335241b88a/resource/ce9f043d-f0d4-40f0-9b96-4c8a83ded3f6/download/response_framework.csv')
     df.to_csv('SourceFiles/OntarioZones-response_framework.csv')
     df['start_date'] = pd.to_datetime(df['start_date'])
     df['end_date'] = pd.to_datetime(df['end_date'])
-    df = df.sort_values(by = 'end_date',ascending = False)
+    df = df.sort_values(by='end_date', ascending=False)
     df = df.set_index('Reporting_PHU_id')
 
-    df['Status_PHU'] = df['Status_PHU'].replace(['Prevent'],['Green'])
-    df['Status_PHU'] = df['Status_PHU'].replace(['Protect'],['Yellow'])
-    df['Status_PHU'] = df['Status_PHU'].replace(['Restrict'],['Orange'])
-    df['Status_PHU'] = df['Status_PHU'].replace(['Control'],['Red'])
-    #df['Status_PHU'] = df['Status_PHU'].replace(['Lockdown'],['[Grey/Gray](https://fast-poll.com/poll/3e71c5ce)'])
-    df['Status_PHU'] = df['Status_PHU'].replace(['Lockdown'],['Grey'])
-    df['Status_PHU'] = df['Status_PHU'].replace(['Stay-at-home'],['Home'])
+    df['Status_PHU'] = df['Status_PHU'].replace(['Prevent'], ['Green'])
+    df['Status_PHU'] = df['Status_PHU'].replace(['Protect'], ['Yellow'])
+    df['Status_PHU'] = df['Status_PHU'].replace(['Restrict'], ['Orange'])
+    df['Status_PHU'] = df['Status_PHU'].replace(['Control'], ['Red'])
+    # df['Status_PHU'] = df['Status_PHU'].replace(['Lockdown'], ['[Grey/Gray](https://fast-poll.com/poll/3e71c5ce)'])
+    df['Status_PHU'] = df['Status_PHU'].replace(['Lockdown'], ['Grey'])
+    df['Status_PHU'] = df['Status_PHU'].replace(['Stay-at-home'], ['Home'])
 
-
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Toronto Public Health'],'Toronto PHU')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Peel Public Health'],'Peel')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['York Region Public Health Services'],'York')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Region of Waterloo, Public Health'],'Waterloo Region')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Durham Region Health Department'],'Durham')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Hamilton Public Health Services'],'Hamilton')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Middlesex-London Health Unit'],'London')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Halton Region Health Department'],'Halton')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Simcoe Muskoka District Health Unit'],'Simcoe-Muskoka')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Niagara Region Public Health Department'],'Niagara')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Windsor-Essex County Health Unit'],'Windsor')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Wellington-Dufferin-Guelph Public Health'],'Wellington-Guelph')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Kingston, Frontenac and Lennox & Addington Public Health'],'Kingston')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Southwestern Public Health'],'Southwestern')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Chatham-Kent Health Unit'],'Chatham-Kent')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Ottawa Public Health'],'Ottawa')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Algoma Public Health Unit'],'Algoma')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Thunder Bay District Health Unit'],'Thunder Bay')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Timiskaming Health Unit'],'Timiskaming')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Porcupine Health Unit'],'Porcupine')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Sudbury & District Health Unit'],'Sudbury')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Brant County Health Unit'],'Brant')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Eastern Ontario Health Unit'],'Eastern Ontario')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Leeds, Grenville and Lanark District Health Unit'],'Leeds, Grenville, Lanark')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Haldimand-Norfolk Health Unit'],'Haldimand-Norfolk')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Lambton Public Health'],'Lambton')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Haliburton, Kawartha, Pine Ridge District Health Unit'],'Haliburton, Kawartha')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Grey Bruce Health Unit'],'Grey Bruce')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Huron Perth District Health Unit'],'Huron Perth')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Peterborough Public Health'],'Peterborough')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Renfrew County and District Health Unit'],'Renfrew')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Hastings and Prince Edward Counties Health Unit'],'Hastings')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Northwestern Health Unit'],'Northwestern')
-    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['North Bay Parry Sound District Health Unit'],'North Bay')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Toronto Public Health'], 'Toronto PHU')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Peel Public Health'], 'Peel')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['York Region Public Health Services'], 'York')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Region of Waterloo,  Public Health'], 'Waterloo Region')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Durham Region Health Department'], 'Durham')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Hamilton Public Health Services'], 'Hamilton')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Middlesex-London Health Unit'], 'London')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Halton Region Health Department'], 'Halton')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Simcoe Muskoka District Health Unit'], 'Simcoe-Muskoka')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Niagara Region Public Health Department'], 'Niagara')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Windsor-Essex County Health Unit'], 'Windsor')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Wellington-Dufferin-Guelph Public Health'], 'Wellington-Guelph')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Kingston,  Frontenac and Lennox & Addington Public Health'], 'Kingston')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Southwestern Public Health'], 'Southwestern')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Chatham-Kent Health Unit'], 'Chatham-Kent')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Ottawa Public Health'], 'Ottawa')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Algoma Public Health Unit'], 'Algoma')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Thunder Bay District Health Unit'], 'Thunder Bay')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Timiskaming Health Unit'], 'Timiskaming')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Porcupine Health Unit'], 'Porcupine')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Sudbury & District Health Unit'], 'Sudbury')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Brant County Health Unit'], 'Brant')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Eastern Ontario Health Unit'], 'Eastern Ontario')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Leeds,  Grenville and Lanark District Health Unit'], 'Leeds,  Grenville,  Lanark')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Haldimand-Norfolk Health Unit'], 'Haldimand-Norfolk')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Lambton Public Health'], 'Lambton')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Haliburton,  Kawartha,  Pine Ridge District Health Unit'], 'Haliburton,  Kawartha')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Grey Bruce Health Unit'], 'Grey Bruce')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Huron Perth District Health Unit'], 'Huron Perth')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Peterborough Public Health'], 'Peterborough')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Renfrew County and District Health Unit'], 'Renfrew')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Hastings and Prince Edward Counties Health Unit'], 'Hastings')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['Northwestern Health Unit'], 'Northwestern')
+    df['Reporting_PHU'] = df['Reporting_PHU'].replace(['North Bay Parry Sound District Health Unit'], 'North Bay')
 
     dfnew = pd.DataFrame()
     for PHU in set(df['Reporting_PHU']):
@@ -5778,19 +5769,19 @@ def OntarioZones():
     del dfnew
 
 def PHUWebsiteReplacements(df):
-    df.rename(index={'Toronto PHU':'[Toronto PHU](https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/)'},inplace=True)
-    df.rename(index={'Waterloo Region':'[Waterloo Region](https://www.regionofwaterloo.ca/en/health-and-wellness/positive-cases-in-waterloo-region.aspx)'},inplace=True)
-    df.rename(index={'Peel':'[Peel](https://www.peelregion.ca/coronavirus/case-status/)'},inplace=True)
-    df.rename(index={'York':'[York](https://www.york.ca/wps/portal/yorkhome/health/yr/covid-19/covid19inyorkregion/01covid19inyorkregion/!ut/p/z1/tZJLT-MwFIV_C4suI187SW0vTeg0CTQtjz7iTZVJ09RMk5SMKTC_fhxUJISgMGLshV-6Plfn80ESLZCss70qM62aOtuacyr7y0gMozA8h3jssQAEjEVMKIMBx2j-XAAfDAFIfuX9kQJ5XH6GJJK7XK1QStyCspwzh4KfO16W9x2Of67MxNc-5-uMd3JI5rXe6Q1Kn9pl3tS6qHUPnpr2lzn81krfP19smqowc5Ft9aYHebNXKwfzww5zVXcv2qI0mHoA-J1rFH_m3cAl7SgYlcZBpjeOqtcNWrz0OuzeiC7e72Wk1O3dnRTGXufpUaOFbX_zDuZrh8Nr5kE0i6mY4TF4kXsoIMTrhziAGMIxg-gHnfhnLMRwTg4FR_43NfmgH0K8Imi-V8UDmtZNW5m8Xv9jHMKXDpQFIhRDmMDNlMLlgHqsfzGaXFzhb3b4xIBledeqPAW78sSu_P-BE0cQYNHF3x24IEgUsFM3Zklil31il31il31iN_ez78LZVdNpxVx_WzLNo1u_rJZnp4mTxvs_R5eRODn5Cx0G6fA!/dz/d5/L2dBISEvZ0FBIS9nQSEh/)'},inplace=True)
-    df.rename(index={'Ottawa':'[Ottawa](https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx)'},inplace=True)
-    df.rename(index={'Leeds, Grenville, Lanark':'[Leeds, Grenville, Lanark](https://healthunit.org/health-information/covid-19/local-cases-and-statistics/dashboard/)'},inplace=True)
-    df.rename(index={'Durham':'[Durham](https://www.durham.ca/en/shared-content/covid-19-durham-region-case-status.aspx)'},inplace=True)
-    df.rename(index={'Hamilton':'[Hamilton](https://www.hamilton.ca/coronavirus/status-cases-in-hamilton)'},inplace=True)
-    df.rename(index={'Halton':'[Halton](https://www.halton.ca/For-Residents/Immunizations-Preventable-Disease/Diseases-Infections/New-Coronavirus/Status-of-COVID-19-Cases-in-Halton)'},inplace=True)
-    df.rename(index={'Niagara':'[Niagara](https://niagararegion.ca/health/covid-19/statistics/statistics.aspx)'},inplace=True)
-    df.rename(index={'Windsor':'[Windsor](https://www.wechu.org/cv/local-updates)'},inplace=True)
-    df.rename(index={'Hastings':'[Hastings](https://hpepublichealth.ca/covid-19-cases/)'},inplace=True)
-    #df.rename(index={'Porcupine':'[Porcupine](https://animals.sandiegozoo.org/sites/default/files/2016-09/animals_hero_porcupine.jpg)'},inplace=True)
+    df.rename(index={'Toronto PHU': '[Toronto PHU](https://www.toronto.ca/home/covid-19/covid-19-latest-city-of-toronto-news/covid-19-status-of-cases-in-toronto/)'},inplace=True)
+    df.rename(index={'Waterloo Region': '[Waterloo Region](https://www.regionofwaterloo.ca/en/health-and-wellness/positive-cases-in-waterloo-region.aspx)'},inplace=True)
+    df.rename(index={'Peel': '[Peel](https://www.peelregion.ca/coronavirus/case-status/)'},inplace=True)
+    df.rename(index={'York': '[York](https://www.york.ca/wps/portal/yorkhome/health/yr/covid-19/covid19inyorkregion/01covid19inyorkregion/!ut/p/z1/tZJLT-MwFIV_C4suI187SW0vTeg0CTQtjz7iTZVJ09RMk5SMKTC_fhxUJISgMGLshV-6Plfn80ESLZCss70qM62aOtuacyr7y0gMozA8h3jssQAEjEVMKIMBx2j-XAAfDAFIfuX9kQJ5XH6GJJK7XK1QStyCspwzh4KfO16W9x2Of67MxNc-5-uMd3JI5rXe6Q1Kn9pl3tS6qHUPnpr2lzn81krfP19smqowc5Ft9aYHebNXKwfzww5zVXcv2qI0mHoA-J1rFH_m3cAl7SgYlcZBpjeOqtcNWrz0OuzeiC7e72Wk1O3dnRTGXufpUaOFbX_zDuZrh8Nr5kE0i6mY4TF4kXsoIMTrhziAGMIxg-gHnfhnLMRwTg4FR_43NfmgH0K8Imi-V8UDmtZNW5m8Xv9jHMKXDpQFIhRDmMDNlMLlgHqsfzGaXFzhb3b4xIBledeqPAW78sSu_P-BE0cQYNHF3x24IEgUsFM3Zklil31il31il31iN_ez78LZVdNpxVx_WzLNo1u_rJZnp4mTxvs_R5eRODn5Cx0G6fA!/dz/d5/L2dBISEvZ0FBIS9nQSEh/)'},inplace=True)
+    df.rename(index={'Ottawa': '[Ottawa](https://www.ottawapublichealth.ca/en/reports-research-and-statistics/daily-covid19-dashboard.aspx)'},inplace=True)
+    df.rename(index={'Leeds, Grenville, Lanark': '[Leeds, Grenville, Lanark](https://healthunit.org/health-information/covid-19/local-cases-and-statistics/dashboard/)'},inplace=True)
+    df.rename(index={'Durham': '[Durham](https://www.durham.ca/en/shared-content/covid-19-durham-region-case-status.aspx)'},inplace=True)
+    df.rename(index={'Hamilton': '[Hamilton](https://www.hamilton.ca/coronavirus/status-cases-in-hamilton)'},inplace=True)
+    df.rename(index={'Halton': '[Halton](https://www.halton.ca/For-Residents/Immunizations-Preventable-Disease/Diseases-Infections/New-Coronavirus/Status-of-COVID-19-Cases-in-Halton)'},inplace=True)
+    df.rename(index={'Niagara': '[Niagara](https://niagararegion.ca/health/covid-19/statistics/statistics.aspx)'},inplace=True)
+    df.rename(index={'Windsor': '[Windsor](https://www.wechu.org/cv/local-updates)'},inplace=True)
+    df.rename(index={'Hastings': '[Hastings](https://hpepublichealth.ca/covid-19-cases/)'},inplace=True)
+    # df.rename(index={'Porcupine':'[Porcupine](https://animals.sandiegozoo.org/sites/default/files/2016-09/animals_hero_porcupine.jpg)'},inplace=True)
 
     return (df)
 
@@ -6052,20 +6043,17 @@ def COVIDCharts():
     dfCaseStatus = pd.read_pickle('Pickle/OntarioCaseStatus.pickle')
     dfCaseStatus = dfCaseStatus.reset_index()
     df = dfCaseStatus
-
-
-    plt.xkcd(0.5,5,0.1)
-    plt.rcParams.update({'font.family':'sans-serif'})
+    plt.xkcd(0.5, 5, 0.1)
+    plt.rcParams.update({'font.family': 'sans-serif'})
 
     # plt.rcParams['ytick.major.width'] = 1
     # plt.rcParams['ytick.major.size'] = 8
     # plt.rcParams['axes.linewidth'] = 1.5
     # plt.rcParams['lines.linewidth'] = 0.1
-    plt.rcParams['path.effects'] = [
-         matplotlib.patheffects.withStroke(linewidth=1, foreground="w")]
+    plt.rcParams['path.effects'] = [matplotlib.patheffects.withStroke(linewidth=1, foreground="w")]
 
-    ##############################################################
-    ##############################################################
+    ################################################################################################
+    ################################################################################################
     # Vaccine progress chart
     dfMaster = pd.read_pickle('Pickle/VaccineAgeAll.pickle')
     dfMaster = dfMaster.reset_index()
@@ -6077,7 +6065,7 @@ def COVIDCharts():
     df['TwoDose'] = df['Percent_fully_vaccinated']
     df['OneDose'] = df['Percent_at_least_one_dose'] - df['TwoDose']
     df['ZeroDose'] = 1 - df['Percent_at_least_one_dose']
-    df=df.fillna(0)
+    df = df.fillna(0)
 
     plt.figure(figsize=chartSize)
     plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%b'))
@@ -6091,12 +6079,12 @@ def COVIDCharts():
              df['Date'].max() + datetime.timedelta(days=1))
     print(df['Date'].max())
 
-    plt.stackplot(df['Date'],100*df['TwoDose'],df['OneDose']*100,df['ZeroDose']*100,labels=['Two dose','One Dose','Unvax'])
+    plt.stackplot(df['Date'], 100 * df['TwoDose'], df['OneDose'] * 100, df['ZeroDose'] * 100,
+                  labels=['Two dose', 'One Dose', 'Unvax'])
     plt.legend(loc=(0.07, 0.05))
     ax = plt.gca()
     handles, labels = ax.get_legend_handles_labels()
-    ax.legend(handles[::-1], labels[::-1],loc='upper left' ) #reverse legend order
-
+    ax.legend(handles[::-1], labels[::-1], loc='upper left')  # reverse legend order
 
     plt.title(f"Ontario vaccinated rates - 12+ as at {TodaysDate:%B %d}")
     plt.tight_layout()
@@ -6111,38 +6099,38 @@ def COVIDCharts():
 
     formatter = (ticker).PercentFormatter()
     plt.gca().yaxis.set_major_formatter(formatter)
-    plt.grid(linewidth = 0.55)
-    plt.ylim(0,100+1)
-    plt.xlim(df['Date'].min()-datetime.timedelta(days=3),df['Date'].max()+datetime.timedelta(days=3))
+    plt.grid(linewidth=0.55)
+    plt.ylim(0, 100 + 1)
+    plt.xlim(df['Date'].min() - datetime.timedelta(days=3),
+             df['Date'].max() + datetime.timedelta(days=3))
 
-    plt.stackplot(df['Date'],100*df['TwoDose'],df['OneDose']*100,df['ZeroDose']*100,labels=['Two dose','One Dose','Unvax'])
+    plt.stackplot(df['Date'], 100 * df['TwoDose'], df['OneDose'] * 100, df['ZeroDose'] * 100,
+                  labels=['Two dose', 'One Dose', 'Unvax'])
     plt.legend(loc=(0.07, 0.05))
     ax = plt.gca()
     handles, labels = ax.get_legend_handles_labels()
-    ax.legend(handles[::-1], labels[::-1],loc='upper left' )
-
+    ax.legend(handles[::-1], labels[::-1], loc='upper left')
 
     plt.title(f"Ontario vaccinated rates - 12+ as at{TodaysDate:%B %d} - \n Last 100 days")
     plt.tight_layout()
     plt.savefig('ChartImages/3-OntarioVaccineProgress_100Days.png')
     plt.show()
 
-    ##############################################################
-    ##############################################################
-    #Vaccines - % of remaining vaxxed each week
-    df = dfMaster[dfMaster['Agegroup']=='Ontario_12plus'].copy()
-    df= df.reset_index()
+    ################################################################################################
+    ################################################################################################
+    # Vaccines - % of remaining vaxxed each week
+    df = dfMaster[dfMaster['Agegroup'] == 'Ontario_12plus'].copy()
+    df = df.reset_index()
     Color_Cases = 'blue'
     Color_ICU = 'red'
-    fig,ax1 = plt.subplots(figsize=(chartSize))
+    fig, ax1 = plt.subplots(figsize=(chartSize))
     # ax2=ax1.twinx()
     ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
-    #ax1.set_ylim(0,df['PercentOfRemaining_First - in last week'].max()*1)
-    ax1.set_ylim(0,0.2)
+    # ax1.set_ylim(0,df['PercentOfRemaining_First - in last week'].max()*1)
+    ax1.set_ylim(0, 0.2)
     # print(df['PercentOfRemaining_First - in last week'].max())
     print(df['PercentOfRemaining_SecondElig - in last week'].max())
-
 
     formatter = (ticker).PercentFormatter(xmax=1, decimals=0)
     ax1.yaxis.set_major_formatter(formatter)
@@ -6158,45 +6146,51 @@ def COVIDCharts():
     # ax1.set_yticks(list(range(0,Max_AX1,Max_AX1//5)))
     # ax2.set_yticks(list(range(0,Max_AX1//4,Max_AX1//(5*4))))
 
-    ax1.plot(df['Date'],df['PercentOfRemaining_First - in last week'], color = Color_Cases,label = 'First doses % of unvax')
-    SecondDoseDF = df[df['Date']>=datetime.datetime(2021,3,1)]
-    ax1.plot(SecondDoseDF['Date'],SecondDoseDF['PercentOfRemaining_SecondElig - in last week'],color = 'red',label = 'Second doses % of eligible')
-    ax1.legend(loc=(0.05,0.9),fontsize='small')
+    ax1.plot(df['Date'], df['PercentOfRemaining_First - in last week'], color=Color_Cases,
+             label='First doses % of unvax')
+    SecondDoseDF = df[df['Date'] >= datetime.datetime(2021, 3, 1)]
+    ax1.plot(SecondDoseDF['Date'], SecondDoseDF['PercentOfRemaining_SecondElig - in last week'],
+             color='red', label='Second doses % of eligible')
+    ax1.legend(loc=(0.05, 0.9), fontsize='small')
     # ax2.legend(loc=(0.05,0.83),fontsize='small')
-    #ax1.set_ylabel('Cases',color = Color_Cases)
+    # ax1.set_ylabel('Cases',color = Color_Cases)
     # ax2.set_ylabel('ICUs',color = Color_ICU)
-    ax1.set_xlim(df['Date'].min()-datetime.timedelta(days=5),df['Date'].max()+datetime.timedelta(days=5))
-    #ax2.grid(color='black')
-    ax1.annotate(f"This week:\n{df['PercentOfRemaining_First - in last week'][0]:.2%}",xy=(mdates.date2num(df['Date'][0]), df['PercentOfRemaining_First - in last week'][0]),xytext = (-30,-40),
-            textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),fontsize='x-small',horizontalalignment='center')
+    ax1.set_xlim(df['Date'].min() - datetime.timedelta(days=5),
+                 df['Date'].max() + datetime.timedelta(days=5))
+    # ax2.grid(color='black')
+    ax1.annotate(f"This week:\n{df['PercentOfRemaining_First - in last week'][0]:.2%}",
+                 xy=(mdates.date2num(df['Date'][0]), df['PercentOfRemaining_First - in last week'][0]),
+                 xytext=(-30, -40), textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),
+                 fontsize='x-small', horizontalalignment='center')
 
     df = df.set_index('Date')
     SecondDoseDF = SecondDoseDF.set_index('Date')
-    VaxPassDate = datetime.datetime(2021,9,1)
+    VaxPassDate = datetime.datetime(2021, 9, 1)
     ax1.annotate(f"Vaccine Passport\n announced:\n{datetime.datetime(2021,9,1):%b %d}",
-                 xy=(mdates.date2num(datetime.datetime(2021,9,1)), df.loc[VaxPassDate]['PercentOfRemaining_First - in last week']),
-                 xytext = (-30,30), textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),
+                 xy=(mdates.date2num(datetime.datetime(2021, 9, 1)),
+                     df.loc[VaxPassDate]['PercentOfRemaining_First - in last week']),
+                 xytext=(-30, 30), textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),
                  fontsize='x-small', horizontalalignment='center')
-    ax1.annotate(f". ",xy=(mdates.date2num(datetime.datetime(2021,9,1)), SecondDoseDF.loc[VaxPassDate]['PercentOfRemaining_SecondElig - in last week']),xytext = (-30,-30),
-            textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),fontsize='x-small',horizontalalignment='center')
-
+    ax1.annotate(f". ", xy=(mdates.date2num(datetime.datetime(2021, 9, 1)),
+                            SecondDoseDF.loc[VaxPassDate]['PercentOfRemaining_SecondElig - in last week']),
+                 xytext=(-30, -30), textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),
+                 fontsize='x-small', horizontalalignment='center')
 
     # ax1.annotate(f"OP gets vaxxed \n {datetime.datetime(2021,5,18):%b %d}",xy=(mdates.date2num(datetime.datetime(2021,5,18)), df.loc[datetime.datetime(2021,5,18)]['PercentOfRemaining_First - in last week']),xytext = (-60,-20),
     #         textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),fontsize='x-small',horizontalalignment='center')
-    ax1.axvline(x = 10, color = 'r', linestyle = '-',linewidth=3)
+    ax1.axvline(x=10, color='r', linestyle='-', linewidth=3)
 
-    fig.suptitle(f"% of unvaxed pop'n first vaxxed and \n % of eligib pop'n second vaxxed this week\n (to {TodaysDate: %B %d})",fontsize = 12)
+    fig.suptitle(f"% of unvaxed pop'n first vaxxed and \n % of eligib pop'n second vaxxed this week\n (to {TodaysDate: %B %d})",
+                 fontsize=12)
 
     ax1.set_facecolor('0.95')
     plt.tight_layout()
     plt.savefig('ChartImages/6-Vaccine_RemainingPctWeek.png')
     plt.show()
 
-
-
     ##############################################################
     ##############################################################
-    #Cases and ICUs chart
+    # Cases and ICUs chart
 
     df = dfCaseStatus.copy()
     TodaysDate = df['Reported Date'].max()
@@ -6204,12 +6198,11 @@ def COVIDCharts():
     Color_Cases = 'blue'
     Color_ICU = 'red'
     Color_Hosp = 'grey'
-    fig,ax1 = plt.subplots(figsize=(chartSize))
-    ax2=ax1.twinx()
+    fig, ax1 = plt.subplots(figsize=(chartSize))
+    ax2 = ax1.twinx()
     ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
-    ax1.set_ylim(0,df['7 day SMA'].max()*1)
-
+    ax1.set_ylim(0, df['7 day SMA'].max() * 1)
 
     formatter = (ticker).StrMethodFormatter('{x:,.0f}')
     ax1.yaxis.set_major_formatter(formatter)
@@ -6218,20 +6211,23 @@ def COVIDCharts():
     ax2.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax2.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
 
-    ax2.set_ylim(0,ax1.get_ylim()[1]/4)
+    ax2.set_ylim(0, ax1.get_ylim()[1] / 4)
     Max_AX1 = (int)(math.ceil(ax1.get_ylim()[1] / 1000) * 1000)
 
-    ax1.grid(linewidth=0.5,color = 'grey')
-    ax1.set_yticks(list(range(0,Max_AX1+1,Max_AX1//5)))
-    ax2.set_yticks(list(range(0,Max_AX1//4,Max_AX1//(5*4))))
+    ax1.grid(linewidth=0.5, color='grey')
+    ax1.set_yticks(list(range(0, Max_AX1 + 1, Max_AX1 // 5)))
+    ax2.set_yticks(list(range(0, Max_AX1 // 4, Max_AX1 // (5 * 4))))
 
-    ax1.plot(df['Reported Date'],df['7 day SMA'],color = Color_Cases,label = 'Cases - 7 day avg')
-    ax2.plot(df['Reported Date'],df['Number of patients in ICU due to COVID-19'],color = Color_ICU,label = 'ICU count')
-    ax1.legend(loc=(0.05,0.9),fontsize='small')
-    ax2.legend(loc=(0.05,0.83),fontsize='small')
-    ax1.set_ylabel('Cases',color = Color_Cases)
-    ax2.set_ylabel('ICUs',color = Color_ICU)
-    ax1.set_xlim(df['Reported Date'].min()-datetime.timedelta(days=5),df['Reported Date'].max()+datetime.timedelta(days=5))
+    ax1.plot(df['Reported Date'], df['7 day SMA'], color=Color_Cases,
+             label='Cases - 7 day avg')
+    ax2.plot(df['Reported Date'], df['Number of patients in ICU due to COVID-19'],
+             color=Color_ICU, label='ICU count')
+    ax1.legend(loc=(0.05, 0.9), fontsize='small')
+    ax2.legend(loc=(0.05, 0.83), fontsize='small')
+    ax1.set_ylabel('Cases', color=Color_Cases)
+    ax2.set_ylabel('ICUs', color=Color_ICU)
+    ax1.set_xlim(df['Reported Date'].min() - datetime.timedelta(days=5),
+                 df['Reported Date'].max() + datetime.timedelta(days=5))
     # ax2.grid(color='black')
 
     fig.suptitle(f"Cases and ICUs - to {TodaysDate: %B %d}", fontsize=18)
@@ -6270,11 +6266,9 @@ def COVIDCharts():
     # df['doy'] = pd.to_datetime('2020' + df['doy'].astype(str), format='%Y%j')
     # df['doy'] = pd.to_datetime('2020' + df['doy'].astype(str), format='%Y%j')
 
-
     df2020 = df[df['Year'] == 2020]
     df2021 = df[df['Year'] == 2021]
     df2022 = df[df['Year'] == 2022]
-
 
     # ax1.plot(CustomXAxis,df2020['7 day SMA'],color = 'blue',label = '2020')
     ax1.plot(df2020['doy'], df2020['7 day SMA'], color='blue', label='2020')
@@ -6307,41 +6301,42 @@ def COVIDCharts():
     Color_Cases = 'blue'
     Color_ICU = 'red'
     fig, ax1 = plt.subplots(figsize=(chartSize))
-    ax2=ax1.twinx()
+    ax2 = ax1.twinx()
     ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=1))
     ax2.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax2.xaxis.set_major_locator(mdates.MonthLocator(interval=1))
 
-    ax1.set_ylim(0,df['7 day SMA'].max()*1)
+    ax1.set_ylim(0, df['7 day SMA'].max() * 1)
 
     formatter = (ticker).StrMethodFormatter('{x:,.0f}')
     ax1.yaxis.set_major_formatter(formatter)
     ax2.yaxis.set_major_formatter(formatter)
 
-    #Max_AX1 = (int)(math.ceil(ax1.get_ylim()[1] / 100) * 100)
-    Max_AX1 = (int)(math.ceil((df['7 day SMA'].max() / 100) )* 100)+1
+    Max_AX1 = (int)(math.ceil((df['7 day SMA'].max() / 100)) * 100) + 1
 
-    Max_AX2 = (int)(math.ceil((df['Number of patients in ICU due to COVID-19'].max() / 100) )* 100)+1
+    Max_AX2 = (int)(math.ceil((df['Number of patients in ICU due to COVID-19'].max() / 100)) * 100) + 1
 
-    ax1.set_ylim(0,Max_AX1)
-    ax2.set_ylim(0,Max_AX2)
+    ax1.set_ylim(0, Max_AX1)
+    ax2.set_ylim(0, Max_AX2)
 
-    ax1.grid(linewidth=0.5,color = 'grey')
-    ax1.set_yticks(list(range(0,Max_AX1+1,Max_AX1//4)))
-    ax2.set_yticks(list(range(0,Max_AX2,Max_AX2//4)))
+    ax1.grid(linewidth=0.5, color='grey')
+    ax1.set_yticks(list(range(0, Max_AX1 + 1, Max_AX1 // 4)))
+    ax2.set_yticks(list(range(0, Max_AX2, Max_AX2 // 4)))
 
-    ax1.plot(df['Reported Date'],df['7 day SMA'],color = Color_Cases,label = 'Cases - 7 day avg')
-    ax2.plot(df['Reported Date'],df['Number of patients in ICU due to COVID-19'],color = Color_ICU,label = 'ICU count')
-    ax1.legend(loc=(0.05,0.9),fontsize='small')
-    ax2.legend(loc=(0.05,0.83),fontsize='small')
-    ax1.set_ylabel('Cases',color = Color_Cases)
-    ax2.set_ylabel('ICUs',color = Color_ICU)
-    ax1.set_xlim(df['Reported Date'].min()-datetime.timedelta(days=3),df['Reported Date'].max()+datetime.timedelta(days=3))
+    ax1.plot(df['Reported Date'], df['7 day SMA'], color=Color_Cases, label='Cases - 7 day avg')
+    ax2.plot(df['Reported Date'], df['Number of patients in ICU due to COVID-19'], color=Color_ICU,
+             label='ICU count')
+    ax1.legend(loc=(0.05, 0.9), fontsize='small')
+    ax2.legend(loc=(0.05, 0.83), fontsize='small')
+    ax1.set_ylabel('Cases', color=Color_Cases)
+    ax2.set_ylabel('ICUs', color=Color_ICU)
+    ax1.set_xlim(df['Reported Date'].min() - datetime.timedelta(days=3), df['Reported Date'].max()
+                 + datetime.timedelta(days=3))
 
-    #ax2.grid(color='black')
+    # ax2.grid(color='black')
 
-    fig.suptitle(f"Cases and ICUs to {TodaysDate:%B %d} \n Last 100 days",fontsize = 18)
+    fig.suptitle(f"Cases and ICUs to {TodaysDate:%B %d} \n Last 100 days", fontsize=18)
 
     ax1.set_facecolor('0.95')
     plt.tight_layout()
@@ -6373,7 +6368,7 @@ def COVIDCharts():
     ax = plt.gca()
     ax.annotate(f"Today's Rt:\n{df['Rt estimate'][0]:.2f}",
                 xy=(mdates.date2num(df['Reported Date'][0]), df['Rt estimate'][0]),
-                xytext = (-30, -40), textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),
+                xytext=(-30, -40), textcoords='offset points', arrowprops=dict(arrowstyle='-|>'),
                 fontsize='x-small', horizontalalignment='center')
     Max_Ax = (int)((math.ceil(ax.get_ylim()[1] / 0.1)))
     Min_Ax = (int)((math.floor(ax.get_ylim()[0] / 0.1)))
@@ -6415,12 +6410,10 @@ def COVIDCharts():
     df2021 = df[df['Year'] == 2021]
     df2022 = df[df['Year'] == 2022]
 
-
     ax1.plot(df2020['doy'], df2020['Rt estimate'], color='tab:brown', label='2020')
     ax1.plot(df2021['doy'], df2021['Rt estimate'], color='tab:blue', label='2021')
     ax1.plot(df2022['doy'], df2022['Rt estimate'], color='tab:orange', label='2022')
     plt.axhline(y=1, color='red', linestyle='-', linewidth=3)
-
 
     ax1.legend(loc=(0.05, 0.8), fontsize='small')
     ax1.set_ylabel('Cases', color=Color_Cases)
@@ -6439,25 +6432,25 @@ def COVIDCharts():
 
     ##############################################################
     ##############################################################
-    #New hospitalization and ICU chart
+    # New hospitalization and ICU chart
     df = pd.read_pickle('Pickle/OntarioCaseStatus.pickle')
     df = df.reset_index()
     # df = df.head(100)
 
     Color_ICU = 'red'
     Color_Hosp = 'grey'
-    df = df.sort_values(by='Reported Date',ascending = True)
+    df = df.sort_values(by='Reported Date', ascending=True)
     df['NewHosp_7SMA'] = df['NewHosp'].rolling(7).mean()
     df['NewICU_7SMA'] = df['NewICU'].rolling(7).mean()
-    df = df.sort_values(by='Reported Date',ascending = False)
+    df = df.sort_values(by='Reported Date', ascending=False)
 
-    fig,ax1 = plt.subplots(figsize=(chartSize))
-    ax2=ax1.twinx()
+    fig, ax1 = plt.subplots(figsize=(chartSize))
+    ax2 = ax1.twinx()
     ax1.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax1.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
-    ax1.set_ylim(0,df['7 day SMA'].max()*1)
-    ax2.set_ylim(0,df['NewHosp_7SMA'].max()*1)
-    #ax2.set_ylim(0,222)
+    ax1.set_ylim(0, df['7 day SMA'].max() * 1)
+    ax2.set_ylim(0, df['NewHosp_7SMA'].max() * 1)
+    # ax2.set_ylim(0,222)
 
     formatter = (ticker).StrMethodFormatter('{x:,.0f}')
     ax1.yaxis.set_major_formatter(formatter)
@@ -6466,25 +6459,27 @@ def COVIDCharts():
     ax2.xaxis.set_major_formatter(mdates.DateFormatter('%b'))
     ax2.xaxis.set_major_locator(mdates.MonthLocator(interval=2))
 
-
     Max_AX1 = (int)(math.ceil(ax1.get_ylim()[1] / 1000) * 1000)
     Max_AX2 = (int)(math.ceil(ax2.get_ylim()[1] / 100) * 100)
 
-    ax1.grid(linewidth=0.5,color = 'grey')
-    ax1.set_yticks(list(range(0,Max_AX1+1,Max_AX1//5)))
-    ax2.set_yticks(list(range(0,Max_AX2,Max_AX2//5)))
+    ax1.grid(linewidth=0.5, color='grey')
+    ax1.set_yticks(list(range(0, Max_AX1 + 1, Max_AX1 // 5)))
+    ax2.set_yticks(list(range(0, Max_AX2, Max_AX2 // 5)))
 
-    ax1.plot(df['Reported Date'],df['7 day SMA'],color = Color_Cases,label = 'Cases - 7 day avg')
-    ax2.plot(df['Reported Date'],df['NewICU_7SMA'],color = Color_ICU,label = 'New ICUs')
-    ax2.plot(df['Reported Date'],df['NewHosp_7SMA'],color = Color_Hosp,label = 'New Hospitalizations')
-    ax1.legend(loc=(0.05,0.9),fontsize='small')
-    ax2.legend(loc=(0.05,0.73),fontsize='small')
-    ax1.set_ylabel('Cases',color = Color_Cases)
-    ax2.set_ylabel('New ICUs',color = Color_ICU)
-    ax1.set_xlim(df['Reported Date'].min()-datetime.timedelta(days=5),df['Reported Date'].max()+datetime.timedelta(days=5))
+    ax1.plot(df['Reported Date'], df['7 day SMA'], color=Color_Cases, label='Cases - 7 day avg')
+    ax2.plot(df['Reported Date'], df['NewICU_7SMA'], color=Color_ICU, label='New ICUs')
+    ax2.plot(df['Reported Date'], df['NewHosp_7SMA'], color=Color_Hosp,
+             label='New Hospitalizations')
+    ax1.legend(loc=(0.05, 0.9), fontsize='small')
+    ax2.legend(loc=(0.05, 0.73), fontsize='small')
+    ax1.set_ylabel('Cases', color=Color_Cases)
+    ax2.set_ylabel('New ICUs', color=Color_ICU)
+    ax1.set_xlim(df['Reported Date'].min() - datetime.timedelta(days=5),
+                 df['Reported Date'].max() + datetime.timedelta(days=5))
     #ax2.grid(color='black')
 
-    fig.suptitle(f"New cases, hospitalizations and ICU admits \n- to {TodaysDate: %B %d}",fontsize = 18)
+    fig.suptitle(f"New cases, hospitalizations and ICU admits \n- to {TodaysDate: %B %d}",
+                 fontsize=18)
 
     ax1.set_facecolor('0.95')
     plt.tight_layout()
@@ -6505,7 +6500,7 @@ def COVIDCharts():
         ImgurImplementation.upload_image(imgurClient, 'ChartImages/' + files, albumID)
 
     print('------------------------------------------------------------------------')
-    print('COVIDCharts: ' , round(time.time() - starttime, 2), 'seconds')
+    print('COVIDCharts: ', round(time.time() - starttime, 2), 'seconds')
     print('------------------------------------------------------------------------')
 
 
@@ -6539,7 +6534,7 @@ async def PositiveCaseFileDownload_Async(filename):
     path = 'Async/'
     df.to_csv(os.path.join(path,(filename+' Data.csv')), index=False)
     del df
-    print('File downloaded (seconds):',round(time.time()-starttime))
+    print('File downloaded (seconds):', round(time.time()-starttime))
 
 
 async def DownloadFile_Async(filename):
