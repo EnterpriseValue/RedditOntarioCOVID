@@ -2422,34 +2422,37 @@ def OntarioCaseStatus():
     # dfVaccine['total_vaccinations'] = dfVaccine['total_vaccinations'].astype(int)
     # dfVaccine['change_vaccinations'] = dfVaccine['change_vaccinations'].astype(int)
 
-    NewCases_YearAgo = int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Day new cases'])
-    # NewCasesWeek = int(df['Day new cases'][0:7].sum())
-    # NewCasesPrevWeek = int(df['Day new cases'][7:14].sum())
-    NewRecoveries_YearAgo = (int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Resolved'])
-                             - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Resolved']))
-    NewDeaths_YearAgo = (int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Deaths'])
-                         - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Deaths']))
-
-    CurrentICU_YearAgo = int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Number of patients in ICU due to COVID-19'])
-    ChangeInICUs_YearAgo = (CurrentICU_YearAgo
-                            - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Number of patients in ICU due to COVID-19']))
-    ChangeInICUsLast7_YearAgo = (CurrentICU_YearAgo
-                                 - int(df.loc[(LastYearDate - datetime.timedelta(days=7)).strftime("%Y-%m-%d")]['Number of patients in ICU due to COVID-19']))
-
-    TestsCompleted_YearAgo = (int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Total patients approved for testing as of Reporting Date'])
-                              - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Total patients approved for testing as of Reporting Date']))
-    PositiveRateDay_YearAgo = NewCases_YearAgo / TestsCompleted_YearAgo
-
     OntarioThrowbackFileName = 'TextOutput/OntariThrowbackText.txt'
     sys.stdout = open(OntarioThrowbackFileName, 'w')
 
-    print('* **Throwback** Ontario ' + LastYearDate.strftime('%B %#d') + ' update: '
-          + str(NewCases_YearAgo) + ' New Cases, ' + str(NewRecoveries_YearAgo) + ' Recoveries, '
-          + str(NewDeaths_YearAgo) + ' Deaths, ' + format(TestsCompleted_YearAgo, ",d"), ' tests ('
-          + format(PositiveRateDay_YearAgo, ".2%") + ' positive), Current ICUs: '
-          + format(CurrentICU_YearAgo, ",d") + ' (' + format(ChangeInICUs_YearAgo, "+,d") + ' vs. yesterday)  ('
-          + format(ChangeInICUsLast7_YearAgo, "+,d") + ' vs. last week)'
-          )
+    for years in range(2, 0, -1):
+        LastYearDate = datetime.date(TodaysDate.year - years, TodaysDate.month, TodaysDate.day)
+
+        NewCases_YearAgo = int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Day new cases'])
+        # NewCasesWeek = int(df['Day new cases'][0:7].sum())
+        # NewCasesPrevWeek = int(df['Day new cases'][7:14].sum())
+        NewRecoveries_YearAgo = (int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Resolved'])
+                                 - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Resolved']))
+        NewDeaths_YearAgo = (int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Deaths'])
+                             - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Deaths']))
+
+        CurrentICU_YearAgo = int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Number of patients in ICU due to COVID-19'])
+        ChangeInICUs_YearAgo = (CurrentICU_YearAgo
+                                - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Number of patients in ICU due to COVID-19']))
+        ChangeInICUsLast7_YearAgo = (CurrentICU_YearAgo
+                                     - int(df.loc[(LastYearDate - datetime.timedelta(days=7)).strftime("%Y-%m-%d")]['Number of patients in ICU due to COVID-19']))
+
+        TestsCompleted_YearAgo = (int(df.loc[LastYearDate.strftime("%Y-%m-%d")]['Total patients approved for testing as of Reporting Date'])
+                                  - int(df.loc[(LastYearDate - datetime.timedelta(days=1)).strftime("%Y-%m-%d")]['Total patients approved for testing as of Reporting Date']))
+        PositiveRateDay_YearAgo = NewCases_YearAgo / TestsCompleted_YearAgo
+
+        print('* **Throwback** Ontario ' + LastYearDate.strftime('%B %#d, %Y') + ' update: '
+              + str(NewCases_YearAgo) + ' New Cases, ' + str(NewRecoveries_YearAgo) + ' Recoveries, '
+              + str(NewDeaths_YearAgo) + ' Deaths, ' + format(TestsCompleted_YearAgo, ",d"), ' tests ('
+              + format(PositiveRateDay_YearAgo, ".2%") + ' positive), Current ICUs: '
+              + format(CurrentICU_YearAgo, ",d") + ' (' + format(ChangeInICUs_YearAgo, "+,d") + ' vs. yesterday)  ('
+              + format(ChangeInICUsLast7_YearAgo, "+,d") + ' vs. last week)'
+              )
 
     sys.stdout = ConsoleOut
 
