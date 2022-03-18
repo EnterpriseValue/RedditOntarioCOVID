@@ -1457,7 +1457,7 @@ def DailyReports():
                       df[df.index.month == 7].mean().round(1),df[df.index.month == 6].mean().round(1),
                       df[(df.index.month == 5) & (df.index.year == 2020)].mean().round(1),
                       df[df.index.dayofweek == 0].mean().round(1),df[df.index.dayofweek == 1].mean().round(1),df[df.index.dayofweek == 2].mean().round(1),df[df.index.dayofweek == 3].mean().round(1),df[df.index.dayofweek == 4].mean().round(1),df[df.index.dayofweek == 5].mean().round(1),df[df.index.dayofweek == 6].mean().round(1)]).transpose()
-    stats.columns = ['Today','Last 7','Prev 7','Last 7∑','Prev 7∑','July','June','May','April','Mar','Feb','Jan','Dec','Nov','Oct','Sep','Aug','Jul', 'Jun','May 2020','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+    stats.columns = ['Today','Last 7','Prev 7','Last 7Ã¢Ë†â€˜','Prev 7Ã¢Ë†â€˜','July','June','May','April','Mar','Feb','Jan','Dec','Nov','Oct','Sep','Aug','Jul', 'Jun','May 2020','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
     stats.sort_values(by=stats.columns[0],ascending = False, inplace = True)
     #stats = pd.merge(stats,changeInSourcesByPHUToday,on='Reporting_PHU')
     stats = pd.merge(stats,changeInSourcesByPHUWeek,on='Reporting_PHU')
@@ -1477,16 +1477,16 @@ def DailyReports():
     stats = stats.append(restNewCaseStats.transpose())
 
 
-    stats['Close contact'] = (stats['Close contact']/stats['Last 7∑']*100).round(1)
-    stats['Community'] = (stats['Community']/stats['Last 7∑']*100).round(1)
-    stats['Outbreak'] = (stats['Outbreak']/stats['Last 7∑']*100).round(1)
-    stats['Travel'] = (stats['Travel']/stats['Last 7∑']*100).round(1)
-    stats['Last 7/100k'] = (stats['Last 7∑']/stats['Population']*100000).round(1)
-    stats['Prev 7/100k'] = (stats['Prev 7∑']/stats['Population']*100000).round(1)
+    stats['Close contact'] = (stats['Close contact']/stats['Last 7Ã¢Ë†â€˜']*100).round(1)
+    stats['Community'] = (stats['Community']/stats['Last 7Ã¢Ë†â€˜']*100).round(1)
+    stats['Outbreak'] = (stats['Outbreak']/stats['Last 7Ã¢Ë†â€˜']*100).round(1)
+    stats['Travel'] = (stats['Travel']/stats['Last 7Ã¢Ë†â€˜']*100).round(1)
+    stats['Last 7/100k'] = (stats['Last 7Ã¢Ë†â€˜']/stats['Population']*100000).round(1)
+    stats['Prev 7/100k'] = (stats['Prev 7Ã¢Ë†â€˜']/stats['Population']*100000).round(1)
     stats['Active/100k'] = (stats['ActiveCases']/stats['Population']*100000).round(1)
 
     for column in changeInAgesByPHUWeek.columns:
-        stats[column] = ((stats[column]/stats['Last 7∑'])*100).round(1)
+        stats[column] = ((stats[column]/stats['Last 7Ã¢Ë†â€˜'])*100).round(1)
     changeInAgesByPHUWeekGrouped = pd.DataFrame([ stats['20s'],stats[['30s','40s']].sum(axis=1),stats[['50s','60s']].sum(axis=1), stats[['70s','80s','90+']].sum(axis=1)]).T
     changeInAgesByPHUWeekGrouped.columns = ['20-29','30-49','50-69','70+']
     stats = pd.merge(stats,changeInAgesByPHUWeekGrouped,on='Reporting_PHU')
@@ -1505,7 +1505,7 @@ def DailyReports():
     stats = pd.merge(stats,OntarioZonesDF,on='Reporting_PHU',how = 'left')
     stats = stats.rename(columns={"Status_PHU":"Zone"})
 
-    #stats = stats[['Today','Ages->>','19 & under','20s','30s','40s','50s','60s','70s','80s','90s','Unknown','Source->>','Close contact','Community','Outbreak','Travel','Averages->>','Last 7μ','Prev 7μ','Sep','Aug','Jul','Jun','May']]
+    #stats = stats[['Today','Ages->>','19 & under','20s','30s','40s','50s','60s','70s','80s','90s','Unknown','Source->>','Close contact','Community','Outbreak','Travel','Averages->>','Last 7ÃŽÂ¼','Prev 7ÃŽÂ¼','Sep','Aug','Jul','Jun','May']]
     #stats = stats[['Today','Averages->>','Last 7','Prev 7','Per 100k->>','Last 7/100k','Prev 7/100k','Source (week %)->>','Close contact','Community','Outbreak','Travel','More Averages->>','Oct','Sep','Aug','Jul','Jun','May','Day of Week->>','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']]
     stats = stats[['Today','Averages->>','Last 7','Prev 7','Totals Per 100k->>','Last 7/100k','Prev 7/100k','Active/100k','Ages (week %)->>','<20','20-29','30-49','50-69','70+','Source (week %)->>','Close contact','Community','Outbreak','Travel','More Averages->>','July','June','May','April','Mar','Feb','Jan','Dec','Nov','Oct','Sep','Aug','Jul','Jun','May 2020','Day of Week->>','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']]
     stats['Last 7'] = stats['Last 7'].round(1)
@@ -2465,14 +2465,14 @@ def OntarioCaseStatus():
     #       str(NewCases)+' New Cases, '+str(NewRecoveries)+' Recoveries, '+str(NewDeaths)+' Deaths, '
     #       + format(TestsCompleted,",d"),' tests ('+format(PositiveRateDay,".2%")+' positive), Current ICUs: '
     #       + format(CurrentICUs,",d")+' ('+format(ChangeInICUs,"+,d")+' vs. yesterday)  ('+format(ChangeInICUsLast7,"+,d")+' vs. last week)'
-    #       +'. 💉💉'+"{:,}".format(dfVaccine['previous_day_total_doses_administered'][0])+' administered, '"{:.2%}".format(Percent_Eligible_AtLeastOne),'/',"{:.2%}".format(Percent_Eligible_Both),'('+"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['FirstDose - in last day %']),'/',"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['SecondDose - in last day %'])+') of 12+ at least one/two dosed')
+    #       +'. Ã°Å¸â€™â€°Ã°Å¸â€™â€°'+"{:,}".format(dfVaccine['previous_day_total_doses_administered'][0])+' administered, '"{:.2%}".format(Percent_Eligible_AtLeastOne),'/',"{:.2%}".format(Percent_Eligible_Both),'('+"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['FirstDose - in last day %']),'/',"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['SecondDose - in last day %'])+') of 12+ at least one/two dosed')
 
     # print('Ontario '+custom_strftime('%B {S}',TodaysDate)+ ' update: '+
     #       str(NewCases)+' Cases, '+str(NewDeaths)+' Deaths, '
-    #       + format(TestsCompleted,",d"),' tests ('+format(PositiveRateDay,".2%")+' pos.), 🏥 ICUs: '
+    #       + format(TestsCompleted,",d"),' tests ('+format(PositiveRateDay,".2%")+' pos.), Ã°Å¸ÂÂ¥ ICUs: '
     #       + format(CurrentICUs,",d")+' ('+format(ChangeInICUs,"+,d")+' vs. yest.)  ('+format(ChangeInICUsLast7,"+,d")+' vs. last week)'
-    #       +'. 💉'+"{:,}".format(dfVaccine['previous_day_total_doses_administered'][0])+' admin, '"{:.2%}".format(Percent_Eligible_AtLeastOne),'/',"{:.2%}".format(Percent_Eligible_Both),'('+"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['FirstDose - in last day %']),'/',"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['SecondDose - in last day %'])+') of 12+ at least one/two dosed'
-    #       +', 🛡️ 12+ Cases by Vax (un/part/full): '+"{:.2f}".format(dfCaseByVaxStatus['Unvax_Per100k_Day_12Plus'][0])+' / '+dfCaseByVaxStatus['Partial_Per100k_Day'][0]+' / '+dfCaseByVaxStatus['Fully_Per100k_Day'][0]+' (All: '+dfCaseByVaxStatus['All_Per100k_Day'][0]+') per 100k')
+    #       +'. Ã°Å¸â€™â€°'+"{:,}".format(dfVaccine['previous_day_total_doses_administered'][0])+' admin, '"{:.2%}".format(Percent_Eligible_AtLeastOne),'/',"{:.2%}".format(Percent_Eligible_Both),'('+"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['FirstDose - in last day %']),'/',"{:+.2%}".format(TodaysDFVaxAge.loc['Total - eligible 12+']['SecondDose - in last day %'])+') of 12+ at least one/two dosed'
+    #       +', Ã°Å¸â€ºÂ¡Ã¯Â¸Â 12+ Cases by Vax (un/part/full): '+"{:.2f}".format(dfCaseByVaxStatus['Unvax_Per100k_Day_12Plus'][0])+' / '+dfCaseByVaxStatus['Partial_Per100k_Day'][0]+' / '+dfCaseByVaxStatus['Fully_Per100k_Day'][0]+' (All: '+dfCaseByVaxStatus['All_Per100k_Day'][0]+') per 100k')
 
     # print('Ontario '+custom_strftime('%B {S}',TodaysDate)+ ' update: '+
     #       str(NewCases)+' Cases, '+str(NewDeaths)+' Deaths, '
@@ -2485,11 +2485,11 @@ def OntarioCaseStatus():
     ###############################################################################################
     # If case status data is not posted today, update the headline to reflect this
     if dfCaseByVaxStatus.index.max() == EVHelper.todays_date():
-        cases_by_vax = (f"🛡️ 5+ Cases by Vax (un/part/full): {dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'][0]:.1f} / "
-                        + f"{dfCaseByVaxStatus['Partial_Per100k_Day'][0]:.1f} / {dfCaseByVaxStatus['Fully_Per100k_Day'][0]:.1f} "
+        cases_by_vax = (f"Ã°Å¸â€ºÂ¡Ã¯Â¸Â 5+ Cases by Vax (<2/2/3): {dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus'][0]:.1f} / "
+                        + f"{dfCaseByVaxStatus['Fully_Per100k_Day'][0]:.1f} / {dfCaseByVaxStatus['Boosted_Per100k_Day'][0]:.1f} "
                         + f"(All: {dfCaseByVaxStatus['All_Per100k_Day'][0]:.1f}) per 100k")
     else:
-        cases_by_vax = "🛡️ 5+ Cases by Vax (un/part/full): ???"
+        cases_by_vax = "Ã°Å¸â€ºÂ¡Ã¯Â¸Â 5+ Cases by Vax (<2/2/3): ???"
     ###############################################################################################
 
     sys.stdout = open(PostTitleFileName, 'w', encoding='utf-8')
@@ -2499,8 +2499,8 @@ def OntarioCaseStatus():
         + f"{df['newly_reported_deaths'][0]:.0f} new " \
         + f"{df['deaths_data_cleaning'][0]:.0f} old Deaths, " \
         + f"{TestsCompleted:,.0f} tests ({PositiveRateDay:.1%} to {df['Percent positive tests in last day'][0]:.1f}% pos.) " \
-        + f"🏥 ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
-        + f"💉 {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
+        + f"Ã°Å¸ÂÂ¥ ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
+        + f"Ã°Å¸â€™â€° {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_at_least_one_dose']:.2%} / {TodaysDFVaxAge.loc['Ontario_5plus']['Percent_fully_vaccinated']:.2%} / "\
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_3doses']:.2%} " \
         + f"({TodaysDFVaxAge.loc['Ontario_5plus']['FirstDose - in last day %']:+.2%},"\
@@ -2511,8 +2511,8 @@ def OntarioCaseStatus():
     PostTitle_2 = f"Ontario {TodaysDate:%b %d}: {NewCases:,.0f} Cases, " \
         + f"{df['Day new deaths'][0]:.0f} Deaths, " \
         + f"{TestsCompleted:,.0f} tests ({PositiveRateDay:.1%} to {df['Percent positive tests in last day'][0]:.1f}% pos.) " \
-        + f"🏥 ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
-        + f"💉 {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
+        + f"Ã°Å¸ÂÂ¥ ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
+        + f"Ã°Å¸â€™â€° {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_at_least_one_dose']:.2%} / {TodaysDFVaxAge.loc['Ontario_5plus']['Percent_fully_vaccinated']:.2%} / "\
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_3doses']:.2%} " \
         + f"({TodaysDFVaxAge.loc['Ontario_5plus']['FirstDose - in last day %']:+.2%},"\
@@ -2530,9 +2530,9 @@ def OntarioCaseStatus():
     sys.stdout = ConsoleOut
     print(PostTitle_2)
 
-    # print(f"Ontario {YesterdayDate:%b %d}+{TodaysDate:%d} update: {df['Day new cases'][1]:,.0f}+{df['Day new cases'][0]:,.0f} Cases, {df['Day new deaths'][1]:,.0f}+{df['Day new deaths'][0]:,.0f} Deaths, {df['Total tests completed in the last day'][0:2].sum():,.0f} tests, ({df['Day new cases'][0:2].sum()/df['Total tests completed in the last day'][0:2].sum():,.2%} pos.), 🏥ICUs: {df['Number of patients in ICU due to COVID-19'][0]:.0f}({df['Change in ICUs'][0:2].sum():+.0f} vs. {TodaysDate-datetime.timedelta(days=2):%a}) "
-    #       + f"({df['Change in ICUs'][0:7].sum():+.0f} vs. last week), 💉{dfVaccine['previous_day_total_doses_administered'][1]:,d}+{dfVaccine['previous_day_total_doses_administered'][0]:,d} admin, {Percent_Eligible_AtLeastOne:.2%} / {Percent_Eligible_Both:.2%} ({dfVaxAge.loc['Ontario_12plus']['FirstDose - in last day %'][0:2].sum():.2%} / {dfVaxAge.loc['Ontario_12plus']['SecondDose - in last day %'][0:2].sum():.2%}) of 12+ at least one/two dosed"
-    #       + ', 🛡️ 12+ Cases by Vax (un/part/full): '
+    # print(f"Ontario {YesterdayDate:%b %d}+{TodaysDate:%d} update: {df['Day new cases'][1]:,.0f}+{df['Day new cases'][0]:,.0f} Cases, {df['Day new deaths'][1]:,.0f}+{df['Day new deaths'][0]:,.0f} Deaths, {df['Total tests completed in the last day'][0:2].sum():,.0f} tests, ({df['Day new cases'][0:2].sum()/df['Total tests completed in the last day'][0:2].sum():,.2%} pos.), Ã°Å¸ÂÂ¥ICUs: {df['Number of patients in ICU due to COVID-19'][0]:.0f}({df['Change in ICUs'][0:2].sum():+.0f} vs. {TodaysDate-datetime.timedelta(days=2):%a}) "
+    #       + f"({df['Change in ICUs'][0:7].sum():+.0f} vs. last week), Ã°Å¸â€™â€°{dfVaccine['previous_day_total_doses_administered'][1]:,d}+{dfVaccine['previous_day_total_doses_administered'][0]:,d} admin, {Percent_Eligible_AtLeastOne:.2%} / {Percent_Eligible_Both:.2%} ({dfVaxAge.loc['Ontario_12plus']['FirstDose - in last day %'][0:2].sum():.2%} / {dfVaxAge.loc['Ontario_12plus']['SecondDose - in last day %'][0:2].sum():.2%}) of 12+ at least one/two dosed"
+    #       + ', Ã°Å¸â€ºÂ¡Ã¯Â¸Â 12+ Cases by Vax (un/part/full): '
     #       + "{:.2f}".format(dfCaseByVaxStatus['Unvax_Per100k_Day_12Plus'][0])
     #       + ' / ' + dfCaseByVaxStatus['Partial_Per100k_Day'][0] + ' / ' + dfCaseByVaxStatus['Fully_Per100k_Day'][0]
     #       + ' (All: ' + dfCaseByVaxStatus['All_Per100k_Day'][0] + ') per 100k')
@@ -2752,14 +2752,19 @@ def ChildCareData():
     print('------------------------------------------------------------------------')
 
 
-def HospitalMetrics():
-    df = pd.read_csv('https://data.ontario.ca/dataset/8f3a449b-bde5-4631-ada6-8bd94dbc7d15/resource/e760480e-1f95-4634-a923-98161cfb02fa/download/region_hospital_icu_covid_data.csv')
-    df.to_csv('SourceFiles/HospitalMetrics.csv')
-    try:
-        df['date'] = pd.to_datetime(df['date'], format='%m/%d/%Y')
-    except ValueError:
-        df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
-    df.set_index('oh_region', inplace=True)
+def HospitalMetrics(download=True):
+    picklefilename = 'Pickle/HospitalData.pickle'
+    if download:
+        df = pd.read_csv('https://data.ontario.ca/dataset/8f3a449b-bde5-4631-ada6-8bd94dbc7d15/resource/e760480e-1f95-4634-a923-98161cfb02fa/download/region_hospital_icu_covid_data.csv')
+        df.to_csv('SourceFiles/HospitalMetrics.csv')
+        try:
+            df['date'] = pd.to_datetime(df['date'], format='%m/%d/%Y')
+        except ValueError:
+            df['date'] = pd.to_datetime(df['date'], format='%Y-%m-%d')
+        df.set_index('oh_region', inplace=True)
+
+    else:
+        df = pd.read_pickle(picklefilename)
     for region in set(df.index):
         df.loc[region] = df.loc[region].fillna(method='ffill')
     for column in df.columns[1:]:
@@ -3417,7 +3422,7 @@ def GlobalData():
     print('------------------------------------------------------------------------')
     print(f'GlobalData \nStarted: {starttime:%Y-%m-%d %H:%M:%S}')
 
-    filename = 'GlobalData.csv'
+    filename = 'FilesToUpload/GlobalData.csv'
     ConsoleOut = sys.stdout
     locationSet_G20 = ['Argentina', 'Australia', 'Brazil', 'Canada', 'China', 'France',
                        'Germany', 'India', 'Indonesia', 'Italy', 'Japan', 'South Korea',
@@ -4225,8 +4230,8 @@ def LTCData():
     print('------------------------------------------------------------------------')
 
 
-def VaccineData():
-    HospitalMetrics()
+def VaccineData(download=True):
+    HospitalMetrics(download=download)
     starttime = time.time()
     ConsoleOut = sys.stdout
     VaccineDataFileName = 'TextOutput/VaccineDataText.txt'
@@ -4237,10 +4242,15 @@ def VaccineData():
     OntarioPopulationDF = pd.read_pickle('Pickle/OntarioPopulation.pickle')
     OntarioPopulation = (int)(OntarioPopulationDF.loc['REFERENCE', 2021, 'TOTAL'].sum())
 
-    df = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv')
-    df.to_csv('SourceFiles/VaccineData-VaccineDoses.csv')
-    df['report_date'] = pd.to_datetime(df['report_date'])
-    df = df.set_index('report_date')
+    if download:
+        df = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/8a89caa9-511c-4568-af89-7f2174b4378c/download/vaccine_doses.csv')
+        df.to_csv('SourceFiles/VaccineData-VaccineDoses.csv')
+        df['report_date'] = pd.to_datetime(df['report_date'])
+        df = df.set_index('report_date')
+
+    else:
+        df = pd.read_pickle('Pickle/VaccinesData.pickle')
+
     df = df.fillna(0)
     # df['total_individuals_fully_vaccinated']= df['previous_day_fully_vaccinated'].cumsum(axis=0)
     # df['total_doses_in_fully_vaccinated_individuals'] = df['total_individuals_fully_vaccinated']*2
@@ -4268,17 +4278,28 @@ def VaccineData():
     df['ThreeDosedPopulation_5Plus_Day'] = (df['ThreeDosedPopulation_5Plus']
                                             - df['ThreeDosedPopulation_5Plus'].shift(-1))
 
-    VaxStatusCases_AgeDF = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/c08620e0-a055-4d35-8cec-875a459642c3/download/cases_by_age_vac_status.csv')
-    VaxStatusCases_AgeDF.to_csv('SourceFiles/cases_by_age_vac_status.csv')
-    # VaxStatusCases_AgeDF['Date'] = pd.to_datetime(VaxStatusCases_AgeDF['date'],format='%Y-%m-%d')
-    VaxStatusCases_AgeDF['Date'] = pd.to_datetime(VaxStatusCases_AgeDF['date'],)
-    VaxStatusCases_AgeDF = VaxStatusCases_AgeDF.set_index('agegroup')
+    picklefilename = 'Pickle/VaxStatusCases_AgeDF.pickle'
+    if download:
+        VaxStatusCases_AgeDF = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/c08620e0-a055-4d35-8cec-875a459642c3/download/cases_by_age_vac_status.csv')
+        VaxStatusCases_AgeDF.to_csv('SourceFiles/cases_by_age_vac_status.csv')
+        # VaxStatusCases_AgeDF['Date'] = pd.to_datetime(VaxStatusCases_AgeDF['date'],format='%Y-%m-%d')
+        VaxStatusCases_AgeDF['Date'] = pd.to_datetime(VaxStatusCases_AgeDF['date'],)
+        VaxStatusCases_AgeDF = VaxStatusCases_AgeDF.set_index('agegroup')
+        VaxStatusCases_AgeDF.to_pickle(picklefilename)
+    else:
+        VaxStatusCases_AgeDF = pd.read_pickle(picklefilename)
     VaxStatusCases_AgeDF_Today = VaxStatusCases_AgeDF[VaxStatusCases_AgeDF['Date']
                                                       == VaxStatusCases_AgeDF['Date'].max()]
 
-    dfVaxAge = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/775ca815-5028-4e9b-9dd4-6975ff1be021/download/vaccines_by_age.csv',
+    picklefilename = 'Pickle/dfVaxAge.pickle'
+    if download:
+        dfVaxAge = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/775ca815-5028-4e9b-9dd4-6975ff1be021/download/vaccines_by_age.csv',
                            parse_dates=[0], infer_datetime_format=True)
-    dfVaxAge.to_csv('SourceFiles/VaccineData-vaccines_by_age.csv')
+        dfVaxAge.to_csv('SourceFiles/VaccineData-vaccines_by_age.csv')
+        dfVaxAge.to_pickle(picklefilename)
+    else:
+        dfVaxAge = pd.read_pickle(picklefilename)
+
     df.rename(columns={'AGEGROUP': 'Agegroup'}, inplace=True)
 
     dfVaxAge = dfVaxAge.fillna(0)
@@ -4496,12 +4517,14 @@ def VaccineData():
     df['PercentTwoDosed'] = (df['TotalTwoDosed'] / OntarioPopulation)
     df['PartialVax_Count'] = df['TotalAtLeastOneDose'] - df['TotalTwoDosed']
     df['Unvax_Count'] = OntarioPopulation - df['TotalAtLeastOneDose']
+    df['boosted_count'] = df['total_individuals_3doses']
+    df['not_fullvax_count'] = df['PartialVax_Count'] + df['Unvax_Count']
 
     df = EVHelper.TestDFIsPrime(df, 'previous_day_total_doses_administered', 'DayVaccineCount_IsPrime')
     df.to_pickle('Pickle/VaccinesData.pickle')
 
     VaccineData_PHU()  # Vaccines by PHU by age
-    VaccineData_CaseStatus()  # Cases by vaccine status
+    VaccineData_CaseStatus(download=download)  # Cases by vaccine status
     dfCaseByVaxStatus = pd.read_pickle('Pickle/CasesByVaxStatus.pickle')
 
     VaccineData_HospData()  # Hospital data by vax status
@@ -4534,24 +4557,21 @@ def VaccineData():
     print('**Vaccine effectiveness data: (assumed 14 days to effectiveness)** [Source](https://data.ontario.ca/dataset/covid-19-vaccine-data-in-ontario)')
     if (dfCaseByVaxStatus.index.max() == today_actual):
         print()
-        print('|Metric|Unvax_All|Unvax_5+|Partial|Full|Unknown|')
+        print('|Metric|Not_FullVax|Not_FullVax_5+|Full|Boosted|Unknown|')
         print('|:-:|:-:|:-:|:-:|:-:|:-:|')
-        print(f"|**Cases - today**|{dfCaseByVaxStatus['covid19_cases_unvac'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_unvac_5plus'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_partial_vac'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_full_vac'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_vac_unknown'][0]:,.0f}|")
-        print(f"|**Cases Per 100k - today**| {dfCaseByVaxStatus['Unvax_Per100k_Day'][0]:.2f}|{dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'][0]:.2f} | {dfCaseByVaxStatus['Partial_Per100k_Day'][0]:.2f}|{dfCaseByVaxStatus['Fully_Per100k_Day'][0]:.2f}|- |")
-        print(f"|**Risk vs. full - today**| {dfCaseByVaxStatus['Unvax_Risk_Higher'][0]:.2f}x|{dfCaseByVaxStatus['Unvax_Risk_Higher_5plus'][0]:.2f}x | {dfCaseByVaxStatus['Partial_Risk_Higher'][0]:.2f}x|1.00x|- |")
-        print(f"|**Case % less risk vs. unvax - today**| -|- | {1-(dfCaseByVaxStatus['Partial_Per100k_Day'][0]/dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'][0]) :.1%}|{1-(dfCaseByVaxStatus['Fully_Per100k_Day'][0]/dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'][0]) :.1%}|- |")
+        print(f"|**Cases - today**|{dfCaseByVaxStatus['covid19_cases_notfull_vac'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_unvac_5plus'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_full_vac'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_boost_vac'][0]:,.0f}|{dfCaseByVaxStatus['covid19_cases_vac_unknown'][0]:,.0f}|")
+        print(f"|**Cases Per 100k - today**| {dfCaseByVaxStatus['NotFullVax_Per100k_Day'][0]:.2f}|{dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus'][0]:.2f} | {dfCaseByVaxStatus['Fully_Per100k_Day'][0]:.2f}|{dfCaseByVaxStatus['Boosted_Per100k_Day'][0]:.2f}|- |")
+        print(f"|**Risk vs. boosted - today**| {dfCaseByVaxStatus['NotFullVax_Risk_Higher'][0]:.2f}x|{dfCaseByVaxStatus['NotFullVax_Risk_Higher_5Plus'][0]:.2f}x | {dfCaseByVaxStatus['FullVax_Risk_Higher'][0]:.2f}x|1.00x|- |")
+        print(f"|**Case % less (more) risk vs. not full vax - today**| -|- | {dfCaseByVaxStatus['FullyVax_Risk_Lower_Day'][0]:.1%}|{dfCaseByVaxStatus['Boosted_Risk_Lower_Day'][0]:.1%}|- |")
+        print('|||||||')
+        print(f"|**Avg daily Per 100k - week**| {dfCaseByVaxStatus['NotFullVax_Per100k_Week'][0]:.2f}|{dfCaseByVaxStatus['NotFullVax_Per100k_Week_5Plus'][0]:.2f} | {dfCaseByVaxStatus['Fully_Per100k_Week'][0]:.2f}|{dfCaseByVaxStatus['Boosted_Per100k_Week'][0]:.2f}|- |")
+        print(f"|**Risk vs. boosted - week**| {dfCaseByVaxStatus['NotFullVax_Risk_Higher'][0]:.2f}x|{dfCaseByVaxStatus['NotFullVax_Risk_Higher_Week_5Plus'][0]:.2f}x | {dfCaseByVaxStatus['FullVax_Risk_Higher'][0]:.2f}x|1.00x|- |")
+        print(f"|**[Case % less risk vs. unvax - week](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=206167456&format=interactive)**| -|- | {dfCaseByVaxStatus['FullyVax_Risk_Lower_Week'][0]:.1%}|{dfCaseByVaxStatus['Boosted_Risk_Lower_Week'][0]:.1%}|- |")
+        print('|||||||')
 
-        print('|||||||')
-        print(f"|**Avg daily Per 100k - week**| {dfCaseByVaxStatus['Unvax_Per100k_Week'][0]:.2f}|{dfCaseByVaxStatus['Unvax_Per100k_Week_5Plus'][0]:.2f} | {dfCaseByVaxStatus['Partial_Per100k_Week'][0]:.2f}|{dfCaseByVaxStatus['Fully_Per100k_Week'][0]:.2f}|- |")
-        print(f"|**Risk vs. full - week**| {dfCaseByVaxStatus['Unvax_Risk_Higher_Week'][0]:.2f}x|{dfCaseByVaxStatus['Unvax_Risk_Higher_Week_5Plus'][0]:.2f}x | {dfCaseByVaxStatus['Partial_Risk_Higher_Week'][0]:.2f}x|1.00x|- |")
-        print(f"|**[Case % less risk vs. unvax - week](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=206167456&format=interactive)**| -|- | {1-(dfCaseByVaxStatus['Partial_Per100k_Week'][0]/dfCaseByVaxStatus['Unvax_Per100k_Week_5Plus'][0]) :.1%}|{1-(dfCaseByVaxStatus['Fully_Per100k_Week'][0]/dfCaseByVaxStatus['Unvax_Per100k_Week_5Plus'][0]) :.1%}|- |")
-        print('|||||||')
-    else:
-        print(f"Case by vaccination status not posted since {dfCaseByVaxStatus.index.max():%B %d}")
         print()
         print('|Metric|Unvax_All|Unvax_5+|Partial|Full|Unknown|')
         print('|:-:|:-:|:-:|:-:|:-:|:-:|')
-
         print(f"|**ICU - count**|{dfICUHospByVaxStatus['icu_unvac'][0]:,.0f}|n/a|{dfICUHospByVaxStatus['icu_partial_vac'][0]:,.0f}|{dfICUHospByVaxStatus['icu_full_vac'][0]:,.0f}|{TotalICUCount_Unknown:,.0f}|")
         print(f"|**ICU per mill**|{dfICUHospByVaxStatus['ICU_Unvax_PerMillion'][0]:,.2f}|-|{dfICUHospByVaxStatus['ICU_Partial_PerMillion'][0]:,.2f}|{dfICUHospByVaxStatus['ICU_Fully_PerMillion'][0]:,.2f}|-|")
         print(f"|**ICU % less risk vs. unvax**|-|-|{(1-dfICUHospByVaxStatus['ICU_Partial_PerMillion'][0]/dfICUHospByVaxStatus['ICU_Unvax_PerMillion'][0]):,.1%}|{(1-dfICUHospByVaxStatus['ICU_Fully_PerMillion'][0]/dfICUHospByVaxStatus['ICU_Unvax_PerMillion'][0]):,.1%}|-|")
@@ -4562,6 +4582,8 @@ def VaccineData():
         print(f"|**Non_ICU Hosp % less risk vs. unvax**|-|-|{(1-dfICUHospByVaxStatus['Non_ICU_Hosp_Partial_PerMillion'][0]/dfICUHospByVaxStatus['Non_ICU_Hosp_Unvax_PerMillion'][0]):,.1%}|{(1-dfICUHospByVaxStatus['Non_ICU_Hosp_Fully_PerMillion'][0]/dfICUHospByVaxStatus['Non_ICU_Hosp_Unvax_PerMillion'][0]):,.1%}|-|")
         print(f"|**Non_ICU Hosp risk vs. full**|{(dfICUHospByVaxStatus['Unvax_Risk_Higher_NonICUHosp'][0]):.2f}x|-|{(dfICUHospByVaxStatus['Partial_Risk_Higher_NonICUHosp'][0]):.2f}x|1.00x|-|")
         print('|||||||')
+    else:
+        print(f"Case by vaccination status data last published {dfCaseByVaxStatus.index.max():%B %d}")
 
     Under12DF = pd.read_pickle('Pickle/AgeCaseDF.pickle')
 
@@ -4569,13 +4591,14 @@ def VaccineData():
         print(f"|**Age group per 100k - day - {VaxStatusCases_AgeDF_Today['Date'].max():%B %d}:**||||||")
         # print(f"|**0-4** |{Under12DF.loc[TodaysDate]['0to4']/Population_0to4*100000:.2f}|-|{0:.2f}|{0:.2f}|-|")
         # print(f"|**5-11** |{Under12DF.loc[TodaysDate]['5to11']/Population_5to11*100000:.2f}|-|{0:.2f}|{0:.2f}|-|")
-        print(f"|**0-11** |{VaxStatusCases_AgeDF_Today.loc['0-11yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['0-11yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['0-11yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
-        print(f"|**12-17** |{VaxStatusCases_AgeDF_Today.loc['12-17yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['12-17yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['12-17yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
-        print(f"|**18-39** |{VaxStatusCases_AgeDF_Today.loc['18-39yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['18-39yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['18-39yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
-        print(f"|**40-59** |{VaxStatusCases_AgeDF_Today.loc['40-59yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['40-59yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['40-59yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
-        print(f"|**60-79** |{VaxStatusCases_AgeDF_Today.loc['60-79yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['60-79yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['60-79yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
-        print(f"|**80+** |{VaxStatusCases_AgeDF_Today.loc['80+']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['80+']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['80+']['cases_full_vac_rate_per100K']:.2f}|-|")
-
+        # print(f"|**0-11** |{VaxStatusCases_AgeDF_Today.loc['0-11yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['0-11yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['0-11yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
+        # print(f"|**12-17** |{VaxStatusCases_AgeDF_Today.loc['12-17yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['12-17yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['12-17yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
+        # print(f"|**18-39** |{VaxStatusCases_AgeDF_Today.loc['18-39yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['18-39yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['18-39yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
+        # print(f"|**40-59** |{VaxStatusCases_AgeDF_Today.loc['40-59yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['40-59yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['40-59yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
+        # print(f"|**60-79** |{VaxStatusCases_AgeDF_Today.loc['60-79yrs']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['60-79yrs']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['60-79yrs']['cases_full_vac_rate_per100K']:.2f}|-|")
+        # print(f"|**80+** |{VaxStatusCases_AgeDF_Today.loc['80+']['cases_unvac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc['80+']['cases_partial_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc['80+']['cases_full_vac_rate_per100K']:.2f}|-|")
+        for age in ['0-4yrs', '5-11yrs', '12-17yrs', '18-39yrs', '40-59yrs', '60+']:
+            print(f"|**{age}** |{VaxStatusCases_AgeDF_Today.loc[age]['cases_notfull_vac_rate_per100K']:.2f}|-|{VaxStatusCases_AgeDF_Today.loc[age]['cases_full_vac_rate_per100K']:.2f}|{VaxStatusCases_AgeDF_Today.loc[age]['cases_boost_vac_rate_per100K']:.2f}|-|")
     print("")
 
     """
@@ -4900,49 +4923,65 @@ def VaccineData():
     print('------------------------------------------------------------------------')
 
 
-def VaccineData_CaseStatus():
+def VaccineData_CaseStatus(download=True):
     starttime = time.time()
     print('------------------------------------------------------------------------')
     print(f'VaccineData_CaseStatus \nStarted: {datetime.datetime.now():%Y-%m-%d %H:%M:%S}')
     df = pd.read_pickle('Pickle/VaccinesData.pickle')
+    picklefilename = 'Pickle/CasesByVaxStatus.pickle'
     OntarioPopulationDF = pd.read_pickle('Pickle/OntarioPopulation.pickle')
     OntarioPopulation = (int)(OntarioPopulationDF.loc['REFERENCE', 2021, 'TOTAL'].sum())
 
-    dfCaseByVaxStatus = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/eed63cf2-83dd-4598-b337-b288c0a89a16/download/vac_status.csv')
-    dfCaseByVaxStatus.to_csv('SourceFiles/VaccineData_CaseStatus-vac_status.csv')
-    dfCaseByVaxStatus['date'] = pd.to_datetime(dfCaseByVaxStatus['Date'])
-    dfCaseByVaxStatus = dfCaseByVaxStatus.set_index('date')
-    dfCaseByVaxStatus = dfCaseByVaxStatus.fillna(0)
-    dfCaseByVaxStatus = dfCaseByVaxStatus.sort_index(ascending=False)
+    if download:
+        dfCaseByVaxStatus = pd.read_csv('https://data.ontario.ca/dataset/752ce2b7-c15a-4965-a3dc-397bf405e7cc/resource/eed63cf2-83dd-4598-b337-b288c0a89a16/download/vac_status.csv')
+        dfCaseByVaxStatus.to_csv('SourceFiles/VaccineData_CaseStatus-vac_status.csv')
+        dfCaseByVaxStatus['date'] = pd.to_datetime(dfCaseByVaxStatus['Date'])
+        dfCaseByVaxStatus = dfCaseByVaxStatus.set_index('date')
 
-    Under12DF = pd.read_csv('Pickle/AgeData.csv')
-    Under12DF['Date'] = Under12DF['Date'] = pd.to_datetime(Under12DF['Date'])
-    Under12DF.set_index('Date', inplace=True)
-    Under12DF['Total_U12'] = Under12DF['0to4'] + Under12DF['5to11']
-    Under12DF['Total_U5'] = Under12DF['0to4']
-    Under12DF.to_pickle('Pickle/AgeCaseDF.pickle')
-    dfCaseByVaxStatus = dfCaseByVaxStatus.merge(Under12DF['Total_U5'],
-                                                left_index=True, right_index=True, how='left')
-    dfCaseByVaxStatus.pop('Date')
+        dfCaseByVaxStatus = dfCaseByVaxStatus.fillna(0)
+        dfCaseByVaxStatus = dfCaseByVaxStatus.sort_index(ascending=False)
 
-    dfCaseByVaxStatus['AllCases_Today'] = 0
-    for column in ['covid19_cases_unvac', 'covid19_cases_partial_vac',
-                   'covid19_cases_full_vac', 'covid19_cases_vac_unknown']:
-        dfCaseByVaxStatus['AllCases_Today'] = (dfCaseByVaxStatus['AllCases_Today']
-                                               + dfCaseByVaxStatus[column])
+        Under12DF = pd.read_csv('Pickle/AgeData.csv')
+        Under12DF['Date'] = Under12DF['Date'] = pd.to_datetime(Under12DF['Date'])
+        Under12DF.set_index('Date', inplace=True)
+        Under12DF['Total_U12'] = Under12DF['0to4'] + Under12DF['5to11']
+        Under12DF['Total_U5'] = Under12DF['0to4']
+        Under12DF.to_pickle('Pickle/AgeCaseDF.pickle')
+        dfCaseByVaxStatus = dfCaseByVaxStatus.merge(Under12DF['Total_U5'],
+                                                    left_index=True, right_index=True, how='left')
+        dfCaseByVaxStatus.pop('Date')
+
+        dfCaseByVaxStatus['AllCases_Today'] = 0
+        for column in ['covid19_cases_unvac', 'covid19_cases_partial_vac',
+                       'covid19_cases_full_vac', 'covid19_cases_vac_unknown',
+                       'covid19_cases_notfull_vac', 'covid19_cases_boost_vac'
+                       ]:
+            dfCaseByVaxStatus['AllCases_Today'] = (dfCaseByVaxStatus['AllCases_Today']
+                                                   + dfCaseByVaxStatus[column])
+    else:
+        dfCaseByVaxStatus = pd.read_pickle(picklefilename)
+
 
     dfCaseByVaxStatus['AllCases_Today_5Plus'] = (dfCaseByVaxStatus['AllCases_Today']
                                                  - dfCaseByVaxStatus['Total_U5'])
     dfCaseByVaxStatus['covid19_cases_unvac_5plus'] = (dfCaseByVaxStatus['covid19_cases_unvac']
                                                       - dfCaseByVaxStatus['Total_U5'])
+    dfCaseByVaxStatus['covid19_cases_notfull_5plus'] = (dfCaseByVaxStatus['covid19_cases_notfull_vac']
+                                                      - dfCaseByVaxStatus['Total_U5'])
 
     dfCaseByVaxStatus['Unvax_Pop_14DaysAgo'] = df.shift(-14)['Unvax_Count']
     dfCaseByVaxStatus['Partial_Pop_14DaysAgo'] = df.shift(-14)['PartialVax_Count']
     dfCaseByVaxStatus['Fully_Pop_14DaysAgo'] = df.shift(-14)['TotalTwoDosed']
+    dfCaseByVaxStatus['not_fullvax_pop_14DaysAgo'] = df.shift(-14)['not_fullvax_count']
+    dfCaseByVaxStatus['boosted_14DaysAgo'] = df.shift(-14)['boosted_count']
+
     dfCaseByVaxStatus = dfCaseByVaxStatus.fillna(method='bfill')
     OntarioPopulation_U5 = OntarioPopulationDF.loc['REFERENCE', 2021, 'TOTAL'][0:5].sum()
     dfCaseByVaxStatus['Unvax_Pop_14DaysAgo_5plus'] = (dfCaseByVaxStatus['Unvax_Pop_14DaysAgo']
                                                       - OntarioPopulation_U5)
+    dfCaseByVaxStatus['not_fullvax_pop14DaysAgo_5plus'] = (dfCaseByVaxStatus['not_fullvax_pop_14DaysAgo']
+                                                           - OntarioPopulation_U5)
+
 
     dfCaseByVaxStatus['Unvax_Per100k_Day'] = (dfCaseByVaxStatus['covid19_cases_unvac']
                                               / dfCaseByVaxStatus['Unvax_Pop_14DaysAgo']) * 100000
@@ -4954,21 +4993,42 @@ def VaccineData_CaseStatus():
     dfCaseByVaxStatus['Partial_Per100k_Day'] = (dfCaseByVaxStatus['covid19_cases_partial_vac']
                                                 / dfCaseByVaxStatus['Partial_Pop_14DaysAgo']) * 100000
     dfCaseByVaxStatus['Fully_Per100k_Day'] = (dfCaseByVaxStatus['covid19_cases_full_vac']
-                                              / dfCaseByVaxStatus['Fully_Pop_14DaysAgo']) * 100000
+                                              / (dfCaseByVaxStatus['Fully_Pop_14DaysAgo']
+                                                 - dfCaseByVaxStatus['boosted_14DaysAgo']) ) * 10**5
     dfCaseByVaxStatus['All_Per100k_Day'] = (dfCaseByVaxStatus['AllCases_Today']
-                                            / OntarioPopulation * 100000)
+                                            / OntarioPopulation * 10**5)
+    dfCaseByVaxStatus['NotFullVax_Per100k_Day'] = (dfCaseByVaxStatus['covid19_cases_notfull_vac']
+                                          / dfCaseByVaxStatus['not_fullvax_pop_14DaysAgo']) * 10**5
+    dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus'] = ((dfCaseByVaxStatus['covid19_cases_notfull_vac'] - dfCaseByVaxStatus['Total_U5'])
+                                          / dfCaseByVaxStatus['not_fullvax_pop14DaysAgo_5plus']) * 10**5
 
+    dfCaseByVaxStatus['Boosted_Per100k_Day'] = (dfCaseByVaxStatus['covid19_cases_boost_vac']
+                                      / dfCaseByVaxStatus['boosted_14DaysAgo']) * 10**5
+
+    # Calculation of risk lower vs. fully. Replaced by calculation of risk lower vs. boost vaxxed
     dfCaseByVaxStatus['Unvax_Risk_Higher'] = (dfCaseByVaxStatus['Unvax_Per100k_Day']
                                               / dfCaseByVaxStatus['Fully_Per100k_Day'])
     dfCaseByVaxStatus['Unvax_Risk_Higher_5plus'] = (dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus']
                                                     / dfCaseByVaxStatus['Fully_Per100k_Day'])
     dfCaseByVaxStatus['Partial_Risk_Higher'] = (dfCaseByVaxStatus['Partial_Per100k_Day']
                                                 / dfCaseByVaxStatus['Fully_Per100k_Day'])
+    dfCaseByVaxStatus['NotFullVax_Risk_Higher'] = (dfCaseByVaxStatus['NotFullVax_Per100k_Day']
+                                                / dfCaseByVaxStatus['Boosted_Per100k_Day'])
+    dfCaseByVaxStatus['NotFullVax_Risk_Higher_5Plus'] = (dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus']
+                                                / dfCaseByVaxStatus['Boosted_Per100k_Day'])
+    dfCaseByVaxStatus['FullVax_Risk_Higher'] = (dfCaseByVaxStatus['NotFullVax_Per100k_Day']
+                                                / dfCaseByVaxStatus['Boosted_Per100k_Day'])
 
+
+    # Calculation of risk lower vs. unvaxxed. Replaced by calculation of risk lower vs. not fully vaxxed
+    # dfCaseByVaxStatus['FullyVax_Risk_Lower_Day'] = 1 - (dfCaseByVaxStatus['Fully_Per100k_Day']
+    #                                                    / dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'])
+    # dfCaseByVaxStatus['PartialVax_Risk_Lower_Day'] = 1 - (dfCaseByVaxStatus['Partial_Per100k_Day']
+    #                                                       / dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'])
     dfCaseByVaxStatus['FullyVax_Risk_Lower_Day'] = 1 - (dfCaseByVaxStatus['Fully_Per100k_Day']
-                                                        / dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'])
-    dfCaseByVaxStatus['PartialVax_Risk_Lower_Day'] = 1 - (dfCaseByVaxStatus['Partial_Per100k_Day']
-                                                          / dfCaseByVaxStatus['Unvax_Per100k_Day_5Plus'])
+                                                          / dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus'])
+    dfCaseByVaxStatus['Boosted_Risk_Lower_Day'] = 1 - (dfCaseByVaxStatus['Boosted_Per100k_Day']
+                                                          / dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus'])
 
     dfCaseByVaxStatus.sort_index(ascending=True, inplace=True)
 
@@ -4980,29 +5040,52 @@ def VaccineData_CaseStatus():
     dfCaseByVaxStatus['Partial_Per100k_Week'] = (dfCaseByVaxStatus['covid19_cases_partial_vac'].rolling(7).mean()
                                                  / dfCaseByVaxStatus['Partial_Pop_14DaysAgo'].rolling(7).mean()) * 100000
     dfCaseByVaxStatus['Fully_Per100k_Week'] = (dfCaseByVaxStatus['covid19_cases_full_vac'].rolling(7).mean()
-                                               / dfCaseByVaxStatus['Fully_Pop_14DaysAgo'].rolling(7).mean()) * 100000
+                                               / (dfCaseByVaxStatus['Fully_Pop_14DaysAgo'] -
+                                                  dfCaseByVaxStatus['boosted_14DaysAgo']).rolling(7).mean()) * 100000
     dfCaseByVaxStatus['All_Per100k_Week'] = (dfCaseByVaxStatus['AllCases_Today'].rolling(7).mean()
                                              / OntarioPopulation) * 100000
+    dfCaseByVaxStatus['NotFullVax_Per100k_Week'] = (dfCaseByVaxStatus['covid19_cases_notfull_vac'].rolling(7).mean()
+                                               / dfCaseByVaxStatus['not_fullvax_pop_14DaysAgo'].rolling(7).mean() * 10**5)
+    dfCaseByVaxStatus['NotFullVax_Per100k_Week_5Plus'] = (dfCaseByVaxStatus['covid19_cases_notfull_5plus'].rolling(7).mean()
+                                               / dfCaseByVaxStatus['not_fullvax_pop14DaysAgo_5plus'].rolling(7).mean() * 10**5)
+
+    dfCaseByVaxStatus['Boosted_Per100k_Week'] = (dfCaseByVaxStatus['covid19_cases_boost_vac'].rolling(7).mean()
+                                               / dfCaseByVaxStatus['boosted_14DaysAgo'].rolling(7).mean() * 10**5)
+
+
     dfCaseByVaxStatus['Unvax_Risk_Higher_Week'] = (dfCaseByVaxStatus['Unvax_Per100k_Week']
                                                    / dfCaseByVaxStatus['Fully_Per100k_Week'])
     dfCaseByVaxStatus['Unvax_Risk_Higher_Week_5Plus'] = (dfCaseByVaxStatus['Unvax_Per100k_Week_5Plus']
                                                          / dfCaseByVaxStatus['Fully_Per100k_Week'])
     dfCaseByVaxStatus['Partial_Risk_Higher_Week'] = (dfCaseByVaxStatus['Partial_Per100k_Week']
                                                      / dfCaseByVaxStatus['Fully_Per100k_Week'])
+    dfCaseByVaxStatus['NotFullVax_Risk_Higher_Week'] = (dfCaseByVaxStatus['NotFullVax_Per100k_Week']
+                                                     / dfCaseByVaxStatus['Boosted_Per100k_Week'])
+    dfCaseByVaxStatus['NotFullVax_Risk_Higher_Week_5Plus'] = (dfCaseByVaxStatus['NotFullVax_Per100k_Week_5Plus']
+                                                     / dfCaseByVaxStatus['Boosted_Per100k_Week'])
+
+    dfCaseByVaxStatus['FullVax_Risk_Higher_Week'] = (dfCaseByVaxStatus['Fully_Per100k_Week']
+                                                     / dfCaseByVaxStatus['Boosted_Per100k_Week'])
 
     dfCaseByVaxStatus['FullyVax_Risk_Lower_Week'] = 1 - (dfCaseByVaxStatus['Fully_Per100k_Week']
                                                          / dfCaseByVaxStatus['Unvax_Per100k_Week_5Plus'])
     dfCaseByVaxStatus['PartialVax_Risk_Lower_Week'] = 1 - (dfCaseByVaxStatus['Partial_Per100k_Week']
                                                            / dfCaseByVaxStatus['Unvax_Per100k_Week_5Plus'])
+    dfCaseByVaxStatus['FullyVax_Risk_Lower_Week'] = 1 - (dfCaseByVaxStatus['Fully_Per100k_Week']
+                                                         / dfCaseByVaxStatus['NotFullVax_Per100k_Week_5Plus'])
+    dfCaseByVaxStatus['Boosted_Risk_Lower_Week'] = 1 - (dfCaseByVaxStatus['Boosted_Per100k_Week']
+                                                         / dfCaseByVaxStatus['NotFullVax_Per100k_Week_5Plus'])
+
+
 
     dfCaseByVaxStatus.sort_index(ascending=False, inplace=True)
     dfCaseByVaxStatus = dfCaseByVaxStatus.round(3)
-    dfCaseByVaxStatus.to_pickle('Pickle/CasesByVaxStatus.pickle')
+    dfCaseByVaxStatus.to_pickle(picklefilename)
     print(f'Ended:   {datetime.datetime.now():%Y-%m-%d %H:%M:%S} {round(time.time() - starttime, 2)} seconds')
     print('------------------------------------------------------------------------')
 
 
-def VaccineData_PHU():
+def VaccineData_PHU(download=True):
     starttime = time.time()
     print('------------------------------------------------------------------------')
     print(f'VaccineData_PHU \nStarted: {datetime.datetime.now():%Y-%m-%d %H:%M:%S}')
@@ -5507,8 +5590,6 @@ def school_absenteeism():
 
 def DailyReportExtraction_Cases():
     import camelot.io as camelot
-    from urllib.error import HTTPError
-    import requests
 
     DailyReportFile = 'DailyReport.pdf'
     df = pd.DataFrame()
