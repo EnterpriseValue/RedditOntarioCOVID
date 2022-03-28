@@ -3330,6 +3330,9 @@ def CanadaData():
     dfWeeklyCanadaVax['week_end'] = pd.to_datetime(dfWeeklyCanadaVax['week_end'], format='%Y-%m-%d')
     dfWeeklyCanadaVax['prename'].replace(['Nunavut', 'Newfoundland and Labrador'],
                                          ['Nunavut', 'Newfoundland'], inplace=True)
+    dfWeeklyCanadaVax['proptotal_fully'] = dfWeeklyCanadaVax['proptotal_fully'].replace('<0.01',
+                                                                                        0.001)
+    dfWeeklyCanadaVax['proptotal_fully'] = dfWeeklyCanadaVax['proptotal_fully'].astype(float)
     dfWeeklyCanadaVax.sort_values(by='week_end', ascending=False, inplace=True)
 
     xyz = pd.DataFrame(set(df.prname))
