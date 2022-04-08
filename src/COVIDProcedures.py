@@ -380,20 +380,25 @@ def DailyReports_Individual(FileNameIn):
     #Done
     "Case count by Outcome by Age"
     #casesByOutcomeByAge = pd.pivot_table(MasterDataFrame,values = 'Row_ID',index = ['Outcome','Age_Group'],columns = 'File_Date',aggfunc=np.count_nonzero)
-    casesByOutcomeByAge = pd.pivot_table(MasterDataFrame,values = 'Row_ID',index = ['Outbreak_Related','Outcome','Age_Group'],columns = 'File_Date',aggfunc=np.count_nonzero)
-    casesByOutcomeByAge = casesByOutcomeByAge.reindex(columns=sorted(casesByOutcomeByAge.columns,reverse = True))
-    casesByOutcomeByAge.sort_index(ascending = True, inplace = True)
-    casesByOutcomeByAge.fillna(0, inplace = True)
+    casesByOutcomeByAge = pd.pivot_table(MasterDataFrame,values = 'Row_ID',
+                                         index = ['Outbreak_Related','Outcome','Age_Group'],
+                                         columns='File_Date', aggfunc=np.count_nonzero)
+    casesByOutcomeByAge = casesByOutcomeByAge.reindex(columns=sorted(casesByOutcomeByAge.columns,
+                                                                     reverse=True))
+    casesByOutcomeByAge.sort_index(ascending=True, inplace=True)
+    casesByOutcomeByAge.fillna(0, inplace=True)
 
     if os.path.exists('PickleNew/casesByOutcomeByAge.pickle'):
         tempDF = pd.read_pickle('PickleNew/casesByOutcomeByAge.pickle')
-        tempDF = tempDF.merge(casesByOutcomeByAge[TodaysDate],left_index = True, right_index = True, how = 'outer',suffixes= ('drop',None) )
+        tempDF = tempDF.merge(casesByOutcomeByAge[TodaysDate],left_index = True,
+                              right_index = True, how = 'outer',suffixes= ('drop',None) )
         tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)],axis = 1)
         casesByOutcomeByAge = tempDF
     casesByOutcomeByAge =casesByOutcomeByAge.fillna(0)
     casesByOutcomeByAge = casesByOutcomeByAge.reindex(columns=sorted(casesByOutcomeByAge.columns,reverse = True))
 
-
+    casesByOutcomeByAge = casesByOutcomeByAge.drop(datetime.datetime(2022,3,11), axis=1,
+                                                   errors='ignore')
     casesByOutcomeByAge.to_pickle('PickleNew/casesByOutcomeByAge.pickle')
 
 
@@ -2485,11 +2490,11 @@ def OntarioCaseStatus():
     ###############################################################################################
     # If case status data is not posted today, update the headline to reflect this
     if dfCaseByVaxStatus.index.max() == EVHelper.todays_date():
-        cases_by_vax = (f"Ã°Å¸â€ºÂ¡Ã¯Â¸Â 5+ Cases by Vax (<2/2/3): {dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus'][0]:.1f} / "
+        cases_by_vax = (f"🛡 5+ Cases by Vax (<2/2/3): {dfCaseByVaxStatus['NotFullVax_Per100k_Day_5Plus'][0]:.1f} / "
                         + f"{dfCaseByVaxStatus['Fully_Per100k_Day'][0]:.1f} / {dfCaseByVaxStatus['Boosted_Per100k_Day'][0]:.1f} "
                         + f"(All: {dfCaseByVaxStatus['All_Per100k_Day'][0]:.1f}) per 100k")
     else:
-        cases_by_vax = "Ã°Å¸â€ºÂ¡Ã¯Â¸Â 5+ Cases by Vax (<2/2/3): ???"
+        cases_by_vax = "🛡 5+ Cases by Vax (<2/2/3): ???"
     ###############################################################################################
 
     sys.stdout = open(PostTitleFileName, 'w', encoding='utf-8')
@@ -2499,26 +2504,26 @@ def OntarioCaseStatus():
         + f"{df['newly_reported_deaths'][0]:.0f} new " \
         + f"{df['deaths_data_cleaning'][0]:.0f} old Deaths, " \
         + f"{TestsCompleted:,.0f} tests ({PositiveRateDay:.1%} to {df['Percent positive tests in last day'][0]:.1f}% pos.) " \
-        + f"Ã°Å¸ÂÂ¥ ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
-        + f"Ã°Å¸â€™â€° {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
+        + f"🏥 ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
+        + f"💉 {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_at_least_one_dose']:.2%} / {TodaysDFVaxAge.loc['Ontario_5plus']['Percent_fully_vaccinated']:.2%} / "\
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_3doses']:.2%} " \
         + f"({TodaysDFVaxAge.loc['Ontario_5plus']['FirstDose - in last day %']:+.2%},"\
         + f" / {TodaysDFVaxAge.loc['Ontario_5plus']['SecondDose - in last day %']:+.2%} / "\
         + f" {dfVaccine['ThreeDosedPopulation_5Plus_Day'][0]:.2%}) of 5+ at least 1/2/3 dosed, "\
-        + cases_by_vax
+        # + cases_by_vax
 
     PostTitle_2 = f"Ontario {TodaysDate:%b %d}: {NewCases:,.0f} Cases, " \
         + f"{df['Day new deaths'][0]:.0f} Deaths, " \
         + f"{TestsCompleted:,.0f} tests ({PositiveRateDay:.1%} to {df['Percent positive tests in last day'][0]:.1f}% pos.) " \
-        + f"Ã°Å¸ÂÂ¥ ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
-        + f"Ã°Å¸â€™â€° {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
+        + f"🏥 ICUs: {CurrentICUs:,.0f} ({ChangeInICUs:+.0f} vs. yest.) ({ChangeInICUsLast7:+.0f} vs. last wk) " \
+        + f"💉 {dfVaccine['previous_day_total_doses_administered'][0]:,.0f} admin, " \
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_at_least_one_dose']:.2%} / {TodaysDFVaxAge.loc['Ontario_5plus']['Percent_fully_vaccinated']:.2%} / "\
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_3doses']:.2%} " \
         + f"({TodaysDFVaxAge.loc['Ontario_5plus']['FirstDose - in last day %']:+.2%},"\
         + f" / {TodaysDFVaxAge.loc['Ontario_5plus']['SecondDose - in last day %']:+.2%} / "\
         + f" {dfVaccine['ThreeDosedPopulation_5Plus_Day'][0]:.2%}) of 5+ at least 1/2/3 dosed, "\
-        + cases_by_vax
+        # + cases_by_vax
 
 
     # if (df['deaths_data_cleaning'][0] != 0):
@@ -4715,16 +4720,15 @@ def VaccineData(download=True):
 
     ########################################################
     ########################################################
-    Threshold_90First_Date = (datetime.timedelta(days=((0.95 - TodaysDFVax.loc['Total - eligible 12+']['Percent_at_least_one_dose'])
-                                                       / (TodaysDFVax.loc['Total - eligible 12+']['FirstDose - in last week %'] / 7)))
-                              + (datetime.datetime.now().replace(hour=9, minute=0, second=0)))
-    Threshold_90First_Date_DaysTo = (Threshold_90First_Date - datetime.datetime.now().replace(hour=0, minute=0, second=0)).days
+    Threshold_ThirdDose_Date = (datetime.timedelta(days=((0.60 - TodaysDFVax.loc['Ontario_5plus']['Percent_3doses'])
+                                                         / (TodaysDFVax.loc['Ontario_5plus']['ThirdDose - in last week %'] / 7)))
+                                + (datetime.datetime.now().replace(hour=9, minute=0, second=0)))
+    Threshold_Third_DaysTo = (Threshold_ThirdDose_Date
+                              - datetime.datetime.now().replace(hour=0, minute=0, second=0)).days
+    print("* Based on this week's vaccination rates, **60% of 5+** Ontarians will have received"
+          " **boosters by ", EVHelper.ConvertDayToWorkingDay(Threshold_ThirdDose_Date, 9, 18).strftime('%B %#d, %Y at %H:%M'),
+          '** - ', round(Threshold_Third_DaysTo), ' days to go ', sep='')
 
-    # print(Threshold_90First_Date.strftime('%B %#d, %Y at %H:%M'))
-    # print("* Based on this week's vaccination rates, **75% of 12+** Ontarians will have received **both** doses by **",EVHelper.ConvertDayToWorkingDay(Threshold_75Second_Date,9,18).strftime('%B %#d, %Y at %H:%M'),'** - ',round(DaysTo75Pct_Second_Eligible),' days to go ',sep='')
-    print("* Based on this week's vaccination rates, **95% of 12+** Ontarians will have received"
-          " **at least one** dose by **", EVHelper.ConvertDayToWorkingDay(Threshold_90First_Date, 9, 18).strftime('%B %#d, %Y at %H:%M'),
-          '** - ', round(Threshold_90First_Date_DaysTo), ' days to go ', sep='')
     # print("* Another projection assumes that second doses will follow the pace of the 1st doses, and therefore will slow down as we approach the 75% number. We crossed today's second dose percentage in first doses on *"+DateFirstDoseWasCurrentSecondDose.strftime('%B %#d, %Y')+"*, and the 75% first dose threshold on *"+DateFirstDoseWas75.strftime('%B %#d, %Y')+"*, **"+str(int(DaysRemaining.days))+" days** later. In this projection, we will reach the 75% second dose threshold on **"+(EVHelper.ConvertDayToWorkingDay((datetime.datetime.now()+DaysRemaining),9,18)).strftime('%B %#d, %Y')+"**")
     # print("* Assuming that second doses will follow the pace of the 1st doses: We crossed today's second dose percentage in first doses on *"+DateFirstDoseWasCurrentSecondDose.strftime('%B %#d, %Y')+"*, and the 85% first dose threshold on *"+DateFirstDoseWas85.strftime('%B %#d, %Y')+"*, **"+str(int(DaysRemaining_85.days))+" days** later. In this projection, we will reach the 85% second dose threshold on **"+(EVHelper.ConvertDayToWorkingDay((datetime.datetime.now()+DaysRemaining_85),9,18)).strftime('%B %#d, %Y')+"**")
 

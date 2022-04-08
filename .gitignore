@@ -12,3 +12,12 @@ SourceFiles
 EVHelper.py
 *.bak
 FFF_Indiv.csv
+*.bak
+FilesToUpload/TorontoCOVID.csv
+FilesToUpload/GlobalData.csv
+Pivot_New.csv
+.spyproject/config/backups/workspace.ini.bak
+*.bak
+TodayDFVax.csv
+TestingPivot.csv
+TextFileOutput.txt
