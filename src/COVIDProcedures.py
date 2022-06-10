@@ -120,7 +120,7 @@ def DownloadFile(filename):
     LoadCOVIDData(filename)
     # DailyReports()
     DailyReports_Individual(filename)
-    input('Pausing: ')
+    # input('Pausing: ')
     DailyReportExtraction(filename)
     VaccineData()
 
@@ -131,9 +131,9 @@ def DownloadFile(filename):
         TestingData()
 
     JailData()
-    # COVIDAppData()
+    COVIDAppData()
     OutbreakData()
-    LTCData()
+    # LTCData()
     icu_capacity_stats()
     DailyReports_Compile()
     COVIDCharts()
@@ -325,7 +325,9 @@ def DailyReports_Individual(FileNameIn):
     ############################################################################################
     #Done
     "ActiveCaseByPHU"
-    activeCasesByPHU = pd.pivot_table(MasterDataFrame[(MasterDataFrame['Outcome']=="Not Resolved")],values = 'Row_ID',index = ['Reporting_PHU'],columns = 'File_Date',aggfunc=np.count_nonzero)
+    activeCasesByPHU = pd.pivot_table(MasterDataFrame[(MasterDataFrame['Outcome']=="Not Resolved")],
+                                      values = 'Row_ID',index = ['Reporting_PHU'],columns = 'File_Date',
+                                      aggfunc=np.count_nonzero)
     activeCasesByPHU = activeCasesByPHU.reindex(columns=sorted(activeCasesByPHU.columns,reverse = True))
     activeCasesByPHU = activeCasesByPHU.fillna(0)
 
@@ -336,8 +338,11 @@ def DailyReports_Individual(FileNameIn):
         activeCasesByPHU = tempDF
     activeCasesByPHU =activeCasesByPHU.fillna(0)
 
-    activeCasesByPHU = activeCasesByPHU.reindex(columns=sorted(activeCasesByPHU.columns,reverse = True))
-    activeCasesByPHU.sort_values(by=activeCasesByPHU.columns[0],ascending = False, inplace = True)
+    activeCasesByPHU = activeCasesByPHU.reindex(columns=sorted(activeCasesByPHU.columns, reverse=True))
+    activeCasesByPHU.sort_values(by=activeCasesByPHU.columns[0], ascending=False, inplace=True)
+    activeCasesByPHU = activeCasesByPHU.drop(datetime.datetime(2022, 3, 11), axis=1,
+                                             errors='ignore')
+
 
     activeCasesByPHU.to_pickle('PickleNew/ActiveCasesByPHU.pickle')
 
@@ -346,7 +351,8 @@ def DailyReports_Individual(FileNameIn):
 
     "ChangeActiveCaseByPHU"
     changeInActiveCasesByPHU = activeCasesByPHU - activeCasesByPHU.shift(-1,axis=1)
-    if os.path.exists('PickleNew/ChangeInActiveCasesByPHU.pickle'):
+    if (os.path.exists('PickleNew/ChangeInActiveCasesByPHU.pickle')
+        and not (TodaysDate in [datetime.datetime(2022, 3, 11), datetime.datetime(2022, 3, 12)])):
         tempDF = pd.read_pickle('PickleNew/ChangeInActiveCasesByPHU.pickle')
         tempDF = tempDF.merge(changeInActiveCasesByPHU[TodaysDate],left_index = True, right_index = True, how = 'outer',suffixes= ('drop',None) )
         tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)],axis = 1)
@@ -2510,7 +2516,7 @@ def OntarioCaseStatus():
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_3doses']:.2%} " \
         + f"({TodaysDFVaxAge.loc['Ontario_5plus']['FirstDose - in last day %']:+.2%},"\
         + f" / {TodaysDFVaxAge.loc['Ontario_5plus']['SecondDose - in last day %']:+.2%} / "\
-        + f" {dfVaccine['ThreeDosedPopulation_5Plus_Day'][0]:.2%}) of 5+ at least 1/2/3 dosed, "\
+        + f" {dfVaccine['ThreeDosedPopulation_5Plus_Day'][0]:.2%}) of 5+ at least 1/2/3 dosed"\
         # + cases_by_vax
 
     PostTitle_2 = f"Ontario {TodaysDate:%b %d}: {NewCases:,.0f} Cases, " \
@@ -2522,7 +2528,7 @@ def OntarioCaseStatus():
         + f"{TodaysDFVaxAge.loc['Ontario_5plus']['Percent_3doses']:.2%} " \
         + f"({TodaysDFVaxAge.loc['Ontario_5plus']['FirstDose - in last day %']:+.2%},"\
         + f" / {TodaysDFVaxAge.loc['Ontario_5plus']['SecondDose - in last day %']:+.2%} / "\
-        + f" {dfVaccine['ThreeDosedPopulation_5Plus_Day'][0]:.2%}) of 5+ at least 1/2/3 dosed, "\
+        + f" {dfVaccine['ThreeDosedPopulation_5Plus_Day'][0]:.2%}) of 5+ at least 1/2/3 dosed"\
         # + cases_by_vax
 
 
@@ -3324,11 +3330,17 @@ def CanadaData():
     df2.to_csv('SourceFiles/CanadaData-vaccineadmin.csv')
     df2['report_date'] = pd.to_datetime(df2['report_date'], format='%Y-%m-%d')
     df2 = df2.fillna(0)
-
+    df2 = df2.sort_values(by='report_date', ascending=False)
+    df2 = df2.set_index('prename')
+    for prov in set(df2.index):
+        df2.loc[prov, 'numdelta_all_administered'] = (df2.loc[prov]['numtotal_all_administered'].iloc[0]
+                                                      - df2.loc[prov]['numtotal_all_administered'].iloc[1])
+    df2 = df2.reset_index()
     df2['numdelta_all_administered'] = df2['numdelta_all_administered'].astype(int)
     df2 = df2[df2['report_date'] == df2['report_date'].max()]
     df2['prename'].replace(['Nunavut', 'Newfoundland and Labrador'],
                            ['Nunavut', 'Newfoundland'], inplace=True)
+    # df2 = df2.set_index(['prename', 'report_date'])
 
     dfWeeklyCanadaVax = pd.read_csv('https://health-infobase.canada.ca/src/data/covidLive/vaccination-coverage-map.csv')
     dfWeeklyCanadaVax.to_csv('SourceFiles/CanadaData-vaccinecoverage.csv')
@@ -4041,17 +4053,6 @@ def COVIDAppData():
                                     / CaseStatusDF['Day new cases'].sum(), 4)
     PctPositiveCasesAllTime = "{:,.1%}".format(PctPositiveCasesAllTime)
 
-    sys.stdout = open(TextFileName, 'w')
-    print('**COVID App Stats** - *latest data as of ', dfUpload.iloc[0].name.strftime('%B %d'),
-          '* - [Source](https://data.ontario.ca/dataset/covid-alert-impact-data)', sep='')
-    print()
-    print('* Positives Uploaded to app in last day/week/month/since launch: ',
-          "{:,}".format(dfUpload.iloc[0].daily_positive_otks_uploaded_ontario),
-          ' / ', "{:,}".format(dfUpload.iloc[0:7].daily_positive_otks_uploaded_ontario.sum()),
-          ' / ', "{:,}".format(dfUpload.iloc[0:30].daily_positive_otks_uploaded_ontario.sum()),
-          ' / ', "{:,}".format(dfUpload['daily_positive_otks_uploaded_ontario'].sum()),
-          ' (', PctPositiveCasesDay, ' / ', PctPositiveCasesWeek, ' / ', PctPositiveCasesMonth, ' / ',
-          PctPositiveCasesAllTime, ' of all cases)', sep='')
 
     dfDown = pd.read_csv('https://data.ontario.ca/dataset/06a61019-62c1-48d8-8d4d-2267ae0f1144/resource/37cfeca2-059e-4a5f-a228-249f6ab1b771/download/covid_alert_downloads_canada.csv',
                          parse_dates=[0], infer_datetime_format=True)
@@ -4060,9 +4061,10 @@ def COVIDAppData():
     dfDown = dfDown.set_index('date')
     dfDown = dfDown.fillna(0)
     for column in dfDown.columns:
-        dfDown[column] = dfDown[column].str.replace(',', '')
-        dfDown[column] = dfDown[column].fillna(0).astype(int)
-        dfDown[column] = dfDown[column].astype(int)
+        if dfDown[column].dtypes == 'O':
+            dfDown[column] = dfDown[column].str.replace(',', '')
+            dfDown[column] = dfDown[column].fillna(0).astype(int)
+            dfDown[column] = dfDown[column].astype(int)
 
     dfDown.to_pickle('Pickle/AppDownload.pickle')
 
@@ -4081,6 +4083,19 @@ def COVIDAppData():
     PctAndroidAllTime = (dfDown.iloc[:].daily_android_downloads_canada.sum()
                          / dfDown.iloc[:].daily_total_downloads_canada.sum())
     PctAndroidAllTime = "{:,.1%}".format(PctAndroidAllTime)
+
+    sys.stdout = open(TextFileName, 'w')
+    print('**COVID App Stats** - *latest data as of ', dfUpload.iloc[0].name.strftime('%B %d'),
+          '* - [Source](https://data.ontario.ca/dataset/covid-alert-impact-data)', sep='')
+    print()
+    print('* Positives Uploaded to app in last day/week/month/since launch: ',
+          "{:,}".format(dfUpload.iloc[0].daily_positive_otks_uploaded_ontario),
+          ' / ', "{:,}".format(dfUpload.iloc[0:7].daily_positive_otks_uploaded_ontario.sum()),
+          ' / ', "{:,}".format(dfUpload.iloc[0:30].daily_positive_otks_uploaded_ontario.sum()),
+          ' / ', "{:,}".format(dfUpload['daily_positive_otks_uploaded_ontario'].sum()),
+          ' (', PctPositiveCasesDay, ' / ', PctPositiveCasesWeek, ' / ', PctPositiveCasesMonth, ' / ',
+          PctPositiveCasesAllTime, ' of all cases)', sep='')
+
 
     print('* App downloads in last day/week/month/since launch: ',
           "{:,}".format(dfDown.iloc[0].daily_android_downloads_canada),
@@ -4105,6 +4120,7 @@ def LTCData():
     df = pd.read_csv('https://data.ontario.ca/dataset/42df36df-04a0-43a9-8ad4-fac5e0e22244/resource/4b64488a-0523-4ebb-811a-fac2f07e6d59/download/activeltcoutbreak.csv',
                      encoding='cp1252')
     df.to_csv('SourceFiles/LTCData-ActiveOutbreaks.csv')
+    df.columns = EVHelper.remove_specialchars(df.columns)
     df['Report_Data_Extracted'] = pd.to_datetime(df['Report_Data_Extracted'])
     df['Active Outbreak'] = True
 
@@ -4279,6 +4295,8 @@ def VaccineData(download=True):
     df['FirstDoseInDay'] = df['previous_day_at_least_one'].fillna(0).astype(int)
     df['ThirdDoseInDay'] = (df['total_individuals_3doses']
                             - df['total_individuals_3doses'].shift(-1).fillna(0)).astype(int)
+    df['FourthDoseInDay'] =(df['previous_day_total_doses_administered'] - df['SecondDoseInDay']
+                            - df['ThirdDoseInDay'])
 
     df['total_individuals_3doses'] = df['total_individuals_3doses'].astype(int)
     df['ThreeDosedPopulation_5Plus'] = (df['total_individuals_3doses']
@@ -4526,6 +4544,10 @@ def VaccineData(download=True):
     df['PartialVax_Count'] = df['TotalAtLeastOneDose'] - df['TotalTwoDosed']
     df['Unvax_Count'] = OntarioPopulation - df['TotalAtLeastOneDose']
     df['boosted_count'] = df['total_individuals_3doses']
+    df['fourth_dosed_individuals'] = (TotalAdministered - df['TotalAtLeastOneDose'] - df['TotalTwoDosed']
+                                      - TotalThreeDosed)
+    TotalFourDosed = df['fourth_dosed_individuals'][0]
+
     df['not_fullvax_count'] = df['PartialVax_Count'] + df['Unvax_Count']
 
     df = EVHelper.TestDFIsPrime(df, 'previous_day_total_doses_administered', 'DayVaccineCount_IsPrime')
@@ -4653,6 +4675,9 @@ def VaccineData(download=True):
     print(f"* Third doses admin: {df['total_individuals_3doses'][0]:,}",
           f"({df['ThirdDoseInDay'][0]:+,} / {df['ThirdDoseInDay'][0:7].sum():+,} in last day/week) ")
 
+    print(f"* Fourth+ doses admin: {df['fourth_dosed_individuals'][0]:,}",
+          f"({df['FourthDoseInDay'][0]:+,} / {df['FourthDoseInDay'][0:7].sum():+,} in last day/week) ")
+
     # print('* ',"{:.2%}".format(PercentVax_18Plus_AtLeastOne),' / ',"{:.2%}".format(PercentVax_18Plus_BothDose)," of **all adult** Ontarians have received at least one / both dose(s) to date",sep = '')
 
     FirstDoseTodayPct_All = df['FirstDoseInDay'][0] / OntarioPopulation
@@ -4661,10 +4686,14 @@ def VaccineData(download=True):
     SecondDoseWeekPct_All = df['SecondDoseInDay'][0:7].sum() / OntarioPopulation
     ThirdDoseTodayPct_All = df['ThirdDoseInDay'][0] / OntarioPopulation
     ThirdDoseWeekPct_All = df['ThirdDoseInDay'][0:7].sum() / OntarioPopulation
+    FourthDoseTodayPct_All = df['FourthDoseInDay'][0] / OntarioPopulation
+    FourthDoseWeekPct_All = df['FourthDoseInDay'][0:7].sum() / OntarioPopulation
+
     print(f"* {TotalAtLeastOneDose/OntarioPopulation:.2%} / {TotalTwoDoses/OntarioPopulation:.2%} / {TotalThreeDosed/OntarioPopulation:.2%}",
-          " of **all** Ontarians have received at least one / two / three dose to date",
-          f"({FirstDoseTodayPct_All:.2%} / {SecondDoseTodayPct_All:.2%} / {ThirdDoseTodayPct_All:.2%} today)",
-          f"({FirstDoseWeekPct_All:.2%} / {SecondDoseWeekPct_All:.2%} / {ThirdDoseWeekPct_All:.2%} in last week)")
+          f"/ {TotalFourDosed/OntarioPopulation:.2%}",
+          " of **all** Ontarians have received at least one / two / three / four doses to date",
+          f"({FirstDoseTodayPct_All:.2%} / {SecondDoseTodayPct_All:.2%} / {ThirdDoseTodayPct_All:.2%} / {FourthDoseTodayPct_All:.2%} today)",
+          f"({FirstDoseWeekPct_All:.2%} / {SecondDoseWeekPct_All:.2%} / {ThirdDoseWeekPct_All:.2%} / {FourthDoseWeekPct_All:.2%} in last week)")
 
     FirstDoseTodayPct_5Plus = df['FirstDoseInDay'][0] / Population_5Plus
     FirstDoseWeekPct_5Plus = df['FirstDoseInDay'][0:7].sum() / Population_5Plus
@@ -4672,10 +4701,13 @@ def VaccineData(download=True):
     SecondDoseWeekPct_5Plus = df['SecondDoseInDay'][0:7].sum() / Population_5Plus
     ThirdDoseTodayPct_5Plus = df['ThirdDoseInDay'][0] / Population_5Plus
     ThirdDoseWeekPct_5Plus = df['ThirdDoseInDay'][0:7].sum() / Population_5Plus
-    print(f"* {TodaysDFVax.loc['Ontario_5plus']['Percent_at_least_one_dose']:.2%} / {TodaysDFVax.loc['Ontario_5plus']['Percent_fully_vaccinated']:.2%} / {TodaysDFVax.loc['Ontario_5plus']['Percent_3doses']:.2%}",
-          " of **5+** Ontarians have received at least one / two / three dose to date",
-          f"({FirstDoseTodayPct_5Plus:.2%} / {SecondDoseTodayPct_5Plus:.2%} / {ThirdDoseTodayPct_5Plus:.2%} today)",
-          f"({FirstDoseWeekPct_5Plus:.2%} / {SecondDoseWeekPct_5Plus:.2%} / {ThirdDoseWeekPct_5Plus:.2%} in last week)")
+    FourthDoseTodayPct_5Plus = df['FourthDoseInDay'][0] / Population_5Plus
+    FourthDoseWeekPct_5Plus = df['FourthDoseInDay'][0:7].sum() / Population_5Plus
+
+    print(f"* {TodaysDFVax.loc['Ontario_5plus']['Percent_at_least_one_dose']:.2%} / {TodaysDFVax.loc['Ontario_5plus']['Percent_fully_vaccinated']:.2%} / {TodaysDFVax.loc['Ontario_5plus']['Percent_3doses']:.2%} / {TotalFourDosed/Population_5Plus:.2%}",
+          " of **5+** Ontarians have received at least one / two / three / four doses to date",
+          f"({FirstDoseTodayPct_5Plus:.2%} / {SecondDoseTodayPct_5Plus:.2%} / {ThirdDoseTodayPct_5Plus:.2%} / {FourthDoseTodayPct_5Plus:.2%} today)",
+          f"({FirstDoseWeekPct_5Plus:.2%} / {SecondDoseWeekPct_5Plus:.2%} / {ThirdDoseWeekPct_5Plus:.2%} / {FourthDoseWeekPct_5Plus:.2%} in last week)")
 
     # print('* ',"{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['Percent_at_least_one_dose']),' / ',"{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['Percent_fully_vaccinated'])," of **12+** Ontarians have received at least one / both dose(s) to date (",
     #       "{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['FirstDose - in last day %']),' / ', "{:.2%}".format(TodaysDFVax.loc['Total - eligible 12+']['SecondDose - in last day %']),' today, ',
@@ -5281,8 +5313,10 @@ def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
     if fileName is None:
         fileName = fileDate
 
+
     try:
         file_path = 'https://files.ontario.ca/moh-covid-19-report-en-' + fileName + '.pdf'
+        # file_path = 'https://www.publichealthontario.ca/-/media/Documents/nCoV/epi/covid-19-daily-epi-summary-report.pdf?sc_lang=en'
 
         r = requests.get(file_path, allow_redirects=True)
         open(DailyReportFile, 'wb').write(r.content)
