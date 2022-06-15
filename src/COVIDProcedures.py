@@ -628,6 +628,7 @@ def DailyReports_Individual(FileNameIn):
                 #print (EpisodeDateByPHUYesterday.columns[x])
                 EpisodeDateByPHUToday.insert(EpisodeDateByPHUToday.columns.size-1, EpisodeDateByPHUYesterday.columns[x],0)
 
+        # ValueError: unbounded slice here
         for x in range(EpisodeDateByPHUToday.columns.size-1):
             if EpisodeDateByPHUToday.columns[x] not in EpisodeDateByPHUYesterday.columns:
                 #print (EpisodeDateByPHUToday.columns[x])
