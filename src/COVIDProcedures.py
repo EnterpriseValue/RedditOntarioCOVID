@@ -101,10 +101,24 @@ def PostDailyReports():
     print('------------------------------------------------------------------------')
 
 
-def DownloadFile(filename):
+def DownloadFile(filename=f"{datetime.datetime.now():%Y-%m-%d}"):
+    """
+    This is the main method that generates the daily reports.
+
+    Parameters
+    ----------
+    filename : string
+        This is just today's current date if not specified. If specified it needs to be in the
+        2022-12-31 format.
+
+    Returns
+    -------
+    None.
+
+    """
     starttime = time.time()
     GlobalData()
-    CanadaData()
+    # CanadaData()
     # OntarioZones()
     print('Downloading cases file:')
     df = pd.read_csv('https://data.ontario.ca/dataset/f4112442-bdc8-45d2-be3c-12efae72fb27/resource/455fd63b-603d-4608-8216-7d8647f43350/download/conposcovidloc.csv')
@@ -121,7 +135,7 @@ def DownloadFile(filename):
     # DailyReports()
     DailyReports_Individual(filename)
     # input('Pausing: ')
-    DailyReportExtraction(filename)
+    # DailyReportExtraction(filename)
     VaccineData()
 
     # HospitalMetrics()
@@ -146,7 +160,6 @@ def DailyReports_Individual(FileNameIn):
     starttime = time.time()
     # ConsoleOut = sys.stdout
 
-    PivotTableFileName = 'Pivot_New.csv'
     DeathDetailFileName = 'TextOutput/DeathDetail.txt'
 
     config = configparser.ConfigParser()
@@ -193,11 +206,6 @@ def DailyReports_Individual(FileNameIn):
     changeInCasesByPHU.insert(0, 'TotalToDate', casesByPHU[casesByPHU.columns[0]])
     changeInCasesByPHU.to_pickle('PickleNew/ChangeInCasesByPHU-Display.pickle')
 
-    # with open(PivotTableFileName, 'w',newline='') as f:
-    #     f.write('Change InCases by PHU \n')
-    #     changeInCasesByPHU.to_csv(f,header = True)
-    #     f.write('\n')
-
     changeInCasesByPHU.drop(['TotalToDate'], axis=1, inplace=True)
     changeInCasesByPHU = changeInCasesByPHU.sort_values(by=changeInCasesByPHU.columns[0],
                                                         ascending=False, inplace=False)
@@ -226,36 +234,31 @@ def DailyReports_Individual(FileNameIn):
                                                                - pd.DateOffset(days=7))], values='Row_ID',
                                               index=['Reporting_PHU'], columns='Age_Group',
                                               aggfunc=np.count_nonzero, margins=False).fillna(0)).fillna(0)
-    changeInAgesByPHUWeek.rename(columns={'19 & under':'<20', 'Unknown': 'N/A'}, inplace=True)
+    changeInAgesByPHUWeek.rename(columns={'19 & under': '<20', 'Unknown': 'N/A'}, inplace=True)
 
     ############################################################################################
     ############################################################################################
-    #Done
     "Case count by Age"
-    casesByAge = pd.pivot_table(MasterDataFrame,values = 'Row_ID',index = ['Age_Group'],columns = 'File_Date',aggfunc=np.count_nonzero)
-    casesByAge = casesByAge.reindex(columns=sorted(casesByAge.columns,reverse = True))
-    casesByAge.sort_index(ascending = True, inplace = True)
+    casesByAge = pd.pivot_table(MasterDataFrame, values='Row_ID', index=['Age_Group'], columns='File_Date', aggfunc=np.count_nonzero)
+    casesByAge = casesByAge.reindex(columns=sorted(casesByAge.columns, reverse=True))
+    casesByAge.sort_index(ascending=True, inplace=True)
 
-    changeInCasesByAge = casesByAge-casesByAge.shift(-1,axis=1)
+    changeInCasesByAge = casesByAge - casesByAge.shift(-1, axis=1)
     if os.path.exists('PickleNew/ChangeInCasesByAge.pickle'):
         tempDF = pd.read_pickle('PickleNew/ChangeInCasesByAge.pickle')
-        tempDF = tempDF.merge(changeInCasesByAge[TodaysDate],left_index = True, right_index = True, how = 'outer',suffixes= ('drop',None) )
-        tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)],axis = 1)
+        tempDF = tempDF.merge(changeInCasesByAge[TodaysDate], left_index=True, right_index=True, how='outer', suffixes=('drop', None))
+        tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)], axis=1)
         changeInCasesByAge = tempDF
 
     changeInCasesByAge = changeInCasesByAge.fillna(0)
-    changeInCasesByAge = changeInCasesByAge.drop('TotalToDate',axis=1)
+    changeInCasesByAge = changeInCasesByAge.drop('TotalToDate', axis=1)
 
-    changeInCasesByAge = changeInCasesByAge.reindex(columns=sorted(changeInCasesByAge.columns,reverse = True))
+    changeInCasesByAge = changeInCasesByAge.reindex(columns=sorted(changeInCasesByAge.columns, reverse=True))
     changeInCasesByAge = changeInCasesByAge.reindex(casesByAge.index)
 
-    changeInCasesByAge.insert(0,'TotalToDate',casesByAge[casesByAge.columns[0]])
+    changeInCasesByAge.insert(0, 'TotalToDate', casesByAge[casesByAge.columns[0]])
     changeInCasesByAge.to_pickle('PickleNew/ChangeInCasesByAge.pickle')
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Change in Cases by Age Group \n')
-    #     changeInCasesByAge.to_csv(f,header = True)
-    #     f.write('\n')
-    print(round((time.time()-starttime),2),'- Case count by age done')
+    print(round((time.time() - starttime), 2), '- Case count by age done')
     del changeInCasesByAge
     ############################################################################################
     ############################################################################################
@@ -281,10 +284,7 @@ def DailyReports_Individual(FileNameIn):
 
     changeInDeathsByPHU.insert(0,'TotalToDate',deathsByPHU[deathsByPHU.columns[0]])
     changeInDeathsByPHU.to_pickle('PickleNew/changeInDeathsByPHU.pickle')
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Change In Deaths by PHU \n')
-    #     changeInDeathsByPHU.to_csv(f,header = True)
-    #     f.write('\n')
+
     print(round((time.time()-starttime),2),'- Death count by PHU done')
 
 
@@ -314,10 +314,6 @@ def DailyReports_Individual(FileNameIn):
     # changeInCasesByOutcome.to_csv('CSVNew/ChangeInCasesByOutcome.csv')
     changeInCasesByOutcome.insert(0,'TotalToDate',casesByOutcome[casesByOutcome.columns[0]])
     changeInCasesByOutcome.to_pickle('PickleNew/ChangeInCasesByOutcome.pickle')
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('changeInCases by Outcome \n')
-    #     changeInCasesByOutcome.to_csv(f,header = True)
-    #     f.write('\n')
 
     print(round((time.time()-starttime),2),'- Change in cases by outcome done')
 
@@ -369,16 +365,6 @@ def DailyReports_Individual(FileNameIn):
     changeInActiveCasesByPHU.insert(0,'TotalToDate',activeCasesByPHU[activeCasesByPHU.columns[0]])
     changeInActiveCasesByPHU.to_pickle('PickleNew/ChangeInActiveCasesByPHU.pickle')
 
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('changeInActive by PHU \n')
-    #     changeInActiveCasesByPHU.to_csv(f,header = True)
-    #     f.write('\n')
-
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Active by PHU \n')
-    #     activeCasesByPHU.to_csv(f,header = True)
-    #     f.write('\n')
-
     print(round((time.time()-starttime),2),'- Active cases by PHU done')
 
     ############################################################################################
@@ -408,13 +394,6 @@ def DailyReports_Individual(FileNameIn):
     casesByOutcomeByAge.to_pickle('PickleNew/casesByOutcomeByAge.pickle')
 
 
-
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Cases by Outcome by Age \n')
-    #     #casesByOutcomeByAge.to_csv(f,header = True)
-    #     casesByOutcomeByAge.loc["No"].add(casesByOutcomeByAge.loc["Yes"],fill_value=0).to_csv(f,header = True)
-    #     f.write('\n')
-
     print(round((time.time()-starttime),2),'- Cases by outcome by age done')
 
 
@@ -442,14 +421,6 @@ def DailyReports_Individual(FileNameIn):
         activeCases70PlusOutbreakStatus = activeCases70PlusOutbreakStatus.reindex(columns=sorted(activeCases70PlusOutbreakStatus.columns,reverse = True))
         activeCases70PlusOutbreakStatus.to_pickle('PickleNew/Active70PlusOutbreakStatus.pickle')
 
-
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('changeInCases by Outcome by Age \n')
-    #     changeInCasesByOutcomeByAge.to_csv(f,header = True)
-    #     f.write('\n')
-    #     # f.write('ActiveCases70PlusByOutbreak /n')
-    #     # activeCases70PlusOutbreakStatus.to_csv(f,header = True)
-    #     # f.write('\n')
 
     print(round((time.time()-starttime),2),'- Case count by outcome by age done')
 
@@ -481,11 +452,6 @@ def DailyReports_Individual(FileNameIn):
     changeInCasesBySource.insert(0,'TotalToDate',casesBySource[casesBySource.columns[0]])
     changeInCasesBySource.to_pickle('PickleNew/changeInCasesBySource.pickle')
 
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Change in Case count by source \n')
-    #     changeInCasesBySource.to_csv(f,header = True)
-    #     f.write('\n')
-
     print(round((time.time()-starttime),2),'- Case count by source done')
 
 
@@ -503,13 +469,6 @@ def DailyReports_Individual(FileNameIn):
     Rolling30DayNonOutbreak_Resolved = df.loc['No'].loc['Resolved'].T[::-1].rolling(30).sum().fillna(0)[::-1].T
     Rolling30DayOutbreak_FatalRate = Rolling30DayOutbreak_Fatal/(Rolling30DayOutbreak_Resolved+Rolling30DayOutbreak_Fatal)
     Rolling30DayNonOutbreak_FatalRate = Rolling30DayNonOutbreak_Fatal/(Rolling30DayNonOutbreak_Resolved+Rolling30DayNonOutbreak_Fatal)
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('FatalityRate - Outbreak')
-    #     Rolling30DayOutbreak_FatalRate.to_csv(f,header = True)
-    #     f.write('\n')
-    #     f.write('FatalityRate - Non-outbreak')
-    #     Rolling30DayNonOutbreak_FatalRate.to_csv(f,header = True)
-    #     f.write('\n')
 
     df = pd.DataFrame([Rolling30DayOutbreak_FatalRate.iloc[:,0],Rolling30DayOutbreak_Fatal.iloc[:,0],Rolling30DayNonOutbreak_FatalRate.iloc[:,0],Rolling30DayNonOutbreak_Fatal.iloc[:,0]]).T
     df.columns = ['CFR%','Deaths','CFR%','Deaths']
@@ -561,31 +520,10 @@ def DailyReports_Individual(FileNameIn):
     changeInReportingLag = changeInReportingLag.reindex(columns=sorted(changeInReportingLag.columns, reverse=True))
     changeInReportingLag.to_pickle('PickleNew/changeInReportingLag.pickle')
 
-
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Episode Table 2 - Positive cases with episode dates X days before report date \n')
-    #     TempReportingLagPivot = ReportingLagPivot.copy()
-    #     TempReportingLagPivot.index = TempReportingLagPivot.index.days
-    #     TempReportingLagPivot.iloc[0:30,:].to_csv(f,header = True)
-    #     #ReportingLagPivot.loc['1 days': '30 days'].to_csv(f,header = True)
-    #     f.write('\n')
-
     tempDataFrame = pd.DataFrame()
     for x in range(1, 31):
         b = ReportingLagPivot.loc[datetime.timedelta(days=1):datetime.timedelta(days=x)].sum(axis=0)
         tempDataFrame = pd.concat([tempDataFrame,b.to_frame(name=x).T])
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Episode Table 1 - Cumulative Positive cases with episode dates X days before report date \n')
-    #     #tempDataFrame.loc['0 days': '30 days'].to_csv(f,header = True)
-    #     tempDataFrame.to_csv(f,header = True)
-    #     f.write('\n')
-
-
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write("Table 3 - How long ago do  the day's new cases relate to? \n")
-    #     changeInReportingLag.iloc[0:30,:].to_csv(f,header = True)
-    #     changeInReportingLag.iloc[30:].sum(axis=0).to_frame(name='Over 30 days').transpose().to_csv(f,header = False)
-    #     f.write('\n')
 
     changeInReportingLag = changeInReportingLag.fillna(0)
     changeInReportingLag.to_pickle('PickleNew/Tab2Table3CasesByEpisodeDate.pickle')
@@ -614,33 +552,22 @@ def DailyReports_Individual(FileNameIn):
     CumulativeCaseFilePath = config.get('file_location', 'cumulative_case_filepath')
     if os.path.exists(CumulativeCaseFilePath):
         tempDF = pd.read_pickle(CumulativeCaseFilePath)
-        #ww_temp = ww_temp.add(tempDF)
-        CumulativeCaseEpisodeDates = pd.concat([tempDF,CumulativeCaseEpisodeDates], axis=0)
-        #ww_temp = tempDF.append(ww_temp)
-        #tempDF = tempDF.merge(casesByOutcomeByAge[TodaysDate],left_index = True, right_index = True, how = 'outer',suffixes= ('drop',None) )
-        #tempDF = tempDF.drop([col for col in tempDF.columns if 'drop' in str(col)],axis = 1)
-        #casesByOutcomeByAge = tempDF
+        CumulativeCaseEpisodeDates = pd.concat([tempDF, CumulativeCaseEpisodeDates], axis=0)
     CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.fillna(0)
     if 'TotalToDate' in CumulativeCaseEpisodeDates.columns:
-        CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.drop('TotalToDate',axis=1)
+        CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.drop('TotalToDate', axis=1)
 
     CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.reset_index()
     # CumulativeCaseEpisodeDates =CumulativeCaseEpisodeDates.rename(columns = {'index':'Episode_Date'})
 
-    CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.sort_values(by='Episode_Date',ascending =[False])
-    CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.drop_duplicates(keep = 'first')
-    CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.set_index(['Episode_Date','File_Date'])
+    CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.sort_values(by='Episode_Date', ascending=[False])
+    CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.drop_duplicates(keep='first')
+    CumulativeCaseEpisodeDates = CumulativeCaseEpisodeDates.set_index(['Episode_Date', 'File_Date'])
 
-
-    CumulativeCaseEpisodeDates.insert(0,'TotalToDate',casesByEpisodeDate[casesByEpisodeDate.columns[0]])
+    CumulativeCaseEpisodeDates.insert(0, 'TotalToDate', casesByEpisodeDate[casesByEpisodeDate.columns[0]])
     CumulativeCaseEpisodeDates.to_pickle(CumulativeCaseFilePath)
 
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write('Cumulative Case count - days since Episode Date \n')
-    #     CumulativeCaseEpisodeDates.iloc[0:240,0:300].to_csv(f,header = True)
-    #     f.write('\n')
-
-    print(round((time.time()-starttime),2),'- Case count by episode date done')
+    print(round((time.time() - starttime), 2), '- Case count by episode date done')
 
     ############################################################################################
     ############################################################################################
@@ -670,7 +597,6 @@ def DailyReports_Individual(FileNameIn):
         changeInDeathsByPHUDetail = (DeathsByPHUDetail - DeathsByPHUDetail.shift(-1,axis = 1))
         changeInDeathsByPHUDetail = changeInDeathsByPHUDetail.fillna(0).astype(int)
 
-
         changeInDeathsByPHUDetail = changeInDeathsByPHUDetail.sort_values(by=['Age_Group','Reporting_PHU','Client_Gender','Case_Reported_Date'],ascending = [True,True,False,False])
         changeInDeathsByPHUDetail.to_pickle('PickleNew/changeInDeathsByPHUDetails.pickle')
 
@@ -684,14 +610,10 @@ def DailyReports_Individual(FileNameIn):
             f.write(':--|:--|:--|:--|:--|:--|--:|\n')
             changeInDeathsByPHUDetail[abs(changeInDeathsByPHUDetail[changeInDeathsByPHUDetail.columns[0]])>0][changeInDeathsByPHUDetail.columns[0]].to_csv(f,header = False, sep='|')
 
-
-
-
         # print("* *"+format((changeInCasesByAge.iloc[0:3,:].sum()/changeInCasesByAge.iloc[:,:].sum())[1],".1%")+" of today's cases are in people under the age of 40.* /s")
         # print("* "+format((changeInCasesByAge.iloc[6:9,1].sum()/changeInCasesByAge.iloc[:,1].sum()),".1%")+" or "+format(int(changeInCasesByAge.iloc[6:9,1].sum()),",d")+" of today's cases are in people aged 70+ - [Chart of active 70+ cases](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=365228609&format=interactive)")
 
         print(round((time.time()-starttime),2),'- Deaths detail done')
-
 
     #########################################################################
     #------------------------------------------------------------------------
@@ -733,11 +655,6 @@ def DailyReports_Individual(FileNameIn):
     #TodaysEpisodeDatesByPHU.to_csv('CSVNew/TodaysEpisodeDatesByPHU.csv')
     TodaysEpisodeDatesByPHU.to_pickle('PickleNew/TodaysEpisodeDatesByPHU.pickle')
 
-    # with open(PivotTableFileName, 'a',newline='') as f:
-    #     f.write("Current day's cases by episode date by PHU \n")
-    #     TodaysEpisodeDatesByPHU.to_csv(f,header = True)
-    #     f.write('\n')
-
     print(round((time.time()-starttime),2),'- Episode dates by PHU for todays cases done')
 
 
@@ -763,21 +680,6 @@ def DailyReports_Individual(FileNameIn):
     changeInReportingLag_WithPHU.to_pickle('PickleNew/changeInReportingLag_WithPHU.pickle')
 
     changeInCasesByPHU = pd.read_pickle('PickleNew/ChangeInCasesByPHU.pickle')
-
-    # with open(PivotTableFileName, 'a',newline='') as f:
-
-
-    #     for x in list(changeInCasesByPHU.index[0:15]):
-    #         f.write("Table X - How long ago do  the day's new cases relate to? - ,")
-
-    #         f.write(x)
-    #         f.write('\n')
-
-    #         changeInReportingLag_WithPHU.loc[x].loc['1 days':'10 days'].to_csv(f,header = True)
-    #         changeInReportingLag_WithPHU.loc[x].loc['11 days':].sum(axis=0).to_frame(name = 'Over 10 days').transpose().to_csv(f,header = False)
-    #         #changeInReportingLag_PHU.loc['0 day' :'10 days',:].to_csv(f,header = True)
-    #         #changeInReportingLag_PHU.loc['11 days':].sum(axis=0).to_frame(name='Over 10 days').transpose().to_csv(f,header = False)
-    #         #f.write('\n')
 
     #########################################################################
     #########################################################################
@@ -1220,8 +1122,11 @@ def DailyReports_Compile():
 
 
     with open('TextFileOutput.txt', 'w', encoding='utf-8') as f:
-        f.write('Link to report: https://files.ontario.ca/moh-covid-19-report-en-' + str(pd.Timestamp.today().strftime('%Y-%m-%d')) + '.pdf')
-        f.write('\n\n')
+        ############################################################################################
+        # Not published anymore
+        # f.write('Link to report: https://files.ontario.ca/moh-covid-19-report-en-' + str(pd.Timestamp.today().strftime('%Y-%m-%d')) + '.pdf')
+        # f.write('\n\n')
+        ############################################################################################
         f.write('Detailed tables: [Google Sheets mode](https://docs.google.com/spreadsheets/d/1E28C0ylUQ0hHgFySFpXtdjX_LkdY5tlhl-nt0SGhCDg) and [some TLDR charts](https://imgur.com/a/qI0P0X5)')
         f.write('\n\n')
         f.write('------------------------------------------------------------\n')
@@ -2615,13 +2520,14 @@ def OntarioCaseStatus():
           + '] - [Chart](https://docs.google.com/spreadsheets/d/e/2PACX-1vQ7fegCALd11ElozUYcMi-e9Dj69YaiNQhvEpk81JHsyTACl0UXkWK5zfMNFe49Tq3VuN9Av-fuEZqV/pubchart?oid=1392680472&format=interactive)'
           )
 
-
     HospitalizationsDF = pd.read_csv('Pickle/CumulativeHospitalizations.csv')
-
-    print(f"* {'New'} hospitalizations (Week/prev week avgs.): "
-          + f"{HospitalizationsDF.iloc[0]['NewHosp']:,.0f} ({HospitalizationsDF['NewHosp'][0:7].mean():,.1f} / {HospitalizationsDF['NewHosp'][7:14].mean():,.1f}), "
-          + f"ICUs: {HospitalizationsDF.iloc[0]['NewICU']:,.0f} ({HospitalizationsDF['NewICU'][0:7].mean():,.1f} / {HospitalizationsDF['NewICU'][7:14].mean():,.1f}), "
-          )
+    if pd.to_datetime(HospitalizationsDF['Date'].max()) == pd.Timestamp(datetime.date.today()):
+        print(f"* New hospitalizations (Week/prev week avgs.): "
+              + f"{HospitalizationsDF.iloc[0]['NewHosp']:,.0f} ({HospitalizationsDF['NewHosp'][0:7].mean():,.1f} / {HospitalizationsDF['NewHosp'][7:14].mean():,.1f}), "
+              + f"ICUs: {HospitalizationsDF.iloc[0]['NewICU']:,.0f} ({HospitalizationsDF['NewICU'][0:7].mean():,.1f} / {HospitalizationsDF['NewICU'][7:14].mean():,.1f}), "
+              )
+    else:
+        print("* New hospitalizations/ICU data not published today")
     print('* Total reported cases to date: ' + format(int(df['Total Cases'].iloc[0]), ",d"),
           # ' *(', format(df['Total Cases'].iloc[0] / 14936396, ".2%"), ' of the population)*',
           sep='')
@@ -3319,8 +3225,9 @@ def CanadaData():
 
     df['prname'].replace(['Nunavut', 'Newfoundland and Labrador'],
                          ['Nunavut', 'Newfoundland'], inplace=True)
-    df['Population'] = (df['numconf'].replace(',', '', regex=True))
-    df['Population'] = (df['numconf'].astype(int)) / df['ratetotal'] * 100000
+    df['Population'] = (df['numtotal_last14'].replace(',', '', regex=True))
+    df = df.fillna(0)
+    df['Population'] = (df['numtotal_last14'].astype(int)) / df['ratetotal_last14'] * 100000
     df = df.fillna(0)
     for column in ['numtests', 'Population']:
         if (df[column].dtype == 'O'):
@@ -4153,7 +4060,12 @@ def LTCData():
     abc.sort_values(by='Report_Data_Extracted', ascending=False)
     abc = abc.sort_values(by='Report_Data_Extracted', ascending=False)
     abc['Total_LTC_Resident_Cases'] = pd.to_numeric(abc['Total_LTC_Resident_Cases'])
-    abc['Total_LTC_Resident_Deaths'] = pd.to_numeric(abc['Total_LTC_Resident_Deaths'])
+    try:
+        abc['Total_LTC_Resident_Deaths'] = pd.to_numeric(abc['Total_LTC_Resident_Deaths'])
+    except ValueError:
+        abc['Total_LTC_Resident_Deaths'] = pd.to_numeric(abc['Total_LTC_Resident_Deaths'],
+                                                         errors='coerce')
+
     abc['Total_LTC_HCW_Cases'] = pd.to_numeric(abc['Total_LTC_HCW_Cases'])
 
     # pivotdf = pd.pivot_table(abc,values = 'Report_Date',index = 'LTC_Home',aggfunc = np.count_non_zero(), fill_value=0)
@@ -5304,6 +5216,7 @@ def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
     import camelot.io as camelot
     from urllib.error import HTTPError
     import requests
+    import PyPDF2.utils
 
     AgeDF_filePath = 'Pickle/AgeData.csv'
     CumulativeHospitalizations_filePath = 'Pickle/CumulativeHospitalizations.csv'
@@ -5312,7 +5225,6 @@ def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
 
     if fileName is None:
         fileName = fileDate
-
 
     try:
         file_path = 'https://files.ontario.ca/moh-covid-19-report-en-' + fileName + '.pdf'
@@ -5323,7 +5235,7 @@ def DailyReportExtraction(fileDate, fileName=None, AgePage='3', HospPage='7',
 
         tables = camelot.read_pdf(DailyReportFile, flavor='stream', pages=AgePage)
 
-    except HTTPError:
+    except (HTTPError, NotImplementedError, PyPDF2.utils.PdfReadError):
         print('Daily PDF file not found', file_path)
         return
 
