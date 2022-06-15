@@ -138,7 +138,7 @@ def DownloadFile(filename=f"{datetime.datetime.now():%Y-%m-%d}"):
     # DailyReportExtraction(filename)
     VaccineData()
 
-    # HospitalMetrics()
+    HospitalMetrics()
     # DeathProjection()
     if TODAYS_DATE_GLOBAL.isoweekday() in [5, 6]:
         RTData()
@@ -147,7 +147,7 @@ def DownloadFile(filename=f"{datetime.datetime.now():%Y-%m-%d}"):
     JailData()
     COVIDAppData()
     OutbreakData()
-    # LTCData()
+    LTCData()
     icu_capacity_stats()
     DailyReports_Compile()
     COVIDCharts()
@@ -631,7 +631,8 @@ def DailyReports_Individual(FileNameIn):
         for x in range(EpisodeDateByPHUToday.columns.size-1):
             if EpisodeDateByPHUToday.columns[x] not in EpisodeDateByPHUYesterday.columns:
                 #print (EpisodeDateByPHUToday.columns[x])
-                EpisodeDateByPHUYesterday.insert(EpisodeDateByPHUYesterday.columns.size-1, EpisodeDateByPHUToday.columns[x],0)
+                EpisodeDateByPHUYesterday.insert(EpisodeDateByPHUYesterday.columns.size-1,
+                                                 EpisodeDateByPHUToday.columns[x],0)
 
     else:
         for x in range(EpisodeDateByPHUToday.columns.size-1):
